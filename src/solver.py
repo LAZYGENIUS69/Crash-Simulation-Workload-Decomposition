@@ -46,7 +46,7 @@ SNAP_FREQ    = 10       # save position snapshot every N steps
 
 
 # ── Force kernel (shared between both solvers) ────────────────────────────────
-def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N):
+def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=BUCKLE_RATIO):
     """
     Vectorised Hooke + buckling force kernel.
     Computes force contributions for every spring in sp_i/sp_j.
@@ -58,7 +58,7 @@ def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N):
     safe  = np.where(dist < 1e-14, 1.0, dist)
 
     # Zero out buckled springs (heavy compression)
-    buckle = (dist < BUCKLE_RATIO * rest_L[:, None])
+    buckle = (dist < buckle_ratio * rest_L[:, None])
 
     hooke  = k_arr[:, None] * (dist - rest_L[:, None]) / safe  # (M, 1)
     hooke  = np.where(buckle, 0.0, hooke)
@@ -73,7 +73,8 @@ def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N):
 # ── Sequential solver ─────────────────────────────────────────────────────────
 def run_sequential(nodes_init, vel_init, masses,
                    springs, k_arr, rest_L,
-                   rear_mask, n_steps, snap_freq=SNAP_FREQ):
+                   rear_mask, n_steps, snap_freq=SNAP_FREQ,
+                   dt=DT, damping=DAMPING, buckle_ratio=BUCKLE_RATIO):
     """
     Single-process Verlet integration (baseline).
 
@@ -96,27 +97,27 @@ def run_sequential(nodes_init, vel_init, masses,
     t0  = time.perf_counter()
 
     # Initial force & acceleration pass for true Velocity-Verlet
-    force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N)
+    force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=buckle_ratio)
     acc   = force * invM
 
     for step in range(n_steps):
         # ── VERLET STAGE A: KINEMATICS ──────────────────────────────
         ti0  = time.perf_counter()
-        vel += acc * (0.5 * DT)
-        pos += vel * DT
+        vel += acc * (0.5 * dt)
+        pos += vel * dt
         vel[rear_mask] = 0.0
         pos[rear_mask] = nodes_init[rear_mask]
         t_i += time.perf_counter() - ti0
 
         # ── FORCE EVALUATION AT x(t + dt) ───────────────────────────
         tf0   = time.perf_counter()
-        force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N)
+        force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=buckle_ratio)
         t_f  += time.perf_counter() - tf0
 
         # ── VERLET STAGE B: VELOCITY UPDATE ─────────────────────────
         ti0  = time.perf_counter()
-        a_new = force * invM - DAMPING * invM * vel
-        vel  += a_new * (0.5 * DT)
+        a_new = force * invM - damping * invM * vel
+        vel  += a_new * (0.5 * dt)
         acc   = a_new
         vel[rear_mask] = 0.0
         t_i += time.perf_counter() - ti0
