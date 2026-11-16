@@ -21,12 +21,12 @@ tmp_*/
 frames/
 *.gif
 *.mp4
-*.html
 REPORT.html
 REPORT.docx
 *.log
 .env
 results/*.bin
+results/**/*.html
 
 # Tooling and internal metadata
 graphify*/

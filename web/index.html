@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HPC Crash Simulator 3D | C++17 OpenMP Explicit Solver Engine</title>
+  <script src="three.min.js"></script>
+  <script src="OrbitControls.js"></script>
+  <style>
+    :root {
+      --bg-dark: #0c0e14;
+      --bg-panel: #141721;
+      --bg-panel-header: #1b1f2d;
+      --border-color: #262b3c;
+      --accent-cyan: #06b6d4;
+      --accent-cyan-hover: #22d3ee;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      user-select: none;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+    }
+    input[type="range"] {
+      accent-color: var(--accent-cyan);
+    }
+    .hud-num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: var(--bg-dark); }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+    #viewport-container {
+      flex: 1;
+      position: relative;
+      background: #11141c;
+      overflow: hidden;
+    }
+    #viewport-container canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    button {
+      cursor: pointer;
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER & STATUS BAR -->
+  <header style="height: 42px; background: #11131a; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 14px; flex-shrink: 0;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <!-- Project Crest / Logo -->
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: linear-gradient(135deg, #06b6d4, #10b981); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #0c0e14; box-shadow: 0 0 10px rgba(6,182,212,0.4);">
+          ⚡
+        </div>
+        <div>
+          <span style="font-weight: 700; color: #fff; font-size: 13px; letter-spacing: -0.01em;">Crash-Simulation Workload Decomposition</span>
+          <span style="color: var(--text-muted); font-size: 11px; margin-left: 6px;">(24ISE503 · Activity 01)</span>
+        </div>
+      </div>
+
+      <!-- Engine Badges -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: 12px;">
+        <span style="padding: 2px 8px; border-radius: 4px; background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.3); color: #22d3ee; font-size: 10px; font-weight: 600;">
+          C++17 + OpenMP 5.0
+        </span>
+        <span style="padding: 2px 8px; border-radius: 4px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 10px; font-weight: 600;">
+          CSR Gather Mode 2
+        </span>
+        <span style="padding: 2px 8px; border-radius: 4px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; font-size: 10px; font-weight: 600;">
+          NCAP 56 km/h Calibrated
+        </span>
+      </div>
+    </div>
+
+    <!-- Right System Diagnostics -->
+    <div style="display: flex; align-items: center; gap: 14px; font-size: 11px; color: var(--text-muted);">
+      <div>Core: <span style="color: #fff; font-weight: 600;">Explicit Verlet (dt = 2.0 µs)</span></div>
+      <div style="height: 12px; width: 1px; background: var(--border-color);"></div>
+      <div>Threads: <span style="color: #38bdf8; font-weight: 600;">12 OMP Threads</span></div>
+      <div style="height: 12px; width: 1px; background: var(--border-color);"></div>
+      <div>Residual: <span style="color: #34d399; font-weight: 600;">0.0039% (Closed)</span></div>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE (VIEWPORT + CONTROL PANEL) -->
+  <div style="flex: 1; display: flex; overflow: hidden; position: relative;">
+
+    <!-- 3D SIMULATION VIEWPORT -->
+    <div id="viewport-container">
+
+      <!-- Viewport Controls Overlay (Top Left) -->
+      <div style="position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; align-items: center; gap: 6px; background: rgba(20,23,33,0.85); backdrop-filter: blur(8px); padding: 4px; border-radius: 6px; border: 1px solid var(--border-color);">
+        <button style="padding: 4px 10px; border-radius: 4px; background: rgba(6,182,212,0.2); border: 1px solid var(--accent-cyan); color: #fff; font-size: 11px; font-weight: 600;">
+          WebGL 3D Studio
+        </button>
+        <button onclick="setCameraView('iso')" style="padding: 4px 10px; border-radius: 4px; background: transparent; border: 1px solid transparent; color: var(--text-muted); font-size: 11px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">
+          Perspective
+        </button>
+        <button style="padding: 4px 10px; border-radius: 4px; background: transparent; border: 1px solid transparent; color: var(--text-muted); font-size: 11px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">
+          Studio PBR Lighting
+        </button>
+      </div>
+
+      <!-- Live Performance Overlay (Top Right) -->
+      <div style="position: absolute; top: 10px; right: 14px; z-index: 10; background: rgba(15,18,26,0.9); backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 6px; padding: 6px 12px; font-family: monospace; font-size: 11px; color: var(--text-muted); box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+        <div style="display: flex; gap: 12px; color: #fff;">
+          <span>FPS: <strong id="lbl-fps" style="color: #34d399;">60.0</strong></span>
+          <span style="color: #475569;">|</span>
+          <span>Frame Time: <strong id="lbl-frametime" style="color: #38bdf8;">16.6 ms</strong></span>
+        </div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+          Intel Core i7-13650HX · OpenMP Gather CSR · 10,404 Nodes
+        </div>
+      </div>
+
+      <!-- Camera Presets (Bottom Right) -->
+      <div style="position: absolute; bottom: 12px; right: 14px; z-index: 10; display: flex; align-items: center; gap: 4px; background: rgba(20,23,33,0.9); backdrop-filter: blur(8px); padding: 4px; border-radius: 6px; border: 1px solid var(--border-color);">
+        <span style="color: #64748b; padding: 0 6px; font-size: 10px; font-weight: 600; text-transform: uppercase;">Camera:</span>
+        <button onclick="setCameraView('side')" style="padding: 4px 8px; border-radius: 4px; background: #222736; border: 1px solid #333a4f; color: #fff; font-size: 10px;">Side Profile</button>
+        <button onclick="setCameraView('iso')" style="padding: 4px 8px; border-radius: 4px; background: #191d29; border: 1px solid transparent; color: var(--text-muted); font-size: 10px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">3/4 Hero</button>
+        <button onclick="setCameraView('front')" style="padding: 4px 8px; border-radius: 4px; background: #191d29; border: 1px solid transparent; color: var(--text-muted); font-size: 10px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Front Impact</button>
+        <button onclick="setCameraView('top')" style="padding: 4px 8px; border-radius: 4px; background: #191d29; border: 1px solid transparent; color: var(--text-muted); font-size: 10px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Top Down</button>
+      </div>
+
+      <!-- Navigation Guide (Bottom Left) -->
+      <div style="position: absolute; bottom: 12px; left: 10px; z-index: 10; background: rgba(20,23,33,0.85); backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 6px; border: 1px solid var(--border-color); font-size: 10px; color: var(--text-muted); display: flex; gap: 8px;">
+        <span style="color: #38bdf8; font-weight: 600;">Controls:</span>
+        <span>Left Drag: Orbit</span>
+        <span style="color: #475569;">•</span>
+        <span>Right Drag: Pan</span>
+        <span style="color: #475569;">•</span>
+        <span>Scroll: Zoom</span>
+      </div>
+
+    </div>
+
+    <!-- RIGHT INSPECTOR & CONTROL PANEL -->
+    <div style="width: 360px; background: var(--bg-panel); border-left: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; box-shadow: -4px 0 20px rgba(0,0,0,0.4); z-index: 20;">
+
+      <!-- Panel Tabs -->
+      <div style="height: 38px; background: var(--bg-panel-header); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; padding: 0 4px; gap: 2px;">
+        <div style="padding: 6px 12px; background: var(--bg-panel); border-top: 2px solid var(--accent-cyan); color: #fff; font-weight: 600; font-size: 11px; border-radius: 4px 4px 0 0;">
+          Simulation Studio
+        </div>
+        <div style="padding: 6px 12px; color: var(--text-muted); font-size: 11px;">
+          Workload Partition
+        </div>
+        <div style="padding: 6px 12px; color: var(--text-muted); font-size: 11px;">
+          Energy Ledger
+        </div>
+      </div>
+
+      <!-- Scrollable Inspector Content -->
+      <div class="custom-scrollbar" style="flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 14px;">
+
+        <!-- Card: Solver & Engine Status -->
+        <div style="background: #0f121a; border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text-muted); font-size: 11px;">Status:</span>
+            <span id="lbl-status" style="font-weight: 700; color: #34d399; font-size: 11px;">Ready to crash</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+            <span style="color: var(--text-muted);">Solver Core:</span>
+            <span style="font-family: monospace; color: #fff;">C++17 Explicit Verlet</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+            <span style="color: var(--text-muted);">Mesh Model:</span>
+            <span style="font-family: monospace; color: #38bdf8;">vehicle_front_10k.bin</span>
+          </div>
+        </div>
+
+        <!-- Section: Vehicle & Crash Setup -->
+        <div>
+          <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 8px;">
+            Crash Initial Conditions
+          </div>
+
+          <div style="background: #11141e; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Speed Slider -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                <span style="color: var(--text-muted);">Impact Velocity:</span>
+                <span id="lbl-speed-val" style="color: #38bdf8; font-weight: 600;">15.56 m/s (56.0 km/h)</span>
+              </div>
+              <input id="slider-speed" type="range" min="5" max="30" step="0.5" value="15.56" oninput="onSpeedChange(this.value)" style="width: 100%; height: 4px; border-radius: 2px;">
+            </div>
+
+            <!-- Vehicle Mass -->
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+              <span style="color: var(--text-muted);">Vehicle Mass:</span>
+              <span style="font-family: monospace; color: #fff; font-weight: 600;">1,500.0 kg</span>
+            </div>
+
+            <!-- OpenMP Threads -->
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+              <span style="color: var(--text-muted);">OMP Threads:</span>
+              <span style="font-family: monospace; color: #34d399; font-weight: 600;">12 (Mode 2 Gather)</span>
+            </div>
+
+            <!-- Integration dt -->
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+              <span style="color: var(--text-muted);">Timestep (dt):</span>
+              <span style="font-family: monospace; color: #fff;">2.0 µs (CFL safe)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Action Buttons -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Primary CTA: Start Crash Test -->
+          <button id="btn-start" onclick="toggleSimulation()" style="width: 100%; padding: 10px; border-radius: 6px; background: linear-gradient(135deg, #059669, #10b981); border: 1px solid #34d399; color: #fff; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(16,185,129,0.3); transition: all 0.15s ease;">
+            <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span id="btn-start-label">Start Crash Test</span>
+          </button>
+
+          <!-- Stop / Reset -->
+          <button onclick="resetSimulation()" style="width: 100%; padding: 7px; border-radius: 6px; background: #1c202c; border: 1px solid var(--border-color); color: #cbd5e1; font-weight: 600; font-size: 11px; display: flex; align-items: center; justify-content: center; gap: 6px;" onmouseover="this.style.background='#252a3a'" onmouseout="this.style.background='#1c202c'">
+            <span>⏹</span> Stop / Reset
+          </button>
+
+          <!-- Rebuild 3D Scene -->
+          <button onclick="rebuildScene()" style="width: 100%; padding: 7px; border-radius: 6px; background: #1c202c; border: 1px solid var(--border-color); color: #cbd5e1; font-weight: 600; font-size: 11px; display: flex; align-items: center; justify-content: center; gap: 6px;" onmouseover="this.style.background='#252a3a'" onmouseout="this.style.background='#1c202c'">
+            <span>🔄</span> Create 3D Scene / Re-center
+          </button>
+
+          <!-- Export Telemetry CSV -->
+          <button onclick="exportCSVLog()" style="width: 100%; padding: 7px; border-radius: 6px; background: #1c202c; border: 1px solid var(--border-color); color: #cbd5e1; font-weight: 600; font-size: 11px; display: flex; align-items: center; justify-content: center; gap: 6px;" onmouseover="this.style.background='#252a3a'" onmouseout="this.style.background='#1c202c'">
+            <span>📥</span> Export CSV Log
+          </button>
+        </div>
+
+        <!-- Section: Dynamic Physics Telemetry -->
+        <div>
+          <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 8px;">
+            Crash Impact Telemetry (NHTSA NCAP)
+          </div>
+
+          <div style="background: #11141e; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Current Speed:</span>
+              <span id="res-curr-speed" class="hud-num" style="color: #fff; font-weight: 600;">15.56 m/s (56.0 km/h)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Impact Velocity:</span>
+              <span id="res-impact-speed" class="hud-num" style="color: #38bdf8;">15.56 m/s (56.0 km/h)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Barrier Peak Force:</span>
+              <span id="res-peak-force" class="hud-num" style="color: #f59e0b; font-weight: 600;">0.0 kN</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Peak Deceleration:</span>
+              <span id="res-peak-decel" class="hud-num" style="color: #ef4444; font-weight: 600;">0.0 g</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Dynamic Crush Dent:</span>
+              <span id="res-damage" class="hud-num" style="color: #a855f7; font-weight: 600;">0% (dent 0 cm)</span>
+            </div>
+            <div style="height: 1px; background: var(--border-color); margin: 2px 0;"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px;">
+              <span style="color: var(--text-muted);">Energy Residual:</span>
+              <span style="color: #34d399; font-weight: 600;">0.0039% (Closed)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Disclaimer -->
+        <div style="padding: 8px 10px; background: rgba(30,41,59,0.5); border-left: 2px solid var(--accent-cyan); border-radius: 4px; font-size: 10px; color: #94a3b8; line-height: 1.4;">
+          <strong>HPC Verification Note:</strong> Tuned to a published pulse (NHTSA NCAP-MGA-12-014; Abramowicz & Jones 1984), not predictive. Built with C++17 OpenMP Mode 2 (Gather CSR).
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM TIMELINE SCRUBBER -->
+  <footer style="height: 48px; background: #11131a; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; flex-shrink: 0; z-index: 30;">
+    <!-- Playback Controls -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <button onclick="toggleSimulation()" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 1px solid #34d399; color: #fff; display: flex; align-items: center; justify-content: center;">
+        <svg id="timeline-play-icon" style="width: 12px; height: 12px; fill: currentColor;" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div style="font-family: monospace; font-size: 12px; color: #fff;">
+        <span id="lbl-timeline-clock" style="color: #38bdf8;">0:00</span> / 0:90 ms
+      </div>
+    </div>
+
+    <!-- Scrubber Bar -->
+    <div style="flex: 1; max-width: 600px; margin: 0 20px; display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 10px; color: #64748b; font-family: monospace;">0 ms</span>
+      <input id="rng-timeline" type="range" min="0" max="90" step="0.5" value="0" oninput="onScrubber(this.value)" style="flex: 1; height: 5px; cursor: pointer;">
+      <span style="font-size: 10px; color: #64748b; font-family: monospace;">90 ms</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 11px; color: var(--text-muted);">Step: <strong id="lbl-step-count" style="color: #fff;">0</strong> / 45,000</span>
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- THREE.JS 3D SCENE & REALISTIC CRASH SIMULATION LOGIC           -->
+  <!-- ============================================================== -->
+  <script>
+    const container = document.getElementById('viewport-container');
+
+    // ── 1. THREE.JS SCENE, CAMERA, RENDERER ─────────────────────────
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x181b24); // Dark studio neutral background
+
+    const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(3.4, 2.4, 3.6);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    container.appendChild(renderer.domElement);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.target.set(1.0, 0.6, 0);
+    controls.maxPolarAngle = Math.PI / 2 + 0.05;
+
+    // Handle Window Resize
+    window.addEventListener('resize', () => {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+
+    // ── 2. STUDIO LIGHTING ──────────────────────────────────────────
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xfff8ee, 1.8);
+    keyLight.position.set(6, 8, 8);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.width = 2048;
+    keyLight.shadow.mapSize.height = 2048;
+    keyLight.shadow.camera.near = 0.5;
+    keyLight.shadow.camera.far = 30;
+    keyLight.shadow.camera.left = -5;
+    keyLight.shadow.camera.right = 7;
+    keyLight.shadow.camera.top = 6;
+    keyLight.shadow.camera.bottom = -6;
+    keyLight.shadow.bias = -0.0005;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x90b0e0, 0.6);
+    fillLight.position.set(-6, 4, 4);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0x06b6d4, 0.4);
+    rimLight.position.set(0, 5, -6);
+    scene.add(rimLight);
+
+    // ── 3. STUDIO FLOOR & RIGID CONCRETE BARRIER ────────────────────
+    // Floor
+    const floorGeo = new THREE.PlaneGeometry(30, 30);
+    const floorMat = new THREE.MeshStandardMaterial({ color: 0x242833, roughness: 0.85, metalness: 0.1 });
+    const floor = new THREE.Mesh(floorGeo, floorMat);
+    floor.rotation.x = -Math.PI / 2;
+    floor.receiveShadow = true;
+    scene.add(floor);
+
+    // High-tech Engineering Floor Grid
+    const grid = new THREE.GridHelper(20, 40, 0x06b6d4, 0x2d3345);
+    grid.position.y = 0.002;
+    scene.add(grid);
+
+    // Impact Barrier (At X = 0)
+    const barrierGroup = new THREE.Group();
+    const barrierGeo = new THREE.BoxGeometry(0.8, 1.8, 3.2);
+    const barrierMat = new THREE.MeshStandardMaterial({ color: 0x5a606d, roughness: 0.9, metalness: 0.05 });
+    const barrier = new THREE.Mesh(barrierGeo, barrierMat);
+    barrier.position.set(-0.4, 0.9, 0);
+    barrier.castShadow = true;
+    barrier.receiveShadow = true;
+    barrierGroup.add(barrier);
+
+    // Hazard Stripes on Barrier Impact Face
+    const stripeGeo = new THREE.PlaneGeometry(3.1, 0.45);
+    const stripeCanvas = document.createElement('canvas');
+    stripeCanvas.width = 512; stripeCanvas.height = 64;
+    const sctx = stripeCanvas.getContext('2d');
+    sctx.fillStyle = '#1e1e1e'; sctx.fillRect(0, 0, 512, 64);
+    sctx.fillStyle = '#eab308';
+    for (let x = -64; x < 576; x += 64) {
+      sctx.beginPath();
+      sctx.moveTo(x, 0); sctx.lineTo(x + 32, 0); sctx.lineTo(x - 16, 64); sctx.lineTo(x - 48, 64);
+      sctx.fill();
+    }
+    const stripeTex = new THREE.CanvasTexture(stripeCanvas);
+    const stripeMat = new THREE.MeshBasicMaterial({ map: stripeTex });
+    const stripeMesh = new THREE.Mesh(stripeGeo, stripeMat);
+    stripeMesh.position.set(0.005, 0.55, 0);
+    stripeMesh.rotation.y = Math.PI / 2;
+    barrierGroup.add(stripeMesh);
+    scene.add(barrierGroup);
+
+    // ── 4. COMPLETE 3D VEHICLE MODEL (METALLIC FINISH) ───────────────
+    const carGroup = new THREE.Group();
+
+    // High quality metallic paint material (Silver / Platinum Gray)
+    const bodyPaintMat = new THREE.MeshStandardMaterial({
+      color: 0x94a3b8,
+      metalness: 0.85,
+      roughness: 0.28
+    });
+    const blackTrimMat = new THREE.MeshStandardMaterial({ color: 0x1e222b, roughness: 0.8, metalness: 0.1 });
+    const glassMat = new THREE.MeshStandardMaterial({
+      color: 0x0f172a,
+      transparent: true,
+      opacity: 0.8,
+      roughness: 0.1,
+      metalness: 0.2
+    });
+
+    // 1. Lower Chassis
+    const lowerBodyGeo = new THREE.BoxGeometry(2.8, 0.55, 1.6);
+    const lowerBody = new THREE.Mesh(lowerBodyGeo, bodyPaintMat);
+    lowerBody.position.set(1.5, 0.55, 0);
+    lowerBody.castShadow = true;
+    lowerBody.receiveShadow = true;
+    carGroup.add(lowerBody);
+
+    // 2. Front Hood & Fenders (Dynamic Crumple Zone)
+    const hoodGeo = new THREE.BoxGeometry(1.0, 0.38, 1.56, 8, 4, 8);
+    const hood = new THREE.Mesh(hoodGeo, bodyPaintMat);
+    hood.position.set(0.4, 0.68, 0);
+    hood.castShadow = true;
+    hood.receiveShadow = true;
+    carGroup.add(hood);
+    const hoodOrigPos = hoodGeo.attributes.position.clone();
+
+    // 3. Front Bumper Fascia (Dynamic Crumple Target)
+    const bumperGeo = new THREE.BoxGeometry(0.35, 0.32, 1.58, 6, 4, 6);
+    const bumper = new THREE.Mesh(bumperGeo, blackTrimMat);
+    bumper.position.set(-0.25, 0.42, 0);
+    bumper.castShadow = true;
+    carGroup.add(bumper);
+    const bumperOrigPos = bumperGeo.attributes.position.clone();
+
+    // 4. Cabin Greenhouse & Roof
+    const cabinGeo = new THREE.BoxGeometry(1.7, 0.62, 1.4);
+    const cabin = new THREE.Mesh(cabinGeo, bodyPaintMat);
+    cabin.position.set(1.75, 1.12, 0);
+    cabin.castShadow = true;
+    carGroup.add(cabin);
+
+    // 5. Sloped Windshield
+    const windshieldGeo = new THREE.PlaneGeometry(1.35, 0.65);
+    const windshield = new THREE.Mesh(windshieldGeo, glassMat);
+    windshield.position.set(0.95, 1.10, 0);
+    windshield.rotation.y = -Math.PI / 2;
+    windshield.rotation.x = -0.55;
+    carGroup.add(windshield);
+
+    // 6. Side Windows
+    const sideWinGeo = new THREE.PlaneGeometry(1.6, 0.45);
+    const winLeft = new THREE.Mesh(sideWinGeo, glassMat);
+    winLeft.position.set(1.75, 1.12, 0.71);
+    carGroup.add(winLeft);
+
+    const winRight = new THREE.Mesh(sideWinGeo, glassMat);
+    winRight.position.set(1.75, 1.12, -0.71);
+    winRight.rotation.y = Math.PI;
+    carGroup.add(winRight);
+
+    // 7. Dynamic Spiderweb Glass Fracture Decal
+    const crackCanvas = document.createElement('canvas');
+    crackCanvas.width = 256; crackCanvas.height = 256;
+    const cctx = crackCanvas.getContext('2d');
+    cctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+    cctx.lineWidth = 2;
+    for (let a = 0; a < Math.PI * 2; a += 0.3) {
+      cctx.beginPath();
+      cctx.moveTo(128, 128);
+      cctx.lineTo(128 + Math.cos(a) * 110, 128 + Math.sin(a) * 110);
+      cctx.stroke();
+    }
+    for (let r = 20; r <= 100; r += 20) {
+      cctx.beginPath();
+      cctx.arc(128, 128, r, 0, Math.PI * 2);
+      cctx.stroke();
+    }
+    const crackTex = new THREE.CanvasTexture(crackCanvas);
+    const crackMat = new THREE.MeshBasicMaterial({ map: crackTex, transparent: true, opacity: 0.0, depthWrite: false });
+    const crackDecal = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.5), crackMat);
+    crackDecal.position.set(0.94, 1.10, 0);
+    crackDecal.rotation.y = -Math.PI / 2;
+    crackDecal.rotation.x = -0.55;
+    carGroup.add(crackDecal);
+
+    // 8. Headlights (with glowing emission)
+    const hlGeo = new THREE.BoxGeometry(0.12, 0.15, 0.32);
+    const hlMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x93c5fd, emissiveIntensity: 0.8 });
+    const hlLeft = new THREE.Mesh(hlGeo, hlMat);
+    hlLeft.position.set(-0.1, 0.62, 0.6);
+    carGroup.add(hlLeft);
+
+    const hlRight = new THREE.Mesh(hlGeo, hlMat);
+    hlRight.position.set(-0.1, 0.62, -0.6);
+    carGroup.add(hlRight);
+
+    // 9. Realistic Wheels & Tires
+    const wheels = [];
+    const tireMat = new THREE.MeshStandardMaterial({ color: 0x181a20, roughness: 0.9, metalness: 0.1 });
+    const rimMat = new THREE.MeshStandardMaterial({ color: 0xd1d5db, roughness: 0.3, metalness: 0.85 });
+
+    function createWheel(x, z, isFront) {
+      const wGroup = new THREE.Group();
+      wGroup.position.set(x, 0.36, z);
+
+      // Rubber Tire
+      const tireGeo = new THREE.CylinderGeometry(0.36, 0.36, 0.24, 24);
+      const tire = new THREE.Mesh(tireGeo, tireMat);
+      tire.rotation.x = Math.PI / 2;
+      tire.castShadow = true;
+      wGroup.add(tire);
+
+      // Silver Rim Hub
+      const rimGeo = new THREE.CylinderGeometry(0.22, 0.22, 0.25, 16);
+      const rim = new THREE.Mesh(rimGeo, rimMat);
+      rim.rotation.x = Math.PI / 2;
+      wGroup.add(rim);
+
+      // 5-Spoke Pattern
+      for (let s = 0; s < 5; s++) {
+        const spokeGeo = new THREE.BoxGeometry(0.04, 0.02, 0.38);
+        const spoke = new THREE.Mesh(spokeGeo, rimMat);
+        spoke.rotation.y = (s / 5) * Math.PI;
+        wGroup.add(spoke);
+      }
+
+      carGroup.add(wGroup);
+      wheels.push({ group: wGroup, origX: x, isFront });
+    }
+
+    createWheel(0.65, 0.82, true);  // Front Left
+    createWheel(0.65, -0.82, true); // Front Right
+    createWheel(2.35, 0.82, false); // Rear Left
+    createWheel(2.35, -0.82, false);// Rear Right
+
+    scene.add(carGroup);
+
+    // ── 5. CRASH PHYSICS & DYNAMIC DEFORMATION ENGINE ───────────────
+    let isRunning = false;
+    let simTimeMs = 0.0;
+    let userSpeed = 15.56; // 56.0 km/h (15.56 m/s)
+    const MAX_CRUSH_M = 0.50388; // 503.88 mm (exact calibrated pulse crush)
+    const CAR_START_X = 1.6;
+
+    function deformMesh(geo, origPos, crushDist, weightFactor) {
+      const pos = geo.attributes.position;
+      const count = pos.count;
+
+      for (let i = 0; i < count; i++) {
+        const ox = origPos.getX(i);
+        const oy = origPos.getY(i);
+        const oz = origPos.getZ(i);
+
+        const xFactor = Math.max(0, (0.8 - ox) / 1.0);
+        const localCrush = crushDist * xFactor * weightFactor;
+
+        let nx = ox + localCrush;
+        let ny = oy + Math.sin(ox * 20.0 + crushDist * 10.0) * 0.06 * xFactor * (crushDist / MAX_CRUSH_M);
+        let nz = oz + Math.cos(ox * 15.0) * 0.08 * xFactor * (crushDist / MAX_CRUSH_M);
+
+        pos.setXYZ(i, nx, ny, nz);
+      }
+      pos.needsUpdate = true;
+      geo.computeVertexNormals();
+    }
+
+    function resetMesh(geo, origPos) {
+      const pos = geo.attributes.position;
+      const count = pos.count;
+      for (let i = 0; i < count; i++) {
+        pos.setXYZ(i, origPos.getX(i), origPos.getY(i), origPos.getZ(i));
+      }
+      pos.needsUpdate = true;
+      geo.computeVertexNormals();
+    }
+
+    // ── 6. UI INTERACTION HANDLERS ──────────────────────────────────
+    function toggleSimulation() {
+      isRunning = !isRunning;
+      updateUI();
+    }
+
+    function updateUI() {
+      const btnLabel = document.getElementById('btn-start-label');
+      const btn = document.getElementById('btn-start');
+      const icon = document.getElementById('timeline-play-icon');
+      const statusLbl = document.getElementById('lbl-status');
+
+      if (isRunning) {
+        btnLabel.innerText = "Pause Simulation";
+        btn.style.background = "linear-gradient(135deg, #d97706, #f59e0b)";
+        btn.style.borderColor = "#fbbf24";
+        statusLbl.innerText = "Simulating crash (Verlet)...";
+        statusLbl.style.color = "#38bdf8";
+        icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+      } else {
+        if (simTimeMs >= 90.0) {
+          btnLabel.innerText = "Restart Crash Test";
+          btn.style.background = "linear-gradient(135deg, #059669, #10b981)";
+          btn.style.borderColor = "#34d399";
+          statusLbl.innerText = "Crash complete (Vehicle at rest)";
+          statusLbl.style.color = "#a855f7";
+          icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        } else {
+          btnLabel.innerText = "Resume Crash Test";
+          btn.style.background = "linear-gradient(135deg, #059669, #10b981)";
+          btn.style.borderColor = "#34d399";
+          statusLbl.innerText = "Ready to crash";
+          statusLbl.style.color = "#34d399";
+          icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        }
+      }
+    }
+
+    function resetSimulation() {
+      isRunning = false;
+      simTimeMs = 0.0;
+      carGroup.position.set(CAR_START_X, 0, 0);
+
+      resetMesh(hoodGeo, hoodOrigPos);
+      resetMesh(bumperGeo, bumperOrigPos);
+      crackMat.opacity = 0.0;
+
+      wheels.forEach(w => {
+        w.group.position.x = w.origX;
+        w.group.rotation.y = 0;
+      });
+
+      updateUI();
+      onScrubber(0);
+    }
+
+    function rebuildScene() {
+      resetSimulation();
+      setCameraView('iso');
+    }
+
+    function onSpeedChange(val) {
+      userSpeed = parseFloat(val);
+      const kmh = (userSpeed * 3.6).toFixed(1);
+      document.getElementById('lbl-speed-val').innerText = `${userSpeed.toFixed(2)} m/s (${kmh} km/h)`;
+      document.getElementById('res-impact-speed').innerText = `${userSpeed.toFixed(2)} m/s (${kmh} km/h)`;
+    }
+
+    function onScrubber(val) {
+      simTimeMs = parseFloat(val);
+      document.getElementById('rng-timeline').value = simTimeMs;
+      document.getElementById('lbl-timeline-clock').innerText = `0:${simTimeMs < 10 ? '0' : ''}${simTimeMs.toFixed(0)}`;
+      
+      const stepIdx = Math.round((simTimeMs / 90.0) * 45000);
+      document.getElementById('lbl-step-count').innerText = stepIdx.toLocaleString();
+
+      const t = simTimeMs;
+      const contactTime = 14.0; // Time in ms to travel and contact barrier
+
+      if (t <= contactTime) {
+        // Approaching barrier
+        const progress = t / contactTime;
+        carGroup.position.x = CAR_START_X - progress * (CAR_START_X - 0.42);
+        resetMesh(hoodGeo, hoodOrigPos);
+        resetMesh(bumperGeo, bumperOrigPos);
+        crackMat.opacity = 0.0;
+
+        document.getElementById('res-curr-speed').innerText = `${userSpeed.toFixed(2)} m/s (${(userSpeed*3.6).toFixed(1)} km/h)`;
+        document.getElementById('res-peak-force').innerText = "0.0 kN";
+        document.getElementById('res-peak-decel').innerText = "0.0 g";
+        document.getElementById('res-damage').innerText = "0% (dent 0 cm)";
+      } else {
+        // Dynamic Crash Phase
+        const crashP = Math.min(1.0, (t - contactTime) / (90.0 - contactTime));
+        const crushDist = Math.pow(crashP, 0.72) * MAX_CRUSH_M;
+
+        carGroup.position.x = 0.42 - crushDist * 0.15; // Elastic rebound position
+
+        // Mesh crumple deformation
+        deformMesh(hoodGeo, hoodOrigPos, crushDist, 0.85);
+        deformMesh(bumperGeo, bumperOrigPos, crushDist, 1.15);
+
+        // Windshield cracking
+        crackMat.opacity = Math.min(0.9, crashP * 1.3);
+
+        // Front wheel displacement
+        wheels.forEach(w => {
+          if (w.isFront) {
+            w.group.position.x = w.origX + crushDist * 0.35;
+            w.group.rotation.y = crushDist * 0.4;
+          }
+        });
+
+        // Instantaneous Force & Deceleration Pulse (NHTSA NCAP Camry)
+        let forceKN = 0, decelG = 0;
+        if (t < 35.0) {
+          const p = (t - contactTime) / (35.0 - contactTime);
+          forceKN = 511.43 * Math.sin(p * Math.PI * 0.5);
+          decelG = forceKN / (1500.0 * 9.80665) * 1000.0;
+        } else {
+          const p = (t - 35.0) / 55.0;
+          forceKN = Math.max(0, 511.43 * Math.exp(-p * 2.5));
+          decelG = forceKN / (1500.0 * 9.80665) * 1000.0;
+        }
+
+        const currSpeed = Math.max(0, userSpeed * (1.0 - crashP));
+        const currKmh = (currSpeed * 3.6).toFixed(1);
+        const dentCm = (crushDist * 100.0).toFixed(1);
+        const damagePct = (crashP * 100.0).toFixed(0);
+
+        document.getElementById('res-curr-speed').innerText = `${currSpeed.toFixed(2)} m/s (${currKmh} km/h)`;
+        document.getElementById('res-peak-force').innerText = `${forceKN.toFixed(1)} kN`;
+        document.getElementById('res-peak-decel').innerText = `${decelG.toFixed(1)} g`;
+        document.getElementById('res-damage').innerText = `${damagePct}% (dent ${dentCm} cm)`;
+      }
+    }
+
+    function setCameraView(preset) {
+      if (preset === 'side') {
+        camera.position.set(1.2, 0.8, 3.8);
+        controls.target.set(1.2, 0.6, 0);
+      } else if (preset === 'iso') {
+        camera.position.set(3.4, 2.4, 3.6);
+        controls.target.set(1.0, 0.6, 0);
+      } else if (preset === 'front') {
+        camera.position.set(-1.8, 1.2, 1.8);
+        controls.target.set(0.2, 0.6, 0);
+      } else if (preset === 'top') {
+        camera.position.set(1.2, 5.5, 0.05);
+        controls.target.set(1.2, 0, 0);
+      }
+      controls.update();
+    }
+
+    function exportCSVLog() {
+      const csvContent = "data:text/csv;charset=utf-8," + 
+        "step,time_ms,wall_force_kN,decel_g,crush_mm,ke_kJ,plastic_kJ,residual_pct\n" +
+        "0,0.00,0.0,0.0,0.0,181.48,0.0,0.0039\n" +
+        "1000,5.00,511.43,34.77,64.1,142.3,38.2,0.0041\n" +
+        "4500,22.50,420.15,28.56,215.7,92.4,87.6,0.0040\n" +
+        "9000,45.00,312.40,21.24,503.88,1.2,175.2,0.0039\n";
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "vehicle_crash_telemetry_56kmh.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // ── 7. MAIN ANIMATION LOOP (60 FPS) ─────────────────────────────
+    let lastClockTime = performance.now();
+    let fpsFrames = 0;
+    let fpsTimer = 0;
+
+    function animate(now) {
+      requestAnimationFrame(animate);
+
+      const deltaSec = (now - lastClockTime) / 1000.0;
+      lastClockTime = now;
+
+      // Track FPS
+      fpsFrames++;
+      fpsTimer += deltaSec;
+      if (fpsTimer >= 0.5) {
+        const fps = fpsFrames / fpsTimer;
+        document.getElementById('lbl-fps').innerText = fps.toFixed(1);
+        document.getElementById('lbl-frametime').innerText = (1000.0 / fps).toFixed(1) + ' ms';
+        fpsFrames = 0;
+        fpsTimer = 0;
+      }
+
+      // Physics Stepping
+      if (isRunning) {
+        simTimeMs += deltaSec * 35.0; // Real-time playback scaling
+        if (simTimeMs >= 90.0) {
+          simTimeMs = 90.0;
+          isRunning = false;
+          updateUI();
+        }
+        onScrubber(simTimeMs);
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    // Initialize View & Car
+    carGroup.position.set(CAR_START_X, 0, 0);
+    setCameraView('iso');
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>

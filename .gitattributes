@@ -4,6 +4,7 @@
 
 # Linguist overrides
 *.html linguist-generated
+web/*.js linguist-generated
 docs/** linguist-documentation
 results/** linguist-generated
 
