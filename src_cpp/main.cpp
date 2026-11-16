@@ -90,6 +90,8 @@ int main(int argc, char* argv[]) {
     int num_threads = (argc >= 5) ? std::atoi(argv[4]) : omp_get_max_threads();
     int assembly_mode = (argc >= 6) ? std::atoi(argv[5]) : 0; // 0=slabs, 1=atomics, 2=gather
     int sched_mode = (argc >= 7) ? std::atoi(argv[6]) : 0;    // 0=static, 1=dyn16, 2=dyn64, 3=dyn256, 4=guided
+    std::string output_frames = (argc >= 8) ? argv[7] : "";
+    std::string output_timing = (argc >= 9) ? argv[8] : "results/thread_timing_breakdown.csv";
     omp_set_num_threads(num_threads);
 
     // ── 1. READ BINARY MESH ──────────────────────────────────────────────────
@@ -262,6 +264,25 @@ int main(int argc, char* argv[]) {
     };
     std::vector<StepMetric> metrics;
     metrics.reserve(STEPS / 10 + 2);
+
+    // Frame dump setup
+    std::ofstream fframes;
+    uint32_t frame_count = 0;
+    bool dump_frames = !output_frames.empty();
+    uint32_t actual_snap = (hdr.snap_freq > 0) ? hdr.snap_freq : std::max(1u, STEPS / 20);
+    if (dump_frames) {
+        fframes.open(output_frames, std::ios::binary);
+        if (fframes.is_open()) {
+            uint32_t magic = 0x46524D53; // 'FRMS'
+            uint32_t placeholder_frames = 0;
+            fframes.write(reinterpret_cast<const char*>(&magic), 4);
+            fframes.write(reinterpret_cast<const char*>(&N), 4);
+            fframes.write(reinterpret_cast<const char*>(&placeholder_frames), 4);
+        } else {
+            std::cerr << "Warning: could not open frames output file " << output_frames << "\n";
+            dump_frames = false;
+        }
+    }
 
     auto t_total_start = std::chrono::high_resolution_clock::now();
 
@@ -624,6 +645,47 @@ int main(int argc, char* argv[]) {
                         total_E, residual_pct
                     });
                 }
+
+                // ── BINARY FRAME DUMP ─────────────────────────────────────────
+                if (dump_frames && (step == 0 || step % actual_snap == 0 || step == STEPS - 1)) {
+                    float ftime = static_cast<float>(current_time);
+                    fframes.write(reinterpret_cast<const char*>(&step), sizeof(uint32_t));
+                    fframes.write(reinterpret_cast<const char*>(&ftime), sizeof(float));
+
+                    // Positions (floats)
+                    for (uint32_t i = 0; i < N; ++i) {
+                        float fx = static_cast<float>(pos[i].x);
+                        float fy = static_cast<float>(pos[i].y);
+                        float fz = static_cast<float>(pos[i].z);
+                        fframes.write(reinterpret_cast<const char*>(&fx), sizeof(float));
+                        fframes.write(reinterpret_cast<const char*>(&fy), sizeof(float));
+                        fframes.write(reinterpret_cast<const char*>(&fz), sizeof(float));
+                    }
+
+                    // Per-node maximum plastic strain (floats)
+                    std::vector<float> node_strain(N, 0.0f);
+                    for (uint32_t m = 0; m < M; ++m) {
+                        Vec3 d = pos[springs[2 * m + 1]] - pos[springs[2 * m]];
+                        double dist = d.norm();
+                        if (dist < BUCKLE * rest_L[m]) {
+                            float s = static_cast<float>((rest_L[m] - dist) / rest_L[m]);
+                            uint32_t u = springs[2 * m];
+                            uint32_t v = springs[2 * m + 1];
+                            if (s > node_strain[u]) node_strain[u] = s;
+                            if (s > node_strain[v]) node_strain[v] = s;
+                        }
+                    }
+                    fframes.write(reinterpret_cast<const char*>(node_strain.data()), N * sizeof(float));
+
+                    // Per-node owning thread ID (uint8_t)
+                    std::vector<uint8_t> node_tids(N);
+                    for (uint32_t i = 0; i < N; ++i) {
+                        node_tids[i] = static_cast<uint8_t>(std::min(i / n_chunk, static_cast<uint32_t>(num_threads - 1)));
+                    }
+                    fframes.write(reinterpret_cast<const char*>(node_tids.data()), N * sizeof(uint8_t));
+
+                    frame_count++;
+                }
             }
 
             #pragma omp barrier
@@ -632,6 +694,13 @@ int main(int argc, char* argv[]) {
 
     auto t_total_end = std::chrono::high_resolution_clock::now();
     double total_wall_time = std::chrono::duration<double>(t_total_end - t_total_start).count();
+
+    if (dump_frames && fframes.is_open()) {
+        fframes.seekp(8); // Overwrite placeholder num_frames at byte offset 8
+        fframes.write(reinterpret_cast<const char*>(&frame_count), sizeof(uint32_t));
+        fframes.close();
+        std::cout << "Successfully dumped " << frame_count << " frames to " << output_frames << "\n";
+    }
 
     // ── 6. WRITE CSV OUTPUT ──────────────────────────────────────────────────
     std::ofstream fcsv(output_csv);
@@ -678,6 +747,23 @@ int main(int argc, char* argv[]) {
     std::cout << "  S4 Integration   : " << avg_s4 * 1000.0 << " ms (" << (avg_s4 / total_wall_time) * 100.0 << "%)\n";
     std::cout << "  S5 CFL Reduction : " << avg_s5 * 1000.0 << " ms (" << (avg_s5 / total_wall_time) * 100.0 << "%)\n";
     std::cout << "Outputs saved: " << output_csv << " and " << output_pos << "\n";
+
+    // ── 9. WRITE THREAD TIMING BREAKDOWN CSV ─────────────────────────────────
+    if (!output_timing.empty()) {
+        std::ofstream ft(output_timing);
+        if (ft.is_open()) {
+            ft << "thread_id,cpu_id,s1_spring_s,s2_assembly_s,s3_contact_s,s4_integ_s,s5_cfl_s,total_active_s\n";
+            for (int t = 0; t < num_threads; ++t) {
+                double tot = thread_time_s1[t] + thread_time_s2[t] + thread_time_s3[t] + thread_time_s4[t] + thread_time_s5[t];
+                ft << t << "," << thread_cpus[t] << "," << std::scientific << std::setprecision(6)
+                   << thread_time_s1[t] << "," << thread_time_s2[t] << ","
+                   << thread_time_s3[t] << "," << thread_time_s4[t] << ","
+                   << thread_time_s5[t] << "," << tot << "\n";
+            }
+            ft.close();
+            std::cout << "Thread timing breakdown saved: " << output_timing << "\n";
+        }
+    }
 
     return 0;
 }
