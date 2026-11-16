@@ -2,3 +2,9 @@
 *.png binary
 *.bin binary
 
+# Linguist overrides
+*.html linguist-generated
+docs/** linguist-documentation
+results/** linguist-generated
+
+

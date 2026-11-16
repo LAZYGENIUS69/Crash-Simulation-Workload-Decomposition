@@ -21,6 +21,8 @@ tmp_*/
 frames/
 *.gif
 *.mp4
+*.html
+REPORT.html
 REPORT.docx
 *.log
 .env
