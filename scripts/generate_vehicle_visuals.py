@@ -256,12 +256,12 @@ def render_plastic_strain_hud(skin, frame, metrics_df):
     residual = row["residual_pct"]
 
     # HUD Box
-    hud_x0, hud_y0, hud_x1, hud_y1 = 40, 40, 500, 260
+    hud_x0, hud_y0, hud_x1, hud_y1 = 40, 40, 520, 285
     draw.rounded_rectangle([hud_x0, hud_y0, hud_x1, hud_y1], radius=10, fill=(20, 24, 38, 220), outline=(0, 180, 255, 255), width=2)
 
     try:
         font_title = ImageFont.truetype("arialbd.ttf", 20)
-        font_body  = ImageFont.truetype("cour.ttf", 16)
+        font_body  = ImageFont.truetype("cour.ttf", 15)
     except:
         font_title = ImageFont.load_default()
         font_body  = font_title
@@ -276,7 +276,8 @@ def render_plastic_strain_hud(skin, frame, metrics_df):
         f"Crush Intrusion  : {intrusion_mm:6.1f} mm\n"
         f"Kinetic Energy   : {ke_kj:6.1f} kJ\n"
         f"Plastic Work     : {plastic_kj:6.1f} kJ\n"
-        f"Energy Drift     : {residual:6.4f}% [CLOSED]"
+        f"Energy Drift     : {residual:6.4f}% [CLOSED]\n"
+        f"[Tuned to published pulse, not predictive]"
     )
     draw.text((hud_x0 + 16, hud_y0 + 54), hud_text, font=font_body, fill=(240, 240, 250, 255), spacing=6)
 
@@ -451,3 +452,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
