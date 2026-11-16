@@ -387,3 +387,31 @@ Then: build the full sequential + parallel solver, wire up Verlet integration, g
 ---
 *Last updated: 2026-11-16 by Antigravity (Iteration 4b)*
 
+---
+
+## ITERATION G — GITHUB REPOSITORY INITIALIZATION, CI & REVENUE AUDIT (2026-11-16)
+
+### Score Estimate
+| Rubric row | Max | Estimated now | Justification |
+|------------|-----|---------------|---------------|
+| Problem understanding | 5 | 5 | Contact, dissipation, and integration verified against closed-form harmonic solutions. |
+| HPC concept and design | 7 | 7 | 3-way assembly comparison, STREAM memory bandwidth ceiling, and Roofline arithmetic intensity modeling documented. |
+| Implementation/experiment | 8 | 8 | Clean CMake build for FP64 and FP32 targets, complete test suite with fast/slow markers, and automated CI configuration. |
+| Testing and analysis | 6 | 6 | All fast tests passing in 14.33s; stale pre-closure artifacts quarantined to `results/stale/`; verified DOI references. |
+| Report and presentation | 4 | 2 | Report untouched this iteration; ready for 4-6 page rewrite in Iteration 7. |
+| **TOTAL** | **30** | **28** | **Production-grade repository layout, reproducible build, verified tags, and complete audit.** |
+
+### Key Actions & Results
+1. **Repository Layout:** Restructured cleanly into `src/`, `src_cpp/`, `tests/`, `bench/`, `docs/`, `results/`, and `results/stale/`. Replaced absolute file links with relative paths.
+2. **CMake Build System:** Configured `CMakeLists.txt` for `crash_solver` (FP64), `crash_solver_fp32` (FP32), and `stream_bench`. Clean scratch build verified in WSL2 Ubuntu.
+3. **Continuous Integration:** Added `.github/workflows/ci.yml` running on `ubuntu-latest`, Python 3.12, CMake build, and `pytest -m "not slow"`.
+4. **Stale Artifact Isolation:** Quarantined pre-closure results to `results/stale/` with `STALE_NOTE.md`.
+5. **Wording Precision:** Updated docs to replace "bit-accurate" with "agree within 1e-16 relative" and "memory-bound" with "consistent with memory-bound behavior".
+6. **Pre-Push Security & Size Audit:** Zero secret/API-key patterns matched; `.env` uncommitted; zero `.docx`/media tracked; largest tracked file is 3.8 MB (< 50 MB limit).
+7. **Git History & Releases:** Pushed 6 conventional commits to `LAZYGENIUS69/Crash-Simulation-Workload-Decomposition` (private) on `main`, tagged `v0.3-cpp-core` and `v0.4b-energy-closed`.
+8. **Issue Tracking:** Created GitHub Issues #1 through #8 mirroring `ISSUES.md`.
+9. **Branching:** Created and switched to working branch `iter/5-vehicle-mesh`.
+
+---
+*Last updated: 2026-11-16 by Antigravity (Iteration G)*
+
