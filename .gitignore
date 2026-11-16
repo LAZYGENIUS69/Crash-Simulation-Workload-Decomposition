@@ -24,6 +24,7 @@ frames/
 REPORT.docx
 *.log
 .env
+results/*.bin
 
 # Tooling and internal metadata
 graphify*/
