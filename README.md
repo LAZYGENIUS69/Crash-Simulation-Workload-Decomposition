@@ -11,6 +11,8 @@ This repository models an explicit 3D vehicle crash simulation workload and eval
 
 We systematically profile parallel scaling across OpenMP thread configurations, evaluate three distinct force assembly strategies (Private Slabs, Atomic Updates, and Node-Centric CSR Gather), measure empirical memory bandwidth against STREAM benchmarks, and perform closed-loop energy conservation audits.
 
+*Note: Repository history was organized from the project ledger after development.*
+
 ---
 
 ## 2. Toolchain Versions & Environment
@@ -75,6 +77,8 @@ pytest -v -m "not slow"
 pytest -v
 ```
 
+> **Validation Note:** Validation between the Python reference solver and the C++ solver demonstrates numerical implementation agreement between the two codebases (within $8.16 \times 10^{-9}$ relative error). Physical correctness is independently established by the closed-form harmonic oscillator penalty wall test (0.155% error) and rigorous closed-loop energy conservation audits (residual $\le 0.010\%$).
+
 ---
 
 ## 6. Key Experimental Results
@@ -88,7 +92,7 @@ pytest -v
 | **Peak Memory Bandwidth** | STREAM Triad saturates at **35.32 GB/s** at $\ge 4$ threads | [results/hw.json](results/hw.json) |
 | **Arithmetic Intensity** | Estimated at $\approx 0.38\text{ FLOP/byte}$, consistent with memory-bound behavior | [docs/LEDGER.md](docs/LEDGER.md) |
 | **Analytic Contact Validation** | Barrier penetration matches closed-form harmonic oscillator ($0.155\%$ error) | [tests/test_analytic_wall.py](tests/test_analytic_wall.py) |
-| **Python vs C++ Baseline Parity** | C++ output matches Python reference solver within $8.16 \times 10^{-9}$ relative | [tests/test_validate_cpp.py](tests/test_validate_cpp.py) |
+| **Python vs C++ Baseline Parity** | C++ output matches Python reference solver within $8.16 \times 10^{-9}$ relative; compiled C++ executes in $2.03\text{ ms}$ vs. $31.8\text{ ms}$ in Python ($15.7\times$ speedup) | [tests/test_validate_cpp.py](tests/test_validate_cpp.py) |
 
 ---
 
@@ -106,3 +110,4 @@ pytest -v
 ## 8. License
 
 This project is licensed under the [MIT License](LICENSE).
+
