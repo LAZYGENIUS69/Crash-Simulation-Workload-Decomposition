@@ -34,7 +34,8 @@ VERSION = 1
 
 def export_binary_mesh(filepath, nodes, vel, masses, rear_mask, springs, k_arr, rest_L,
                        dt=5e-6, damping=20.0, buckle_ratio=0.50, k_wall=1e7,
-                       n_steps=100, snap_freq=10, enable_contact=0, enable_clamp=1):
+                       n_steps=100, snap_freq=10, enable_contact=0, enable_clamp=1,
+                       version=1, yield_strain=0.05, plateau_ratio=0.0, cs_c=0.0, cs_p=1.0):
     filepath = pathlib.Path(filepath)
     filepath.parent.mkdir(parents=True, exist_ok=True)
 
@@ -42,12 +43,21 @@ def export_binary_mesh(filepath, nodes, vel, masses, rear_mask, springs, k_arr, 
     M = len(springs)
 
     with open(filepath, "wb") as f:
-        # 64-byte Header
-        header = struct.pack(
-            "<IIIIIIII dddd",
-            MAGIC, VERSION, N, M, n_steps, snap_freq, enable_contact, enable_clamp,
-            float(dt), float(damping), float(buckle_ratio), float(k_wall)
-        )
+        if version == 1:
+            # 64-byte Header
+            header = struct.pack(
+                "<IIIIIIII dddd",
+                MAGIC, 1, N, M, n_steps, snap_freq, enable_contact, enable_clamp,
+                float(dt), float(damping), float(buckle_ratio), float(k_wall)
+            )
+        else:
+            # 96-byte Extended Header (Tier A: Piecewise-linear plasticity & Cowper-Symonds rate sensitivity)
+            header = struct.pack(
+                "<IIIIIIII dddd dddd",
+                MAGIC, int(version), N, M, n_steps, snap_freq, enable_contact, enable_clamp,
+                float(dt), float(damping), float(buckle_ratio), float(k_wall),
+                float(yield_strain), float(plateau_ratio), float(cs_c), float(cs_p)
+            )
         f.write(header)
 
         # Arrays
