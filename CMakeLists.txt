@@ -23,3 +23,4 @@ target_link_libraries(crash_solver_fp32 PRIVATE OpenMP::OpenMP_CXX)
 # 3. STREAM Triad Memory Bandwidth Benchmark
 add_executable(stream_bench src_cpp/stream_bench.cpp)
 target_link_libraries(stream_bench PRIVATE OpenMP::OpenMP_CXX)
+

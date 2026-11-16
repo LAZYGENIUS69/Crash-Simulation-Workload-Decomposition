@@ -20,3 +20,4 @@ Current, fully validated, and energy-closed benchmarks are located directly in `
 - `results/energy_closure.png`: High-resolution term-by-term energy closure plot.
 - `results/assembly_sweep_raw.csv`: Raw 5-repeat timing data for Modes 0, 1, and 2 across 10k, 100k, and 500k node meshes.
 - `results/assembly_scaling_comparison.png`: Scaling curves across thread counts and precision modes.
+

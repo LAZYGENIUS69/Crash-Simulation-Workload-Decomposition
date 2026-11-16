@@ -64,3 +64,4 @@ Repository: `LAZYGENIUS69/Crash-Simulation-Workload-Decomposition`
 ## 3. Geometry & Asset Provenance
 
 - **Mesh Models:** All 3D vehicle geometries, spring-mass lattices, boundary masks, and crumple-zone definitions in this repository are procedurally generated in software (`src/car_mesh.py`). No proprietary CAD or LS-DYNA mesh files are used.
+

@@ -27,3 +27,4 @@ def to_solver_path(p: pathlib.Path) -> str:
         rel = p_abs.as_posix()[3:]
         return f"/mnt/{drive}/{rel}"
     return str(p_abs)
+
