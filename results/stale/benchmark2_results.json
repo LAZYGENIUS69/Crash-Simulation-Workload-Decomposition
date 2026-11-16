@@ -1,0 +1,220 @@
+{
+  "hardware": {
+    "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+    "cores": 12,
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.7",
+    "numpy": "2.5.5",
+    "seed": 42,
+    "repeats": 3,
+    "timestamp": "2026-11-16T12:33:45"
+  },
+  "meshes": {
+    "MEDIUM": {
+      "n_nodes": 11520,
+      "n_springs": 53692,
+      "n_steps": 100,
+      "label": "Medium (~11k nodes)",
+      "workers": {
+        "1_seq": {
+          "t_median": 0.871818600106053,
+          "speedup": 1.0,
+          "efficiency": 100.0,
+          "stage_ms": {
+            "force_ms": 801.1732004815713,
+            "integrate_ms": 70.40309940930456,
+            "io_ms": 0.010900082997977734
+          },
+          "mode": "sequential"
+        },
+        "1": {
+          "t_median": 0.8689665999263525,
+          "speedup": 1.0033,
+          "efficiency": 100.33,
+          "P_amdahl": null,
+          "lb_imbalance": 1.0,
+          "stage_ms": {
+            "reduce_ms": 4.652,
+            "integrate_ms": 54.325,
+            "io_ms": 0.011,
+            "barrier_ms": 837.345
+          },
+          "mode": "parallel"
+        },
+        "2": {
+          "t_median": 0.5663771000690758,
+          "speedup": 1.5393,
+          "efficiency": 76.96,
+          "P_amdahl": 0.7007,
+          "lb_imbalance": 1.0161,
+          "stage_ms": {
+            "reduce_ms": 5.549,
+            "integrate_ms": 50.742,
+            "io_ms": 0.009,
+            "barrier_ms": 511.486
+          },
+          "mode": "parallel"
+        },
+        "4": {
+          "t_median": 0.3986807999899611,
+          "speedup": 2.1868,
+          "efficiency": 54.67,
+          "P_amdahl": 0.7236,
+          "lb_imbalance": 1.154,
+          "stage_ms": {
+            "reduce_ms": 8.461,
+            "integrate_ms": 50.952,
+            "io_ms": 0.011,
+            "barrier_ms": 333.817
+          },
+          "mode": "parallel"
+        },
+        "6": {
+          "t_median": 0.34539070003665984,
+          "speedup": 2.5242,
+          "efficiency": 42.07,
+          "P_amdahl": 0.7246,
+          "lb_imbalance": 1.0789,
+          "stage_ms": {
+            "reduce_ms": 10.331,
+            "integrate_ms": 48.28,
+            "io_ms": 0.01,
+            "barrier_ms": 286.606
+          },
+          "mode": "parallel"
+        },
+        "8": {
+          "t_median": 0.35983979993034154,
+          "speedup": 2.4228,
+          "efficiency": 30.28,
+          "P_amdahl": 0.6711,
+          "lb_imbalance": 1.1183,
+          "stage_ms": {
+            "reduce_ms": 15.557,
+            "integrate_ms": 52.757,
+            "io_ms": 0.011,
+            "barrier_ms": 291.348
+          },
+          "mode": "parallel"
+        },
+        "12": {
+          "t_median": 0.5061114000855014,
+          "speedup": 1.7226,
+          "efficiency": 14.35,
+          "P_amdahl": 0.4576,
+          "lb_imbalance": 1.0655,
+          "stage_ms": {
+            "reduce_ms": 20.14,
+            "integrate_ms": 52.503,
+            "io_ms": 0.023,
+            "barrier_ms": 406.348
+          },
+          "mode": "parallel"
+        }
+      }
+    },
+    "LARGE": {
+      "n_nodes": 30000,
+      "n_springs": 142135,
+      "n_steps": 50,
+      "label": "Large  (~30k nodes)",
+      "workers": {
+        "1_seq": {
+          "t_median": 1.2690767999738455,
+          "speedup": 1.0,
+          "efficiency": 100.0,
+          "stage_ms": {
+            "force_ms": 1172.638600342907,
+            "integrate_ms": 87.3987996019423,
+            "io_ms": 0.041499966755509377
+          },
+          "mode": "sequential"
+        },
+        "1": {
+          "t_median": 1.2779838999267668,
+          "speedup": 0.993,
+          "efficiency": 99.3,
+          "P_amdahl": null,
+          "lb_imbalance": 1.0,
+          "stage_ms": {
+            "reduce_ms": 10.119,
+            "integrate_ms": 81.34,
+            "io_ms": 0.047,
+            "barrier_ms": 1181.677
+          },
+          "mode": "parallel"
+        },
+        "2": {
+          "t_median": 0.8257427000207826,
+          "speedup": 1.5369,
+          "efficiency": 76.84,
+          "P_amdahl": 0.6987,
+          "lb_imbalance": 1.0071,
+          "stage_ms": {
+            "reduce_ms": 20.607,
+            "integrate_ms": 166.269,
+            "io_ms": 0.095,
+            "barrier_ms": 693.134
+          },
+          "mode": "parallel"
+        },
+        "4": {
+          "t_median": 0.7977841000538319,
+          "speedup": 1.5908,
+          "efficiency": 39.77,
+          "P_amdahl": 0.4952,
+          "lb_imbalance": 1.0177,
+          "stage_ms": {
+            "reduce_ms": 29.795,
+            "integrate_ms": 161.251,
+            "io_ms": 0.158,
+            "barrier_ms": 644.114
+          },
+          "mode": "parallel"
+        },
+        "6": {
+          "t_median": 0.692250500083901,
+          "speedup": 1.8333,
+          "efficiency": 30.55,
+          "P_amdahl": 0.5454,
+          "lb_imbalance": 1.0213,
+          "stage_ms": {
+            "reduce_ms": 35.379,
+            "integrate_ms": 161.086,
+            "io_ms": 0.141,
+            "barrier_ms": 474.933
+          },
+          "mode": "parallel"
+        },
+        "8": {
+          "t_median": 0.6411864999681711,
+          "speedup": 1.9793,
+          "efficiency": 24.74,
+          "P_amdahl": 0.5654,
+          "lb_imbalance": 1.0207,
+          "stage_ms": {
+            "reduce_ms": 43.535,
+            "integrate_ms": 152.458,
+            "io_ms": 0.164,
+            "barrier_ms": 404.631
+          },
+          "mode": "parallel"
+        },
+        "12": {
+          "t_median": 0.7442570000421256,
+          "speedup": 1.7052,
+          "efficiency": 14.21,
+          "P_amdahl": 0.4511,
+          "lb_imbalance": 1.0704,
+          "stage_ms": {
+            "reduce_ms": 66.678,
+            "integrate_ms": 217.077,
+            "io_ms": 0.267,
+            "barrier_ms": 459.855
+          },
+          "mode": "parallel"
+        }
+      }
+    }
+  }
+}

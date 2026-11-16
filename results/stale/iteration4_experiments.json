@@ -1,0 +1,154 @@
+{
+  "hardware": {
+    "cpu_name": "13th Gen Intel(R) Core(TM) i5-1334U",
+    "physical_cores": 10,
+    "performance_cores": 2,
+    "efficient_cores": 8,
+    "logical_processors": 12,
+    "power_status": "AC Wall Power Connected (BatteryStatus 2, 100% Charge)",
+    "power_scheme": "Balanced (381b4222-f694-41f0-9685-ff5bb260df2e)",
+    "wsl2_virtualization": "Hyper-V Full Virtualization (uniform vCPU dispatching)",
+    "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "cxx_flags": "-std=c++17 -O3 -fopenmp -march=native",
+    "date": "2026-11-16"
+  },
+  "large_scale_scaling": {
+    "100k_nodes": {
+      "1": {
+        "median_s": 0.9318,
+        "min_s": 0.8803,
+        "max_s": 1.041,
+        "std_s": 0.0598,
+        "speedup": 1.0,
+        "efficiency": 100.0,
+        "karp_flatt": 0.0,
+        "repeats": [
+          0.931822,
+          1.04102,
+          1.01219,
+          0.921411,
+          0.880251
+        ]
+      },
+      "2": {
+        "median_s": 0.5861,
+        "min_s": 0.5579,
+        "max_s": 0.6787,
+        "std_s": 0.043,
+        "speedup": 1.59,
+        "efficiency": 79.5,
+        "karp_flatt": 0.258,
+        "repeats": [
+          0.678677,
+          0.576686,
+          0.625679,
+          0.557899,
+          0.586132
+        ]
+      },
+      "4": {
+        "median_s": 0.6476,
+        "min_s": 0.6235,
+        "max_s": 0.8281,
+        "std_s": 0.0756,
+        "speedup": 1.439,
+        "efficiency": 36.0,
+        "karp_flatt": 0.5933,
+        "repeats": [
+          0.82808,
+          0.717381,
+          0.639383,
+          0.647609,
+          0.623528
+        ]
+      },
+      "6": {
+        "median_s": 0.7125,
+        "min_s": 0.634,
+        "max_s": 0.7895,
+        "std_s": 0.0544,
+        "speedup": 1.308,
+        "efficiency": 21.8,
+        "karp_flatt": 0.7176,
+        "repeats": [
+          0.712514,
+          0.634043,
+          0.76365,
+          0.695422,
+          0.789468
+        ]
+      },
+      "8": {
+        "median_s": 0.7845,
+        "min_s": 0.703,
+        "max_s": 0.9151,
+        "std_s": 0.0716,
+        "speedup": 1.188,
+        "efficiency": 14.8,
+        "karp_flatt": 0.8193,
+        "repeats": [
+          0.91512,
+          0.79279,
+          0.784497,
+          0.702962,
+          0.74106
+        ]
+      },
+      "12": {
+        "median_s": 1.6519,
+        "min_s": 1.3898,
+        "max_s": 1.952,
+        "std_s": 0.1929,
+        "speedup": 0.564,
+        "efficiency": 4.7,
+        "karp_flatt": 1.843,
+        "repeats": [
+          1.54315,
+          1.38981,
+          1.77876,
+          1.65189,
+          1.95201
+        ]
+      }
+    }
+  },
+  "assembly_comparison": {
+    "threads": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "private_slabs": {
+      "1": 0.3234,
+      "2": 0.23,
+      "4": 0.2403,
+      "8": 0.2592
+    },
+    "atomic_updates": {
+      "1": 1.514,
+      "2": 0.8964,
+      "4": 0.6527,
+      "8": 0.4832
+    }
+  },
+  "scheduling_comparison": {
+    "Static": 0.2844,
+    "Dynamic (chunk 16)": 0.3499,
+    "Dynamic (chunk 64)": 0.3144,
+    "Dynamic (chunk 256)": 0.3765,
+    "Guided": 0.298
+  },
+  "energy_drift": {
+    "1_thread": {
+      "initial_ke_J": 1947167.0,
+      "max_drift_pct": 22.3,
+      "final_drift_pct": 22.3
+    },
+    "8_threads": {
+      "initial_ke_J": 1947167.0,
+      "max_drift_pct": 22.3,
+      "final_drift_pct": 22.3
+    }
+  }
+}

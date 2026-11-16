@@ -1,0 +1,400 @@
+{
+  "hardware": {
+    "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+    "cores": 12,
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.7",
+    "numpy": "2.5.5",
+    "seed": 42,
+    "repeats": 3,
+    "timestamp": "2026-11-16T12:32:00"
+  },
+  "meshes": {
+    "SMALL": {
+      "n_nodes": 540,
+      "n_springs": 2225,
+      "n_steps": 200,
+      "label": "Small (5 k nodes)",
+      "workers": {
+        "1_seq": {
+          "t_median": 0.057527099968865514,
+          "speedup": 1.0,
+          "efficiency": 100.0,
+          "stage_ms": {
+            "force_ms": 51.62759986706078,
+            "integrate_ms": 5.825300118885934,
+            "io_ms": 0.002200016751885414
+          },
+          "mode": "sequential"
+        },
+        "1": {
+          "t_median": 0.21841289999429137,
+          "speedup": 0.2634,
+          "efficiency": 26.34,
+          "P_amdahl": null,
+          "lb_imbalance": 1.0,
+          "worker_mean_s": {
+            "0": 0.000272
+          },
+          "worker_std_s": {
+            "0": 5.2e-05
+          },
+          "stage_ms": {
+            "reduce_ms": 1.213,
+            "integrate_ms": 7.194,
+            "io_ms": 0.003,
+            "barrier_ms": 203.239
+          },
+          "mode": "parallel"
+        },
+        "2": {
+          "t_median": 0.21139459998812526,
+          "speedup": 0.2721,
+          "efficiency": 13.61,
+          "P_amdahl": null,
+          "lb_imbalance": 1.009,
+          "worker_mean_s": {
+            "0": 0.000161,
+            "1": 0.000158
+          },
+          "worker_std_s": {
+            "0": 4.5e-05,
+            "1": 3.9e-05
+          },
+          "stage_ms": {
+            "reduce_ms": 1.171,
+            "integrate_ms": 6.51,
+            "io_ms": 0.003,
+            "barrier_ms": 210.426
+          },
+          "mode": "parallel"
+        },
+        "4": {
+          "t_median": 0.23652559996116906,
+          "speedup": 0.2432,
+          "efficiency": 6.08,
+          "P_amdahl": null,
+          "lb_imbalance": 1.0271,
+          "worker_mean_s": {
+            "2": 0.000135,
+            "1": 0.000144,
+            "3": 0.000141,
+            "0": 0.000145
+          },
+          "worker_std_s": {
+            "2": 5e-05,
+            "1": 4.8e-05,
+            "3": 5.2e-05,
+            "0": 5e-05
+          },
+          "stage_ms": {
+            "reduce_ms": 1.365,
+            "integrate_ms": 6.989,
+            "io_ms": 0.002,
+            "barrier_ms": 231.099
+          },
+          "mode": "parallel"
+        },
+        "6": {
+          "t_median": 0.23489020008128136,
+          "speedup": 0.2449,
+          "efficiency": 4.08,
+          "P_amdahl": null,
+          "lb_imbalance": 1.0405,
+          "worker_mean_s": {
+            "5": 0.000108,
+            "1": 0.000109,
+            "2": 0.000108,
+            "4": 0.000113,
+            "0": 0.000108,
+            "3": 0.000105
+          },
+          "worker_std_s": {
+            "5": 4.3e-05,
+            "1": 4.1e-05,
+            "2": 4.7e-05,
+            "4": 4.1e-05,
+            "0": 4.1e-05,
+            "3": 4.4e-05
+          },
+          "stage_ms": {
+            "reduce_ms": 1.563,
+            "integrate_ms": 7.117,
+            "io_ms": 0.002,
+            "barrier_ms": 231.556
+          },
+          "mode": "parallel"
+        },
+        "8": {
+          "t_median": 0.25210419995710254,
+          "speedup": 0.2282,
+          "efficiency": 2.85,
+          "P_amdahl": null,
+          "lb_imbalance": 1.1586,
+          "worker_mean_s": {
+            "2": 0.000102,
+            "0": 0.000118,
+            "3": 9.8e-05,
+            "5": 0.0001,
+            "4": 0.000101,
+            "1": 9.8e-05,
+            "7": 9.9e-05,
+            "6": 0.0001
+          },
+          "worker_std_s": {
+            "2": 4.1e-05,
+            "0": 0.000307,
+            "3": 3.9e-05,
+            "5": 4e-05,
+            "4": 4.3e-05,
+            "1": 3.7e-05,
+            "7": 3.8e-05,
+            "6": 4.3e-05
+          },
+          "stage_ms": {
+            "reduce_ms": 1.923,
+            "integrate_ms": 7.38,
+            "io_ms": 0.004,
+            "barrier_ms": 252.057
+          },
+          "mode": "parallel"
+        },
+        "12": {
+          "t_median": 0.2879467000020668,
+          "speedup": 0.1998,
+          "efficiency": 1.66,
+          "P_amdahl": null,
+          "lb_imbalance": 1.04,
+          "worker_mean_s": {
+            "1": 8e-05,
+            "7": 8.1e-05,
+            "3": 7.7e-05,
+            "8": 8.2e-05,
+            "6": 8e-05,
+            "10": 7.8e-05,
+            "11": 7.9e-05,
+            "4": 7.8e-05,
+            "0": 7.8e-05,
+            "9": 8.2e-05,
+            "5": 8.1e-05,
+            "2": 7.7e-05
+          },
+          "worker_std_s": {
+            "1": 3.3e-05,
+            "7": 3.2e-05,
+            "3": 3.6e-05,
+            "8": 3.1e-05,
+            "6": 3.2e-05,
+            "10": 3e-05,
+            "11": 3.2e-05,
+            "4": 3.1e-05,
+            "0": 3.4e-05,
+            "9": 3.4e-05,
+            "5": 3.5e-05,
+            "2": 3.4e-05
+          },
+          "stage_ms": {
+            "reduce_ms": 2.15,
+            "integrate_ms": 7.767,
+            "io_ms": 0.002,
+            "barrier_ms": 277.875
+          },
+          "mode": "parallel"
+        }
+      }
+    },
+    "LARGE": {
+      "n_nodes": 4800,
+      "n_springs": 21902,
+      "n_steps": 100,
+      "label": "Large (48 k nodes)",
+      "workers": {
+        "1_seq": {
+          "t_median": 0.38194240001030266,
+          "speedup": 1.0,
+          "efficiency": 100.0,
+          "stage_ms": {
+            "force_ms": 344.95069889817387,
+            "integrate_ms": 36.8161010555923,
+            "io_ms": 0.005200039595365524
+          },
+          "mode": "sequential"
+        },
+        "1": {
+          "t_median": 0.4112215000204742,
+          "speedup": 0.9288,
+          "efficiency": 92.88,
+          "P_amdahl": null,
+          "lb_imbalance": 1.0,
+          "worker_mean_s": {
+            "0": 0.003511
+          },
+          "worker_std_s": {
+            "0": 0.000464
+          },
+          "stage_ms": {
+            "reduce_ms": 2.345,
+            "integrate_ms": 22.741,
+            "io_ms": 0.009,
+            "barrier_ms": 383.833
+          },
+          "mode": "parallel"
+        },
+        "2": {
+          "t_median": 0.23195899999700487,
+          "speedup": 1.6466,
+          "efficiency": 82.33,
+          "P_amdahl": 0.7854,
+          "lb_imbalance": 1.0352,
+          "worker_mean_s": {
+            "0": 0.001662,
+            "1": 0.001783
+          },
+          "worker_std_s": {
+            "0": 0.000339,
+            "1": 0.000237
+          },
+          "stage_ms": {
+            "reduce_ms": 2.399,
+            "integrate_ms": 22.48,
+            "io_ms": 0.012,
+            "barrier_ms": 212.831
+          },
+          "mode": "parallel"
+        },
+        "4": {
+          "t_median": 0.20633130008354783,
+          "speedup": 1.8511,
+          "efficiency": 46.28,
+          "P_amdahl": 0.613,
+          "lb_imbalance": 1.032,
+          "worker_mean_s": {
+            "1": 0.000977,
+            "0": 0.001054,
+            "2": 0.001026,
+            "3": 0.001027
+          },
+          "worker_std_s": {
+            "1": 0.000357,
+            "0": 0.000332,
+            "2": 0.00032,
+            "3": 0.000312
+          },
+          "stage_ms": {
+            "reduce_ms": 2.847,
+            "integrate_ms": 22.149,
+            "io_ms": 0.009,
+            "barrier_ms": 181.215
+          },
+          "mode": "parallel"
+        },
+        "6": {
+          "t_median": 0.3436688999645412,
+          "speedup": 1.1114,
+          "efficiency": 18.52,
+          "P_amdahl": 0.1202,
+          "lb_imbalance": 1.0404,
+          "worker_mean_s": {
+            "0": 0.000766,
+            "2": 0.000777,
+            "3": 0.000747,
+            "1": 0.000758,
+            "5": 0.00079,
+            "4": 0.000719
+          },
+          "worker_std_s": {
+            "0": 0.00025,
+            "2": 0.000249,
+            "3": 0.000258,
+            "1": 0.000261,
+            "5": 0.000245,
+            "4": 0.000243
+          },
+          "stage_ms": {
+            "reduce_ms": 3.688,
+            "integrate_ms": 22.566,
+            "io_ms": 0.016,
+            "barrier_ms": 312.213
+          },
+          "mode": "parallel"
+        },
+        "8": {
+          "t_median": 0.35439500003121793,
+          "speedup": 1.0777,
+          "efficiency": 13.47,
+          "P_amdahl": 0.0824,
+          "lb_imbalance": 1.0378,
+          "worker_mean_s": {
+            "1": 0.000622,
+            "7": 0.000595,
+            "4": 0.000626,
+            "3": 0.000629,
+            "0": 0.000647,
+            "6": 0.000627,
+            "5": 0.000621,
+            "2": 0.000622
+          },
+          "worker_std_s": {
+            "1": 0.000246,
+            "7": 0.000232,
+            "4": 0.000246,
+            "3": 0.000218,
+            "0": 0.000238,
+            "6": 0.000261,
+            "5": 0.000205,
+            "2": 0.000228
+          },
+          "stage_ms": {
+            "reduce_ms": 6.463,
+            "integrate_ms": 26.531,
+            "io_ms": 0.011,
+            "barrier_ms": 321.237
+          },
+          "mode": "parallel"
+        },
+        "12": {
+          "t_median": 0.3648211000254378,
+          "speedup": 1.0469,
+          "efficiency": 8.72,
+          "P_amdahl": 0.0489,
+          "lb_imbalance": 1.0433,
+          "worker_mean_s": {
+            "6": 0.000509,
+            "2": 0.000475,
+            "8": 0.000491,
+            "9": 0.000498,
+            "11": 0.000498,
+            "3": 0.000463,
+            "7": 0.000494,
+            "4": 0.00048,
+            "5": 0.000474,
+            "1": 0.000491,
+            "10": 0.0005,
+            "0": 0.000482
+          },
+          "worker_std_s": {
+            "6": 0.000171,
+            "2": 0.000161,
+            "8": 0.000164,
+            "9": 0.000167,
+            "11": 0.000158,
+            "3": 0.000165,
+            "7": 0.000158,
+            "4": 0.000145,
+            "5": 0.000172,
+            "1": 0.000177,
+            "10": 0.000151,
+            "0": 0.000153
+          },
+          "stage_ms": {
+            "reduce_ms": 14.581,
+            "integrate_ms": 31.248,
+            "io_ms": 0.013,
+            "barrier_ms": 397.614
+          },
+          "mode": "parallel"
+        }
+      }
+    }
+  }
+}

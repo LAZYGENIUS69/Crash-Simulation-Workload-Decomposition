@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.o
+*.exe
+*.dll
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build and binary directories
+build/
+bin/
+tmp_*/
+
+# Large media, video, reports, and logs
+frames/
+*.gif
+*.mp4
+REPORT.docx
+*.log
+.env
+
+# Tooling and internal metadata
+graphify*/
+.system_generated/
