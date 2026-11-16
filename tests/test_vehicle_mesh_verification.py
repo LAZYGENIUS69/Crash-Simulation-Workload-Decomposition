@@ -163,13 +163,16 @@ def generate_plausibility_report_and_pulse():
     """
     Simulates full 56 km/h barrier impact on 10k vehicle mesh and generates
     the crash pulse plot and engineering plausibility summary.
+    Mandatory label: 'Tuned to a published pulse, not predictive.'
     """
     print("\n" + "=" * 75)
     print("  AUTOMOTIVE CRASH PLAUSIBILITY REPORT (56 km/h Rigid Barrier Impact)")
+    print("  Reference: NHTSA Report NCAP-MGA-12-014; Abramowicz & Jones (1984)")
+    print("  Note: Tuned to a published pulse, not predictive.")
     print("=" * 75)
 
     nodes, springs, k_arr, rest_L, zones, masses, vel0, rear_mask = \
-        build_vehicle_front_mesh("10k", impact_velocity=15.556)
+        build_vehicle_front_mesh("10k", impact_velocity=15.556, tuned=True)
     N = len(nodes)
     M = len(springs)
     total_mass = float(np.sum(masses))
@@ -178,14 +181,15 @@ def generate_plausibility_report_and_pulse():
     x_min = nodes[:, 0].min()
     nodes[:, 0] -= (x_min - 0.02)
 
-    dt = 2.5e-6
-    n_steps = 2000  # 5.0 ms simulation window
+    dt = 2.0e-6
+    n_steps = 45000  # 90 ms simulation window
 
     mesh_bin = TMP_DIR / "full_crash_mesh.bin"
     export_binary_mesh(
         mesh_bin, nodes, vel0, masses, np.zeros(N, dtype=np.int32), springs, k_arr, rest_L,
-        dt=dt, damping=15.0, buckle_ratio=0.50, k_wall=2.0e7,
-        n_steps=n_steps, snap_freq=10, enable_contact=1, enable_clamp=0
+        dt=dt, damping=5.0, buckle_ratio=0.50, k_wall=4.2e6,
+        n_steps=n_steps, snap_freq=100, enable_contact=1, enable_clamp=0,
+        version=2, yield_strain=0.030, plateau_ratio=0.30, cs_c=0.0, cs_p=1.0
     )
 
     out_csv = RESULTS_DIR / "vehicle_crash_metrics.csv"
@@ -217,8 +221,7 @@ def generate_plausibility_report_and_pulse():
     print(f"Peak Deceleration     : {max_decel_g:.2f} g")
     print(f"Maximum Crush Distance: {max_crush * 1000.0:.2f} mm")
     print(f"Energy Residual Drift : {final_drift:.4f}% across crash event")
-    print("\n*Note: This simulation represents an uncalibrated lumped spring-mass physics model")
-    print(" for HPC workload evaluation; it is not a certified structural crashworthiness model.*")
+    print("\n*Mandatory Disclaimer: Tuned to a published pulse, not predictive.*")
 
     # Plot Crash Pulse & Barrier Force
     fig, ax1 = plt.subplots(figsize=(9, 5), dpi=200)
@@ -236,7 +239,8 @@ def generate_plausibility_report_and_pulse():
     ax2.plot(time_ms, decel_g, color=color, lw=2, linestyle='--', label='Deceleration (g)')
     ax2.tick_params(axis='y', labelcolor=color)
 
-    plt.title("56 km/h Frontal Crash Pulse (Uncalibrated HPC Vehicle Mesh)", fontsize=13, fontweight='bold')
+    plt.title("56 km/h Frontal Crash Pulse (Tuned to Published Pulse, Not Predictive)", fontsize=12, fontweight='bold')
+    plt.suptitle("Calibrated to NHTSA NCAP Report NCAP-MGA-12-014; Abramowicz & Jones (1984)", fontsize=9, y=0.92, style='italic')
     fig.tight_layout()
     pulse_plot = FIGURES_DIR / "vehicle_crash_pulse.png"
     plt.savefig(pulse_plot)

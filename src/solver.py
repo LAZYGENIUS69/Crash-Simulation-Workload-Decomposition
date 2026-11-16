@@ -46,23 +46,61 @@ SNAP_FREQ    = 10       # save position snapshot every N steps
 
 
 # ── Force kernel (shared between both solvers) ────────────────────────────────
-def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=BUCKLE_RATIO):
+def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N,
+                        buckle_ratio=BUCKLE_RATIO, vel=None,
+                        version=1, yield_strain=0.05, plateau_ratio=0.0,
+                        cs_c=0.0, cs_p=1.0):
     """
-    Vectorised Hooke + buckling force kernel.
-    Computes force contributions for every spring in sp_i/sp_j.
+    Vectorised Hooke + buckling / elasto-plastic force kernel.
+    Supports version=1 (legacy Hooke + compression cutoff) and
+    version=2 (piecewise-linear plasticity + Cowper-Symonds dynamic rate sensitivity).
 
     Returns force array shape (N, 3).
     """
     delta = pos[sp_j] - pos[sp_i]                          # (M, 3)
     dist  = np.linalg.norm(delta, axis=1, keepdims=True)   # (M, 1)
     safe  = np.where(dist < 1e-14, 1.0, dist)
+    L0    = rest_L[:, None]
 
-    # Zero out buckled springs (heavy compression)
-    buckle = (dist < buckle_ratio * rest_L[:, None])
+    if version == 1:
+        # Zero out buckled springs (heavy compression)
+        buckle = (dist < buckle_ratio * L0)
+        hooke  = k_arr[:, None] * (dist - L0) / safe  # (M, 1)
+        hooke  = np.where(buckle, 0.0, hooke)
+        f_vec  = hooke * delta                         # (M, 3)
+    else:
+        # Version 2: Elasto-plastic with plateau, compaction, and Cowper-Symonds rate sensitivity
+        is_tension = (dist >= L0)
+        f_tension = k_arr[:, None] * (dist - L0) / safe * delta
 
-    hooke  = k_arr[:, None] * (dist - rest_L[:, None]) / safe  # (M, 1)
-    hooke  = np.where(buckle, 0.0, hooke)
-    f_vec  = hooke * delta                                     # (M, 3) Hooke force k*(dist-L0)*delta/dist
+        delta_c = L0 - dist
+        eps = np.maximum(0.0, delta_c / L0)
+        eps_y = yield_strain
+        eps_compact = 0.65
+        f_peak = k_arr[:, None] * (eps_y * L0)
+        f_plat = plateau_ratio * f_peak
+
+        f_static = np.where(
+            eps <= eps_y,
+            k_arr[:, None] * delta_c,
+            np.where(
+                eps <= eps_compact,
+                f_plat,
+                f_plat + 2.0 * k_arr[:, None] * (eps - eps_compact) * L0
+            )
+        )
+
+        beta = np.ones_like(f_static)
+        if cs_c > 0.0 and vel is not None:
+            v_rel = vel[sp_j] - vel[sp_i]
+            v_proj = -np.sum(v_rel * delta, axis=1, keepdims=True) / safe
+            pos_v = (v_proj > 0.0)
+            eps_dot = np.where(pos_v, v_proj / L0, 0.0)
+            beta = np.where(pos_v, 1.0 + (eps_dot / cs_c) ** (1.0 / cs_p), 1.0)
+
+        f_dyn = f_static * beta
+        f_comp = delta * (-f_dyn / safe)
+        f_vec = np.where(is_tension, f_tension, f_comp)
 
     force  = np.zeros((N, 3), dtype=np.float64)
     np.add.at(force, sp_i,  f_vec)
@@ -74,7 +112,9 @@ def _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=BUCKLE_R
 def run_sequential(nodes_init, vel_init, masses,
                    springs, k_arr, rest_L,
                    rear_mask, n_steps, snap_freq=SNAP_FREQ,
-                   dt=DT, damping=DAMPING, buckle_ratio=BUCKLE_RATIO):
+                   dt=DT, damping=DAMPING, buckle_ratio=BUCKLE_RATIO,
+                   version=1, yield_strain=0.05, plateau_ratio=0.0,
+                   cs_c=0.0, cs_p=1.0):
     """
     Single-process Verlet integration (baseline).
 
@@ -97,7 +137,10 @@ def run_sequential(nodes_init, vel_init, masses,
     t0  = time.perf_counter()
 
     # Initial force & acceleration pass for true Velocity-Verlet
-    force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=buckle_ratio)
+    force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N,
+                                buckle_ratio=buckle_ratio, vel=vel,
+                                version=version, yield_strain=yield_strain,
+                                plateau_ratio=plateau_ratio, cs_c=cs_c, cs_p=cs_p)
     acc   = force * invM
 
     for step in range(n_steps):
@@ -111,7 +154,10 @@ def run_sequential(nodes_init, vel_init, masses,
 
         # ── FORCE EVALUATION AT x(t + dt) ───────────────────────────
         tf0   = time.perf_counter()
-        force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N, buckle_ratio=buckle_ratio)
+        force = _spring_forces_full(pos, sp_i, sp_j, k_arr, rest_L, N,
+                                    buckle_ratio=buckle_ratio, vel=vel,
+                                    version=version, yield_strain=yield_strain,
+                                    plateau_ratio=plateau_ratio, cs_c=cs_c, cs_p=cs_p)
         t_f  += time.perf_counter() - tf0
 
         # ── VERLET STAGE B: VELOCITY UPDATE ─────────────────────────

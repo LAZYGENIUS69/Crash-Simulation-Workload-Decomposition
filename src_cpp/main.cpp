@@ -34,7 +34,7 @@
 #pragma pack(push, 1)
 struct MeshHeader {
     uint32_t magic;           // 0x43525348 ('CRSH')
-    uint32_t version;         // 1
+    uint32_t version;         // 1 or 2
     uint32_t num_nodes;
     uint32_t num_springs;
     uint32_t num_steps;
@@ -45,6 +45,11 @@ struct MeshHeader {
     double   damping;
     double   buckle_ratio;
     double   k_wall;
+    // Tier A: Piecewise-linear plasticity & Cowper-Symonds rate sensitivity (valid if version >= 2)
+    double   yield_strain;
+    double   plateau_ratio;
+    double   cs_c;
+    double   cs_p;
 };
 #pragma pack(pop)
 
@@ -77,6 +82,68 @@ inline uint32_t hash_coord(int ix, int iy, int iz) {
     return h % HASH_TABLE_SIZE;
 }
 
+inline Vec3 eval_spring_force(
+    const Vec3& p_i, const Vec3& p_j,
+    const Vec3& v_i, const Vec3& v_j,
+    double L0, double k,
+    uint32_t version, double buckle_ratio,
+    double yield_strain, double plateau_ratio,
+    double cs_c, double cs_p) {
+    Vec3 delta = p_j - p_i;
+    double dist = delta.norm();
+    double safe_dist = (dist < 1e-14) ? 1.0 : dist;
+
+    if (dist >= L0) {
+        // Pure elastic tension
+        double strain = dist - L0;
+        return delta * (k * strain / safe_dist);
+    }
+
+    // Compression: delta_c = L0 - dist >= 0
+    double delta_c = L0 - dist;
+    double eps = delta_c / L0;
+
+    if (version == 1) {
+        if (dist >= buckle_ratio * L0) {
+            double strain = dist - L0;
+            return delta * (k * strain / safe_dist);
+        } else {
+            return {0, 0, 0};
+        }
+    }
+
+    // Version 2: Piecewise-linear elasto-plastic with progressive plateau & compaction
+    double f_static = 0.0;
+    double eps_y = yield_strain;
+    double eps_compact = 0.65;
+    double f_peak = k * (eps_y * L0);
+    double f_plat = plateau_ratio * f_peak;
+
+    if (eps <= eps_y) {
+        f_static = k * delta_c;
+    } else if (eps <= eps_compact) {
+        f_static = f_plat;
+    } else {
+        f_static = f_plat + 2.0 * k * (eps - eps_compact) * L0;
+    }
+
+    // Cowper-Symonds Dynamic Strain-Rate Hardening
+    double beta = 1.0;
+    if (cs_c > 0.0) {
+        Vec3 v_rel = v_j - v_i;
+        // Compression velocity: - d(dist)/dt = - (v_rel . delta) / dist
+        double v_proj = -(v_rel.x * delta.x + v_rel.y * delta.y + v_rel.z * delta.z) / safe_dist;
+        if (v_proj > 0.0) {
+            double eps_dot = v_proj / L0;
+            beta = 1.0 + std::pow(eps_dot / cs_c, 1.0 / cs_p);
+        }
+    }
+
+    double f_dyn = f_static * beta;
+    // Repulsive vector on node i: points away from j (-delta)
+    return delta * (-f_dyn / safe_dist);
+}
+
 int main(int argc, char* argv[]) {
     if (argc < 4) {
         std::cerr << "Usage: " << argv[0] 
@@ -102,10 +169,25 @@ int main(int argc, char* argv[]) {
     }
 
     MeshHeader hdr;
-    fin.read(reinterpret_cast<char*>(&hdr), sizeof(MeshHeader));
+    std::memset(&hdr, 0, sizeof(MeshHeader));
+
+    fin.read(reinterpret_cast<char*>(&hdr.magic), 4);
+    fin.read(reinterpret_cast<char*>(&hdr.version), 4);
     if (hdr.magic != 0x43525348) {
         std::cerr << "Error: invalid magic 0x" << std::hex << hdr.magic << "\n";
         return 1;
+    }
+
+    if (hdr.version == 1) {
+        // Read remaining 56 bytes of v1 header
+        fin.read(reinterpret_cast<char*>(&hdr.num_nodes), 56);
+        hdr.yield_strain = 1.0 - hdr.buckle_ratio;
+        hdr.plateau_ratio = 0.0;
+        hdr.cs_c = 0.0;
+        hdr.cs_p = 1.0;
+    } else {
+        // Read remaining 88 bytes of v2 header
+        fin.read(reinterpret_cast<char*>(&hdr.num_nodes), 88);
     }
 
     const uint32_t N = hdr.num_nodes;
@@ -115,6 +197,11 @@ int main(int argc, char* argv[]) {
     const double DAMPING = hdr.damping;
     const double BUCKLE = hdr.buckle_ratio;
     const double K_WALL = hdr.k_wall;
+    const double YIELD_STRAIN = hdr.yield_strain;
+    const double PLATEAU_RATIO = hdr.plateau_ratio;
+    const double CS_C = hdr.cs_c;
+    const double CS_P = hdr.cs_p;
+    const uint32_t VERSION = hdr.version;
     const bool ENABLE_CONTACT = (hdr.enable_contact > 0);
     const bool ENABLE_SELF_CONTACT = (hdr.enable_contact >= 2);
     const bool ENABLE_CLAMP = (hdr.enable_clamp > 0);
@@ -302,27 +389,21 @@ int main(int argc, char* argv[]) {
         for (uint32_t m = 0; m < M; ++m) {
             int32_t i = springs[2 * m];
             int32_t j = springs[2 * m + 1];
-            Vec3 delta = pos[j] - pos[i];
-            double dist = delta.norm();
-            double safe_dist = (dist < 1e-14) ? 1.0 : dist;
-            double L0 = rest_L[m];
-            double k = k_arr[m];
-            if (dist >= BUCKLE * L0) {
-                double strain = dist - L0;
-                Vec3 f_vec = delta * (k * strain / safe_dist);
-                #pragma omp atomic update
-                force_global[i].x += f_vec.x;
-                #pragma omp atomic update
-                force_global[i].y += f_vec.y;
-                #pragma omp atomic update
-                force_global[i].z += f_vec.z;
-                #pragma omp atomic update
-                force_global[j].x -= f_vec.x;
-                #pragma omp atomic update
-                force_global[j].y -= f_vec.y;
-                #pragma omp atomic update
-                force_global[j].z -= f_vec.z;
-            }
+            Vec3 f_vec = eval_spring_force(pos[i], pos[j], vel[i], vel[j],
+                                           rest_L[m], k_arr[m], VERSION, BUCKLE,
+                                           YIELD_STRAIN, PLATEAU_RATIO, CS_C, CS_P);
+            #pragma omp atomic update
+            force_global[i].x += f_vec.x;
+            #pragma omp atomic update
+            force_global[i].y += f_vec.y;
+            #pragma omp atomic update
+            force_global[i].z += f_vec.z;
+            #pragma omp atomic update
+            force_global[j].x -= f_vec.x;
+            #pragma omp atomic update
+            force_global[j].y -= f_vec.y;
+            #pragma omp atomic update
+            force_global[j].z -= f_vec.z;
         }
 
         #pragma omp for schedule(static)
@@ -385,18 +466,11 @@ int main(int argc, char* argv[]) {
                 for (uint32_t m = s_start; m < s_end; ++m) {
                     int32_t i = springs[2 * m];
                     int32_t j = springs[2 * m + 1];
-                    Vec3 delta = pos[j] - pos[i];
-                    double dist = delta.norm();
-                    double safe_dist = (dist < 1e-14) ? 1.0 : dist;
-                    double L0 = rest_L[m];
-                    double k = k_arr[m];
-
-                    if (dist >= BUCKLE * L0) {
-                        double strain = dist - L0;
-                        Vec3 f_vec = delta * (k * strain / safe_dist);
-                        thread_forces[tid][i] += f_vec;
-                        thread_forces[tid][j] -= f_vec;
-                    }
+                    Vec3 f_vec = eval_spring_force(pos[i], pos[j], vel[i], vel[j],
+                                                   rest_L[m], k_arr[m], VERSION, BUCKLE,
+                                                   YIELD_STRAIN, PLATEAU_RATIO, CS_C, CS_P);
+                    thread_forces[tid][i] += f_vec;
+                    thread_forces[tid][j] -= f_vec;
                 }
                 thread_time_s1[tid] += (omp_get_wtime() - t0);
                 #pragma omp barrier
@@ -422,29 +496,22 @@ int main(int argc, char* argv[]) {
                 for (uint32_t m = s_start; m < s_end; ++m) {
                     int32_t i = springs[2 * m];
                     int32_t j = springs[2 * m + 1];
-                    Vec3 delta = pos[j] - pos[i];
-                    double dist = delta.norm();
-                    double safe_dist = (dist < 1e-14) ? 1.0 : dist;
-                    double L0 = rest_L[m];
-                    double k = k_arr[m];
+                    Vec3 f_vec = eval_spring_force(pos[i], pos[j], vel[i], vel[j],
+                                                   rest_L[m], k_arr[m], VERSION, BUCKLE,
+                                                   YIELD_STRAIN, PLATEAU_RATIO, CS_C, CS_P);
+                    #pragma omp atomic update
+                    force_global[i].x += f_vec.x;
+                    #pragma omp atomic update
+                    force_global[i].y += f_vec.y;
+                    #pragma omp atomic update
+                    force_global[i].z += f_vec.z;
 
-                    if (dist >= BUCKLE * L0) {
-                        double strain = dist - L0;
-                        Vec3 f_vec = delta * (k * strain / safe_dist);
-                        #pragma omp atomic update
-                        force_global[i].x += f_vec.x;
-                        #pragma omp atomic update
-                        force_global[i].y += f_vec.y;
-                        #pragma omp atomic update
-                        force_global[i].z += f_vec.z;
-
-                        #pragma omp atomic update
-                        force_global[j].x -= f_vec.x;
-                        #pragma omp atomic update
-                        force_global[j].y -= f_vec.y;
-                        #pragma omp atomic update
-                        force_global[j].z -= f_vec.z;
-                    }
+                    #pragma omp atomic update
+                    force_global[j].x -= f_vec.x;
+                    #pragma omp atomic update
+                    force_global[j].y -= f_vec.y;
+                    #pragma omp atomic update
+                    force_global[j].z -= f_vec.z;
                 }
                 thread_time_s1[tid] += (omp_get_wtime() - t0);
 
@@ -462,17 +529,10 @@ int main(int argc, char* argv[]) {
                         int8_t dir = node_dir[e];
                         int32_t other = (dir == 1) ? springs[2 * m + 1] : springs[2 * m];
 
-                        Vec3 delta = pos[other] - pos[i];
-                        double dist = delta.norm();
-                        double safe_dist = (dist < 1e-14) ? 1.0 : dist;
-                        double L0 = rest_L[m];
-                        double k = k_arr[m];
-
-                        if (dist >= BUCKLE * L0) {
-                            double strain = dist - L0;
-                            double hooke = k * strain / safe_dist;
-                            f_node += delta * hooke;
-                        }
+                        Vec3 f_vec = eval_spring_force(pos[i], pos[other], vel[i], vel[other],
+                                                       rest_L[m], k_arr[m], VERSION, BUCKLE,
+                                                       YIELD_STRAIN, PLATEAU_RATIO, CS_C, CS_P);
+                        f_node += f_vec;
                     }
                     force_global[i] = f_node;
                 }
@@ -626,13 +686,43 @@ int main(int argc, char* argv[]) {
                     for (uint32_t m = 0; m < M; ++m) {
                         Vec3 d = pos[springs[2 * m + 1]] - pos[springs[2 * m]];
                         double dist = d.norm();
-                        if (dist >= BUCKLE * rest_L[m]) {
-                            double str = dist - rest_L[m];
-                            E_strain += 0.5 * k_arr[m] * str * str;
+                        double L0 = rest_L[m];
+                        double k = k_arr[m];
+
+                        if (dist >= L0) {
+                            double str = dist - L0;
+                            E_strain += 0.5 * k * str * str;
                         } else {
-                            // Plastic dissipation: permanent yield energy stored up to buckle threshold
-                            double str_buckle = (1.0 - BUCKLE) * rest_L[m];
-                            E_dissipated_plastic += 0.5 * k_arr[m] * str_buckle * str_buckle;
+                            double delta_c = L0 - dist;
+                            double eps = delta_c / L0;
+                            if (VERSION == 1) {
+                                if (dist >= BUCKLE * L0) {
+                                    double str = dist - L0;
+                                    E_strain += 0.5 * k * str * str;
+                                } else {
+                                    double str_buckle = (1.0 - BUCKLE) * L0;
+                                    E_dissipated_plastic += 0.5 * k * str_buckle * str_buckle;
+                                }
+                            } else {
+                                double eps_y = YIELD_STRAIN;
+                                double eps_comp = 0.65;
+                                double delta_y = eps_y * L0;
+                                double f_peak = k * delta_y;
+                                double f_plat = PLATEAU_RATIO * f_peak;
+
+                                if (eps <= eps_y) {
+                                    E_strain += 0.5 * k * delta_c * delta_c;
+                                } else if (eps <= eps_comp) {
+                                    E_strain += 0.5 * (f_plat * f_plat) / k;
+                                    E_dissipated_plastic += 0.5 * (f_peak * f_peak - f_plat * f_plat) / k + f_plat * (delta_c - delta_y);
+                                } else {
+                                    double delta_comp = eps_comp * L0;
+                                    E_strain += 0.5 * (f_plat * f_plat) / k;
+                                    E_dissipated_plastic += 0.5 * (f_peak * f_peak - f_plat * f_plat) / k + f_plat * (delta_comp - delta_y);
+                                    double delta_dens = delta_c - delta_comp;
+                                    E_strain += 0.5 * (2.0 * k) * delta_dens * delta_dens;
+                                }
+                            }
                         }
                     }
 
@@ -667,7 +757,8 @@ int main(int argc, char* argv[]) {
                     for (uint32_t m = 0; m < M; ++m) {
                         Vec3 d = pos[springs[2 * m + 1]] - pos[springs[2 * m]];
                         double dist = d.norm();
-                        if (dist < BUCKLE * rest_L[m]) {
+                        double threshold = (VERSION == 1) ? (BUCKLE * rest_L[m]) : ((1.0 - YIELD_STRAIN) * rest_L[m]);
+                        if (dist < threshold) {
                             float s = static_cast<float>((rest_L[m] - dist) / rest_L[m]);
                             uint32_t u = springs[2 * m];
                             uint32_t v = springs[2 * m + 1];

@@ -45,7 +45,7 @@ MASS_BUDGET = {
     ZONE_CABIN:    960.0   # Remainder of vehicle chassis & occupant cabin inertia
 }
 
-def build_vehicle_front_mesh(scale="10k", impact_velocity=15.556, seed=42, reorder="morton"):
+def build_vehicle_front_mesh(scale="10k", impact_velocity=15.556, seed=42, reorder="morton", tuned=False):
     """
     Builds a structured 3D vehicle frontal structure.
     
@@ -61,6 +61,9 @@ def build_vehicle_front_mesh(scale="10k", impact_velocity=15.556, seed=42, reord
         'morton' : Morton (Z-order) space-filling curve for contiguous 3D partitions (default)
         'rcb'    : Recursive Coordinate Bisection
         None     : Original Cartesian lattice ordering
+    tuned : bool
+        If True, assigns component-calibrated stiffnesses tuned to NHTSA NCAP 56 km/h frontal crash pulse.
+        If False, uses legacy uniform stiffness.
     """
     if scale == "10k":
         nx, ny, nz = 65, 24, 16
@@ -186,9 +189,32 @@ def build_vehicle_front_mesh(scale="10k", impact_velocity=15.556, seed=42, reord
     rest_L = np.linalg.norm(nodes[sp_j] - nodes[sp_i], axis=1)
 
     # Component-calibrated stiffness and buckling properties:
-    # k_base normalized to mesh element spacing
-    k_ref = 3.0e7 * (dx / 0.035)
-    k_arr = np.full(M, k_ref, dtype=np.float64)
+    if tuned:
+        # Tier A: Calibrated against NHTSA NCAP 56 km/h frontal barrier pulse
+        # (Toyota Camry Sedan, Report NCAP-MGA-12-014; Abramowicz & Jones 1984)
+        k_arr = np.zeros(M, dtype=np.float64)
+        z_i = zones[sp_i]
+        z_j = zones[sp_j]
+        scale_dx = (dx / 0.035)
+        for m in range(M):
+            zi, zj = z_i[m], z_j[m]
+            if zi == ZONE_ENGINE or zj == ZONE_ENGINE:
+                k_arr[m] = 2.2e6 * scale_dx
+            elif zi in (ZONE_FIREWALL, ZONE_CABIN) or zj in (ZONE_FIREWALL, ZONE_CABIN):
+                k_arr[m] = 1.1e6 * scale_dx
+            elif zi == ZONE_BUMPER or zj == ZONE_BUMPER:
+                k_arr[m] = 4.8e5 * scale_dx
+            elif zi == ZONE_SUBFRAME or zj == ZONE_SUBFRAME:
+                k_arr[m] = 2.8e5 * scale_dx
+            elif zi == ZONE_RAILS or zj == ZONE_RAILS:
+                k_arr[m] = 2.0e5 * scale_dx
+            elif zi == ZONE_CRASHBOX or zj == ZONE_CRASHBOX:
+                k_arr[m] = 7.5e4 * scale_dx
+            else:
+                k_arr[m] = 5.5e4 * scale_dx
+    else:
+        k_ref = 3.0e7 * (dx / 0.035)
+        k_arr = np.full(M, k_ref, dtype=np.float64)
 
     # Assign mass by subsystem budget
     masses = np.zeros(N, dtype=np.float64)
@@ -201,12 +227,13 @@ def build_vehicle_front_mesh(scale="10k", impact_velocity=15.556, seed=42, reord
             # Fallback if component has no nodes at coarse resolution
             pass
 
-    # Ensure engine block is rigid: 3x stiffness, no buckling
-    engine_nodes = set(np.where(zones == ZONE_ENGINE)[0])
-    for m in range(M):
-        u, v = springs[m, 0], springs[m, 1]
-        if u in engine_nodes or v in engine_nodes:
-            k_arr[m] *= 3.0
+    # Ensure engine block is rigid: 3x stiffness, no buckling (legacy mode)
+    if not tuned:
+        engine_nodes = set(np.where(zones == ZONE_ENGINE)[0])
+        for m in range(M):
+            u, v = springs[m, 0], springs[m, 1]
+            if u in engine_nodes or v in engine_nodes:
+                k_arr[m] *= 3.0
 
     # Initial velocities (56 km/h = -15.556 m/s longitudinal impact)
     vel0 = np.zeros((N, 3), dtype=np.float64)
