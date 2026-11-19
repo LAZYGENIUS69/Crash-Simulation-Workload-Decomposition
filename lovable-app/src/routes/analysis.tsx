@@ -1,1 +1,223 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBMaW5rIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IHVzZUVmZmVjdCwgdXNlTWVtbywgdXNlUmVmLCB1c2VTdGF0ZSB9IGZyb20gInJlYWN0IjsKaW1wb3J0IHsgU2l0ZU5hdiB9IGZyb20gIkAvY29tcG9uZW50cy9TaXRlTmF2IjsKCmV4cG9ydCBjb25zdCBSb3V0ZSA9IGNyZWF0ZUZpbGVSb3V0ZSgiL2FuYWx5c2lzIikoewogIGhlYWQ6ICgpID0+ICh7CiAgICBtZXRhOiBbCiAgICAgIHsgdGl0bGU6ICJXb3JrbG9hZCBBbmFseXNpcyB8IENyYXNoLVNpbXVsYXRpb24gU3RlcC1ieS1TdGVwIFdhbGt0aHJvdWdoIiB9LAogICAgICB7IG5hbWU6ICJkZXNjcmlwdGlvbiIsIGNvbnRlbnQ6ICJGdWxsLXNjcmVlbiB3YWxrdGhyb3VnaCBvZiB0aGUgNTYga20vaCBjcmFzaCBydW46IHRhc2sgZGVwZW5kZW5jeSBncmFwaCwgcGVyLXRocmVhZCBsb2FkIGFuZCB0ZWxlbWV0cnkgZnJvbSBmaXJzdCBzdGVwIHRvIGxhc3QuIiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dGl0bGUiLCBjb250ZW50OiAiV29ya2xvYWQgQW5hbHlzaXMgfCBDcmFzaC1TaW11bGF0aW9uIFN0ZXAtYnktU3RlcCBXYWxrdGhyb3VnaCIgfSwKICAgICAgeyBwcm9wZXJ0eTogIm9nOmRlc2NyaXB0aW9uIiwgY29udGVudDogIlRhc2sgZGVwZW5kZW5jeSBncmFwaCwgdGhyZWFkIGxvYWQgYW5kIHRlbGVtZXRyeSBvZiB0aGUgcmVjb3JkZWQgT3Blbk1QIGNyYXNoIHJ1biwgZnJvbSBpbXBhY3Qgc3RhcnQgdG8gZW5kLiIgfSwKICAgICAgeyBwcm9wZXJ0eTogIm9nOnR5cGUiLCBjb250ZW50OiAiYXJ0aWNsZSIgfSwKICAgICAgeyBuYW1lOiAidHdpdHRlcjpjYXJkIiwgY29udGVudDogInN1bW1hcnkiIH0sCiAgICBdLAogIH0pLAogIGNvbXBvbmVudDogQW5hbHlzaXMsCn0pOwoKaW50ZXJmYWNlIFJvdyB7IHN0ZXA6IG51bWJlcjsgdGltZV9zOiBudW1iZXI7IHdhbGxfZm9yY2VfTjogbnVtYmVyOyBtYXhfaW50cnVzaW9uX206IG51bWJlcjsga2VfSjogbnVtYmVyOyBzdHJhaW5fZV9KOiBudW1iZXI7IHdhbGxfZV9KOiBudW1iZXI7IGRhbXBfZV9KOiBudW1iZXI7IHBsYXN0aWNfZV9KOiBudW1iZXI7IHRvdGFsX2VfSjogbnVtYmVyOyByZXNpZHVhbF9wY3Q6IG51bWJlcjsgdGhyZWFkX2lkOiBudW1iZXI7IGNwdV9pZDogbnVtYmVyOyBzMV9zcHJpbmdfczogbnVtYmVyOyBzMl9hc3NlbWJseV9zOiBudW1iZXI7IHMzX2NvbnRhY3RfczogbnVtYmVyOyBzNF9pbnRlZ19zOiBudW1iZXI7IHM1X2NmbF9zOiBudW1iZXI7IHRvdGFsX2FjdGl2ZV9zOiBudW1iZXI7IHRocmVhZHM6IG51bWJlcjsgc3BlZWR1cDogbnVtYmVyOyBlZmZpY2llbmN5OiBudW1iZXI7IHNjYWxlOiBudW1iZXI7IH0KY29uc3QgZyA9ICh4OiBSb3csIGs6IHN0cmluZykgPT4gKHggYXMgdW5rbm93biBhcyBSZWNvcmQ8c3RyaW5nLCBudW1iZXI+KVtrXSA/PyAwOwpjb25zdCBwYXJzZSA9ICh0OiBzdHJpbmcpOiBSb3dbXSA9PiB7CiAgY29uc3QgW2gsIC4uLmxdID0gdC50cmltKCkuc3BsaXQoL1xyP1xuLyk7CiAgY29uc3QgayA9IGghLnNwbGl0KCIsIik7CiAgcmV0dXJuIGwubWFwKChzKSA9PiBPYmplY3QuZnJvbUVudHJpZXMocy5zcGxpdCgiLCIpLm1hcCgodiwgaSkgPT4gW2tbaV0sIE51bWJlcih2KV0pKSBhcyBSb3cpOwp9OwoKY29uc3QgU1RBR0VTID0gWwogIHsgaWQ6ICJTMSIsIG5hbWU6ICJTcHJpbmcgZm9yY2VzIiwgb21wOiAiI3ByYWdtYSBvbXAgZm9yIHNjaGVkdWxlKHN0YXRpYykiLCB0ZXh0OiAiRXZlcnkgc3ByaW5nIGNvbXB1dGVzIGl0cyBlbGFzdG9wbGFzdGljIGZvcmNlIGYgPSBrwrcofHhqIOKIkiB4aXwg4oiSIEwwIOKIkiDOtXApLiBTcHJpbmdzIHBhc3QgeWllbGQgc3RvcmUgcGVybWFuZW50IHBsYXN0aWMgc3RyYWluLCB3aGljaCBpcyBob3cgdGhlIGJvZHkgc3RheXMgY3J1bXBsZWQuIFRoaXMgaXMgdGhlIGhlYXZpZXN0IHN0YWdlIGFuZCBpcyBtZW1vcnktYm91bmQuIiB9LAogIHsgaWQ6ICJTMiIsIG5hbWU6ICJGb3JjZSBhc3NlbWJseSIsIG9tcDogIkNTUiBnYXRoZXIsIG93bmVyIHdyaXRlcyBvbmx5IEZbaV0iLCB0ZXh0OiAiRWFjaCBub2RlIHN1bXMgdGhlIGZvcmNlcyBvZiBpdHMgYXR0YWNoZWQgc3ByaW5ncyB0aHJvdWdoIGEgQ1NSIG5laWdoYm91ciBsaXN0LiBBIHRocmVhZCBvbmx5IHdyaXRlcyB0aGUgbm9kZXMgaXQgb3ducywgc28gdGhlcmUgYXJlIG5vIGRhdGEgcmFjZXMsIG5vIGF0b21pY3MgYW5kIG5vIHByaXZhdGUgY29waWVzLiIgfSwKICB7IGlkOiAiUzMiLCBuYW1lOiAiQ29udGFjdCIsIG9tcDogInBhcmFsbGVsIGZvciArIHNwYXRpYWwgaGFzaCIsIHRleHQ6ICJOb2RlcyB0aGF0IHBhc3MgdGhlIHJpZ2lkIHdhbGwgZ2V0IGEgcGVuYWx0eSBmb3JjZSBwdXNoaW5nIHRoZW0gYmFjazsgdGhpcyBzdW0gaXMgdGhlIHdhbGwgZm9yY2UuIEEgc3BhdGlhbCBoYXNoIGZpbmRzIHBhcnRzIG9mIHRoZSBib2R5IGZvbGRpbmcgaW50byBlYWNoIG90aGVyIChzZWxmLWNvbnRhY3QpLiIgfSwKICB7IGlkOiAiUzQiLCBuYW1lOiAiSW50ZWdyYXRpb24iLCBvbXA6ICJwYXJhbGxlbCBmb3IgKG93bmVyIHNsYWJzKSIsIHRleHQ6ICJWZWxvY2l0eSBWZXJsZXQ6IHYgKz0gYcK3ZHQsIHggKz0gdsK3ZHQgZm9yIGV2ZXJ5IG5vZGUuIEVhY2ggdGhyZWFkIHVwZGF0ZXMgaXRzIG93biBjb250aWd1b3VzIHNsYWIgb2YgdGhlIHZlaGljbGUuIiB9LAogIHsgaWQ6ICJTNSIsIG5hbWU6ICJTdGFibGUgdGltZSBzdGVwIiwgb21wOiAicmVkdWN0aW9uKG1pbjpkdCkiLCB0ZXh0OiAiVGhlIENGTCBjb25kaXRpb24gZHQgPSBDwrdtaW4oTC9jKSBpcyByZWR1Y2VkIGFjcm9zcyBhbGwgdGhyZWFkcy4gVGhlIG5leHQgc3RlcCBjYW5ub3Qgc3RhcnQgdW50aWwgZXZlcnkgdGhyZWFkIHJlcG9ydHMsIHdoaWNoIGlzIHdoeSBTNSBpcyBhIGdsb2JhbCBzeW5jIHBvaW50LiIgfSwKXTsKY29uc3QgQ09MU18gPSBbInZhcigtLWNoYXJ0LTEpIiwgInZhcigtLWNoYXJ0LTIpIiwgInZhcigtLWNoYXJ0LTMpIiwgInZhcigtLWNoYXJ0LTQpIiwgInZhcigtLWNoYXJ0LTUpIl07CmNvbnN0IGNvbCA9IChuOiBudW1iZXIpID0+IENPTFNfW24gJSA1XSA/PyAidmFyKC0tY2hhcnQtMSkiOwoKZnVuY3Rpb24gcGhhc2VPZihyOiBSb3csIHBlYWtUOiBudW1iZXIsIGNvbnRhY3RUOiBudW1iZXIpIHsKICBpZiAoci50aW1lX3MgPCBjb250YWN0VCkgcmV0dXJuIHsgbmFtZTogIkFwcHJvYWNoIiwgdGV4dDogIlRoZSBjYXIgdHJhdmVscyBhdCBmdWxsIHNwZWVkIHRvd2FyZCB0aGUgYmFycmllci4gTm8gd2FsbCBmb3JjZSB5ZXQ7IG5lYXJseSBhbGwgZW5lcmd5IGlzIGtpbmV0aWMuIiB9OwogIGlmIChyLnRpbWVfcyA8PSBwZWFrVCkgcmV0dXJuIHsgbmFtZTogIkNydXNoIG9uc2V0IiwgdGV4dDogIlRoZSBidW1wZXIgYW5kIGZyb250IHJhaWxzIGhpdCB0aGUgd2FsbC4gV2FsbCBmb3JjZSBjbGltYnMgZmFzdCBhbmQgc3ByaW5ncyBpbiB0aGUgY3J1bXBsZSB6b25lIHN0YXJ0IHRvIHlpZWxkLiIgfTsKICBpZiAoci5rZV9KID4gMC4wNSAqIDEpIHJldHVybiB7IG5hbWU6ICJQcm9ncmVzc2l2ZSBjcnVzaCIsIHRleHQ6ICJUaGUgZnJvbnQgc3RydWN0dXJlIGZvbGRzIGJhY2suIEtpbmV0aWMgZW5lcmd5IHR1cm5zIGludG8gcGxhc3RpYyB3b3JrIGluIHRoZSByYWlscyBhbmQgaG9vZDsgaW50cnVzaW9uIGdyb3dzLiIgfTsKICByZXR1cm4geyBuYW1lOiAiUmVib3VuZCIsIHRleHQ6ICJUaGUgY2FyIGhhcyBuZWFybHkgc3RvcHBlZC4gRWxhc3RpYyBlbmVyZ3kgc3ByaW5ncyBiYWNrIGEgbGl0dGxlIGFuZCB0aGUgd2FsbCBmb3JjZSBkcm9wcyB0byB6ZXJvLiIgfTsKfQoKZnVuY3Rpb24gQW5hbHlzaXMoKSB7CiAgY29uc3QgW3Jvd3MsIHNldFJvd3NdID0gdXNlU3RhdGU8Um93W10+KFtdKTsKICBjb25zdCBbdGhyLCBzZXRUaHJdID0gdXNlU3RhdGU8Um93W10+KFtdKTsKICBjb25zdCBbc2NhbCwgc2V0U2NhbF0gPSB1c2VTdGF0ZTxSb3dbXT4oW10pOwogIGNvbnN0IFtpLCBzZXRJXSA9IHVzZVN0YXRlKDApOwogIGNvbnN0IFtwbGF5LCBzZXRQbGF5XSA9IHVzZVN0YXRlKGZhbHNlKTsKICBjb25zdCByYWYgPSB1c2VSZWYoMCk7CgogIHVzZUVmZmVjdCgoKSA9PiB7CiAgICBjb25zdCBnZXQgPSAoZjogc3RyaW5nKSA9PiBmZXRjaChgL3N0dWRpby9kYXRhLyR7Zn1gKS50aGVuKChyKSA9PiByLnRleHQoKSkudGhlbihwYXJzZSk7CiAgICBnZXQoInZlaGljbGVfY3Jhc2hfbWV0cmljcy5jc3YiKS50aGVuKHNldFJvd3MpOwogICAgZ2V0KCJ0aHJlYWRfdGltaW5nX2JyZWFrZG93bi5jc3YiKS50aGVuKHNldFRocik7CiAgICBmZXRjaCgiL3N0dWRpby9kYXRhL3ZlaGljbGVfc2NhbGluZ19yZXN1bHRzLmNzdiIpLnRoZW4oKHIpID0+IHIudGV4dCgpKS50aGVuKCh0KSA9PiB7CiAgICAgIGNvbnN0IFtoLCAuLi5sXSA9IHQudHJpbSgpLnNwbGl0KC9ccj9cbi8pOyBjb25zdCBrID0gaCEuc3BsaXQoIiwiKTsKICAgICAgc2V0U2NhbChsLm1hcCgocykgPT4gT2JqZWN0LmZyb21FbnRyaWVzKHMuc3BsaXQoIiwiKS5tYXAoKHYsIGopID0+IFtrW2pdLCBqID09PSAwID8gKHYgYXMgdW5rbm93biBhcyBudW1iZXIpIDogTnVtYmVyKHYpXSkpIGFzIFJvdykpOwogICAgfSk7CiAgfSwgW10pOwoKICB1c2VFZmZlY3QoKCkgPT4gewogICAgaWYgKCFwbGF5IHx8ICFyb3dzLmxlbmd0aCkgcmV0dXJuOwogICAgbGV0IGxhc3QgPSBwZXJmb3JtYW5jZS5ub3coKTsKICAgIGNvbnN0IHRpY2sgPSAodDogbnVtYmVyKSA9PiB7CiAgICAgIGlmICh0IC0gbGFzdCA+IDYwKSB7IGxhc3QgPSB0OyBzZXRJKChwKSA9PiB7IGlmIChwID49IHJvd3MubGVuZ3RoIC0gMSkgeyBzZXRQbGF5KGZhbHNlKTsgcmV0dXJuIHA7IH0gcmV0dXJuIHAgKyAxOyB9KTsgfQogICAgICByYWYuY3VycmVudCA9IHJlcXVlc3RBbmltYXRpb25GcmFtZSh0aWNrKTsKICAgIH07CiAgICByYWYuY3VycmVudCA9IHJlcXVlc3RBbmltYXRpb25GcmFtZSh0aWNrKTsKICAgIHJldHVybiAoKSA9PiBjYW5jZWxBbmltYXRpb25GcmFtZShyYWYuY3VycmVudCk7CiAgfSwgW3BsYXksIHJvd3MubGVuZ3RoXSk7CgogIGNvbnN0IGluZm8gPSB1c2VNZW1vKCgpID0+IHsKICAgIGlmICghcm93cy5sZW5ndGgpIHJldHVybiBudWxsOwogICAgY29uc3QgcjAgPSByb3dzWzBdITsgY29uc3QgcGVhayA9IHJvd3MucmVkdWNlKChhLCByKSA9PiAoci53YWxsX2ZvcmNlX04gPiBhLndhbGxfZm9yY2VfTiA/IHIgOiBhKSwgcjApOwogICAgY29uc3QgY29udGFjdCA9IHJvd3MuZmluZCgocikgPT4gci53YWxsX2ZvcmNlX04gPiAwKSA/PyByMDsKICAgIGNvbnN0IGtlMCA9IHIwLmtlX0o7CiAgICBjb25zdCBtYXhSZXMgPSBNYXRoLm1heCguLi5yb3dzLm1hcCgocikgPT4gTWF0aC5hYnMoci5yZXNpZHVhbF9wY3QpKSk7CiAgICByZXR1cm4geyBwZWFrLCBjb250YWN0LCBrZTAsIG1heFJlcywgdEVuZDogcm93c1tyb3dzLmxlbmd0aCAtIDFdIS50aW1lX3MsIHN0ZXBzOiByb3dzW3Jvd3MubGVuZ3RoIC0gMV0hLnN0ZXAgfTsKICB9LCBbcm93c10pOwoKICBpZiAoIXJvd3MubGVuZ3RoIHx8ICFpbmZvKSByZXR1cm4gKDxkaXYgY2xhc3NOYW1lPSJmbGV4IGgtc2NyZWVuIGZsZXgtY29sIGJnLWJhY2tncm91bmQiPjxTaXRlTmF2IC8+PHAgY2xhc3NOYW1lPSJwLTggZm9udC1tb25vIHRleHQtc20gdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj5Mb2FkaW5nIHJlY29yZGVkIHJ1buKApjwvcD48L2Rpdj4pOwoKICBjb25zdCByID0gcm93c1tpXSE7CiAgY29uc3QgcGggPSAoKCkgPT4geyBjb25zdCBwID0gcGhhc2VPZihyLCBpbmZvLnBlYWsudGltZV9zLCBpbmZvLmNvbnRhY3QudGltZV9zKTsgaWYgKHAubmFtZSA9PT0gIlByb2dyZXNzaXZlIGNydXNoIiAmJiByLmtlX0ogPCAwLjAzICogaW5mby5rZTApIHJldHVybiBwaGFzZU9mKHsgLi4uciwga2VfSjogMCB9LCBpbmZvLnBlYWsudGltZV9zLCBpbmZvLmNvbnRhY3QudGltZV9zKTsgcmV0dXJuIHA7IH0pKCk7CiAgY29uc3Qgc3RhZ2UgPSBpICUgNTsKICBjb25zdCBrZXlzID0gWyJzMV9zcHJpbmdfcyIsICJzMl9hc3NlbWJseV9zIiwgInMzX2NvbnRhY3RfcyIsICJzNF9pbnRlZ19zIiwgInM1X2NmbF9zIl07CiAgY29uc3QgbXggPSBNYXRoLm1heCguLi50aHIubWFwKCh0KSA9PiB0LnRvdGFsX2FjdGl2ZV9zKSwgMWUtOSk7CiAgY29uc3QgbWVhbiA9IHRoci5yZWR1Y2UoKGEsIHQpID0+IGEgKyB0LnRvdGFsX2FjdGl2ZV9zLCAwKSAvICh0aHIubGVuZ3RoIHx8IDEpOwogIGNvbnN0IG1zID0gKHM6IG51bWJlcikgPT4gKHMgKiAxMDAwKS50b0ZpeGVkKDIpOwoKICAvLyB0ZWxlbWV0cnkgY2hhcnQKICBjb25zdCBXID0gMTAwMCwgSCA9IDI2MCwgUCA9IDM2OwogIGNvbnN0IHB4ID0gKHQ6IG51bWJlcikgPT4gUCArICh0IC8gaW5mby50RW5kKSAqIChXIC0gMiAqIFApOwogIGNvbnN0IHNlcmllczogW3N0cmluZywgc3RyaW5nLCBzdHJpbmddW10gPSBbWyJ3YWxsX2ZvcmNlX04iLCAidmFyKC0tZGVzdHJ1Y3RpdmUpIiwgIldhbGwgZm9yY2UiXSwgWyJrZV9KIiwgInZhcigtLWNoYXJ0LTEpIiwgIktpbmV0aWMgZW5lcmd5Il0sIFsicGxhc3RpY19lX0oiLCAidmFyKC0tY2hhcnQtMykiLCAiUGxhc3RpYyB3b3JrIl0sIFsic3RyYWluX2VfSiIsICJ2YXIoLS1jaGFydC0yKSIsICJFbGFzdGljIHN0cmFpbiJdLCBbInRvdGFsX2VfSiIsICJ2YXIoLS1jaGFydC01KSIsICJUb3RhbCBlbmVyZ3kiXV07CiAgY29uc3QgcGF0aCA9IChrOiBzdHJpbmcpID0+IHsgY29uc3QgbSA9IE1hdGgubWF4KC4uLnJvd3MubWFwKCh4KSA9PiBNYXRoLmFicyhnKHgsIGspKSkpIHx8IDE7IHJldHVybiByb3dzLm1hcCgoeCwgaikgPT4gYCR7aiA/ICJMIiA6ICJNIn0ke3B4KHgudGltZV9zKS50b0ZpeGVkKDEpfSAkeyhIIC0gUCAtIChnKHgsIGspIC8gbSkgKiAoSCAtIDIgKiBQKSkudG9GaXhlZCgxKX1gKS5qb2luKCIgIik7IH07CgogIGNvbnN0IHMxMDA6IFJvd1tdID0gc2NhbC5maWx0ZXIoKHMpID0+IChzLnNjYWxlIGFzIHVua25vd24gYXMgc3RyaW5nKSA9PT0gIjEwMGsiKTsKICBjb25zdCBzNTAwOiBSb3dbXSA9IHNjYWwuZmlsdGVyKChzKSA9PiAocy5zY2FsZSBhcyB1bmtub3duIGFzIHN0cmluZykgPT09ICI1MDBrIik7CiAgY29uc3QgZVRlcm1zOiBbc3RyaW5nLCBudW1iZXIsIHN0cmluZ11bXSA9IFtbIktpbmV0aWMiLCByLmtlX0osIGNvbCgwKV0sIFsiRWxhc3RpYyBzdHJhaW4iLCByLnN0cmFpbl9lX0osIGNvbCgxKV0sIFsiUGxhc3RpYyB3b3JrIiwgci5wbGFzdGljX2VfSiwgY29sKDIpXSwgWyJXYWxsIHdvcmsiLCByLndhbGxfZV9KLCBjb2woMyldLCBbIkRhbXBpbmciLCByLmRhbXBfZV9KLCBjb2woNCldXTsKCiAgcmV0dXJuICgKICAgIDxkaXYgY2xhc3NOYW1lPSJtaW4taC1zY3JlZW4gYmctYmFja2dyb3VuZCB0ZXh0LWZvcmVncm91bmQiPgogICAgICA8U2l0ZU5hdiAvPgogICAgICA8aGVhZGVyIGNsYXNzTmFtZT0ic3RpY2t5IHRvcC0wIHotMTAgYm9yZGVyLWIgYm9yZGVyLWJvcmRlciBiZy1jYXJkLzk1IHB4LTYgcHktMyBiYWNrZHJvcC1ibHVyIj4KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBmbGV4LXdyYXAgaXRlbXMtY2VudGVyIGdhcC00Ij4KICAgICAgICAgIDxMaW5rIHRvPSIvIiBjbGFzc05hbWU9ImZvbnQtbW9ubyB0ZXh0LXhzIHVwcGVyY2FzZSB0cmFja2luZy13aWRlc3QgdGV4dC1wcmltYXJ5IGhvdmVyOnVuZGVybGluZSI+4oaQIEJhY2sgdG8gM0Qgc3R1ZGlvPC9MaW5rPgogICAgICAgICAgPGgxIGNsYXNzTmFtZT0idGV4dC1sZyBmb250LXNlbWlib2xkIj5Xb3JrbG9hZCBhbmFseXNpcyDCtyBzdGFydCB0byBlbmQ8L2gxPgogICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJtbC1hdXRvIGZvbnQtbW9ubyB0ZXh0LXhzIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+UmVjb3JkZWQgQysrL09wZW5NUCBydW4gwrcge3Jvd3MubGVuZ3RofSBzYW1wbGVzIMK3IHsoaW5mby50RW5kICogMTAwMCkudG9GaXhlZCgxKX0gbXMgwrcgc3RlcCB7aW5mby5zdGVwcy50b0xvY2FsZVN0cmluZygpfTwvc3Bhbj4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtMyBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyI+CiAgICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9eygpID0+IHsgaWYgKGkgPj0gcm93cy5sZW5ndGggLSAxKSBzZXRJKDApOyBzZXRQbGF5KCFwbGF5KTsgfX0gY2xhc3NOYW1lPSJib3JkZXIgYm9yZGVyLXByaW1hcnkgcHgtMyBweS0xIGZvbnQtbW9ubyB0ZXh0LXhzIHVwcGVyY2FzZSB0ZXh0LXByaW1hcnkgaG92ZXI6YmctcHJpbWFyeSBob3Zlcjp0ZXh0LXByaW1hcnktZm9yZWdyb3VuZCI+e3BsYXkgPyAiUGF1c2UiIDogIlBsYXkifTwvYnV0dG9uPgogICAgICAgICAgPGJ1dHRvbiBvbkNsaWNrPXsoKSA9PiB7IHNldFBsYXkoZmFsc2UpOyBzZXRJKDApOyB9fSBjbGFzc05hbWU9ImJvcmRlciBib3JkZXItYm9yZGVyIHB4LTMgcHktMSBmb250LW1vbm8gdGV4dC14cyB1cHBlcmNhc2UgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj5SZXNldDwvYnV0dG9uPgogICAgICAgICAgPGlucHV0IHR5cGU9InJhbmdlIiBtaW49ezB9IG1heD17cm93cy5sZW5ndGggLSAxfSB2YWx1ZT17aX0gb25DaGFuZ2U9eyhlKSA9PiBzZXRJKCtlLnRhcmdldC52YWx1ZSl9IGNsYXNzTmFtZT0iZmxleC0xIGFjY2VudC1bdmFyKC0tcHJpbWFyeSldIiAvPgogICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJ3LTU2IHRleHQtcmlnaHQgZm9udC1tb25vIHRleHQteHMiPnQgPSB7KHIudGltZV9zICogMTAwMCkudG9GaXhlZCgyKX0gbXMgwrcgc3RlcCB7ci5zdGVwLnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPgogICAgICAgIDwvZGl2PgogICAgICA8L2hlYWRlcj4KCiAgICAgIDxtYWluIGNsYXNzTmFtZT0ibXgtYXV0byBncmlkIG1heC13LTd4bCBnYXAtNiBweC02IHB5LTYiPgogICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0iZ3JpZCBnYXAtNCBtZDpncmlkLWNvbHMtWzEuMmZyXzFmcl0iPgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImJvcmRlciBib3JkZXItYm9yZGVyIGJnLWNhcmQgcC00Ij4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJmb250LW1vbm8gdGV4dC14cyB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXN0IHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+Q3VycmVudCBwaGFzZTwvcD4KICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT0ibXQtMSB0ZXh0LTJ4bCBmb250LXNlbWlib2xkIHRleHQtcHJpbWFyeSI+e3BoLm5hbWV9PC9oMj4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJtdC0yIHRleHQtc20gdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj57cGgudGV4dH08L3A+CiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJtdC00IGZsZXggaC0yIHctZnVsbCBiZy1zZWNvbmRhcnkiPgogICAgICAgICAgICAgIHtbWyJBcHByb2FjaCIsIGluZm8uY29udGFjdC50aW1lX3NdLCBbIkNydXNoIG9uc2V0IiwgaW5mby5wZWFrLnRpbWVfc10sIFsiQ3J1c2ggJiByZWJvdW5kIiwgaW5mby50RW5kXV0ubWFwKChbbiwgdF0sIGssIGEpID0+IHsgY29uc3QgdDAgPSBrID8gKGFbayAtIDFdIVsxXSBhcyBudW1iZXIpIDogMDsgcmV0dXJuIDxkaXYga2V5PXtuIGFzIHN0cmluZ30gdGl0bGU9e24gYXMgc3RyaW5nfSBzdHlsZT17eyB3aWR0aDogYCR7KCgodCBhcyBudW1iZXIpIC0gdDApIC8gaW5mby50RW5kKSAqIDEwMH0lYCwgYmFja2dyb3VuZDogY29sKGspIH19IC8+OyB9KX0KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJyZWxhdGl2ZSBoLTMiPjxkaXYgY2xhc3NOYW1lPSJhYnNvbHV0ZSB0b3AtMCBoLTMgdy0wLjUgYmctZm9yZWdyb3VuZCIgc3R5bGU9e3sgbGVmdDogYCR7KHIudGltZV9zIC8gaW5mby50RW5kKSAqIDEwMH0lYCB9fSAvPjwvZGl2PgogICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZ3JpZCBncmlkLWNvbHMtMiBnYXAtMiI+CiAgICAgICAgICAgIHtbWyJXYWxsIGZvcmNlIiwgYCR7KHIud2FsbF9mb3JjZV9OIC8gMTAwMCkudG9GaXhlZCgxKX0ga05gXSwgWyJQZWFrIGZvcmNlIiwgYCR7KGluZm8ucGVhay53YWxsX2ZvcmNlX04gLyAxMDAwKS50b0ZpeGVkKDEpfSBrTiBAICR7KGluZm8ucGVhay50aW1lX3MgKiAxMDAwKS50b0ZpeGVkKDEpfSBtc2BdLCBbIkludHJ1c2lvbiIsIGAkeyhyLm1heF9pbnRydXNpb25fbSAqIDEwMDApLnRvRml4ZWQoMSl9IG1tYF0sIFsiU3BlZWQgKGZyb20gS0UpIiwgYCR7KE1hdGguc3FydChNYXRoLm1heChyLmtlX0osIDApIC8gaW5mby5rZTApICogNTYpLnRvRml4ZWQoMSl9IGttL2hgXSwgWyJFbmVyZ3kgYWJzb3JiZWQiLCBgJHsoKChpbmZvLmtlMCAtIHIua2VfSikgLyBpbmZvLmtlMCkgKiAxMDApLnRvRml4ZWQoMSl9ICVgXSwgWyJFbmVyZ3kgcmVzaWR1YWwiLCBgJHtyLnJlc2lkdWFsX3BjdC50b0ZpeGVkKDQpfSAlYF1dLm1hcCgoW2ssIHZdKSA9PiAoCiAgICAgICAgICAgICAgPGRpdiBrZXk9e2t9IGNsYXNzTmFtZT0iYm9yZGVyIGJvcmRlci1ib3JkZXIgYmctY2FyZCBwLTMiPjxwIGNsYXNzTmFtZT0iZm9udC1tb25vIHRleHQtWzEwcHhdIHVwcGVyY2FzZSB0cmFja2luZy13aWRlc3QgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj57a308L3A+PHAgY2xhc3NOYW1lPSJtdC0xIGZvbnQtbW9ubyB0ZXh0LWJhc2UiPnt2fTwvcD48L2Rpdj4KICAgICAgICAgICAgKSl9CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L3NlY3Rpb24+CgogICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0iYm9yZGVyIGJvcmRlci1ib3JkZXIgYmctY2FyZCBwLTQiPgogICAgICAgICAgPGgyIGNsYXNzTmFtZT0iZm9udC1tb25vIHRleHQteHMgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCB0ZXh0LW11dGVkLWZvcmVncm91bmQiPjEgwrcgVGFzayBkZXBlbmRlbmN5IGdyYXBoIOKAlCB3aGF0IHJ1bnMgaW4gZXZlcnkgb25lIG9mIHRoZSB7aW5mby5zdGVwcy50b0xvY2FsZVN0cmluZygpfSBzdGVwczwvaDI+CiAgICAgICAgICA8c3ZnIHZpZXdCb3g9IjAgMCAxMDAwIDE1MCIgY2xhc3NOYW1lPSJtdC0zIHctZnVsbCI+CiAgICAgICAgICAgIDxkZWZzPjxtYXJrZXIgaWQ9ImFyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG1hcmtlcldpZHRoPSI2IiBtYXJrZXJIZWlnaHQ9IjYiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTTAgMEwxMCA1TDAgMTB6IiBmaWxsPSJ2YXIoLS1tdXRlZC1mb3JlZ3JvdW5kKSIgLz48L21hcmtlcj48L2RlZnM+CiAgICAgICAgICAgIHtTVEFHRVMubWFwKChzLCBrKSA9PiB7IGNvbnN0IHggPSAxMDAgKyBrICogMjAwOyBjb25zdCBvbiA9IGsgPT09IHN0YWdlOyByZXR1cm4gKAogICAgICAgICAgICAgIDxnIGtleT17cy5pZH0+CiAgICAgICAgICAgICAgICA8cmVjdCB4PXt4IC0gODV9IHk9ezIwfSB3aWR0aD17MTcwfSBoZWlnaHQ9ezYwfSBmaWxsPXtvbiA/ICJ2YXIoLS1zZWNvbmRhcnkpIiA6ICJ2YXIoLS1iYWNrZ3JvdW5kKSJ9IHN0cm9rZT17b24gPyBjb2woaykgOiAidmFyKC0tYm9yZGVyKSJ9IHN0cm9rZVdpZHRoPXtvbiA/IDIuNSA6IDF9IC8+CiAgICAgICAgICAgICAgICA8dGV4dCB4PXt4fSB5PXs0NX0gdGV4dEFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ2YXIoLS1mb3JlZ3JvdW5kKSIgZm9udFNpemU9IjE0Ij57cy5pZH0gwrcge3MubmFtZX08L3RleHQ+CiAgICAgICAgICAgICAgICA8dGV4dCB4PXt4fSB5PXs2Nn0gdGV4dEFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ2YXIoLS1tdXRlZC1mb3JlZ3JvdW5kKSIgZm9udFNpemU9IjkiIGZvbnRGYW1pbHk9Im1vbm9zcGFjZSI+e3Mub21wLnNsaWNlKDAsIDMwKX08L3RleHQ+CiAgICAgICAgICAgICAgICB7ayA8IDQgJiYgPD48bGluZSB4MT17eCArIDg3fSB5MT17NTB9IHgyPXt4ICsgMTEzfSB5Mj17NTB9IHN0cm9rZT0idmFyKC0tbXV0ZWQtZm9yZWdyb3VuZCkiIG1hcmtlckVuZD0idXJsKCNhcikiIC8+PGxpbmUgeDE9e3ggKyAxMDB9IHkxPXsxMn0geDI9e3ggKyAxMDB9IHkyPXs5Mn0gc3Ryb2tlPSJ2YXIoLS1kZXN0cnVjdGl2ZSkiIHN0cm9rZURhc2hhcnJheT0iMyAzIiAvPjx0ZXh0IHg9e3ggKyAxMDB9IHk9ezEwNH0gdGV4dEFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ2YXIoLS1kZXN0cnVjdGl2ZSkiIGZvbnRTaXplPSI5IiBmb250RmFtaWx5PSJtb25vc3BhY2UiPmJhcnJpZXI8L3RleHQ+PC8+fQogICAgICAgICAgICAgIDwvZz4pOyB9KX0KICAgICAgICAgICAgPHBhdGggZD0iTTkwMCA4MCBROTAwIDE0MCA1MDAgMTQwIFExMDAgMTQwIDEwMCA4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ2YXIoLS1wcmltYXJ5KSIgc3Ryb2tlRGFzaGFycmF5PSI0IDQiIG1hcmtlckVuZD0idXJsKCNhcikiIC8+CiAgICAgICAgICAgIDx0ZXh0IHg9ezUwMH0geT17MTM0fSB0ZXh0QW5jaG9yPSJtaWRkbGUiIGZpbGw9InZhcigtLXByaW1hcnkpIiBmb250U2l6ZT0iMTAiIGZvbnRGYW1pbHk9Im1vbm9zcGFjZSI+c3RlcCBuKzEgdXNlcyBkdCBmcm9tIFM1PC90ZXh0PgogICAgICAgICAgPC9zdmc+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtNCBncmlkIGdhcC0zIG1kOmdyaWQtY29scy01Ij4KICAgICAgICAgICAge1NUQUdFUy5tYXAoKHMsIGspID0+ICgKICAgICAgICAgICAgICA8YnV0dG9uIGtleT17cy5pZH0gb25DbGljaz17KCkgPT4gc2V0SShpIC0gKGkgJSA1KSArIGspfSBjbGFzc05hbWU9e2Bib3JkZXIgcC0zIHRleHQtbGVmdCB0ZXh0LXhzICR7ayA9PT0gc3RhZ2UgPyAiYm9yZGVyLXByaW1hcnkgYmctc2Vjb25kYXJ5IiA6ICJib3JkZXItYm9yZGVyIn1gfT4KICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0iZm9udC1tb25vIHVwcGVyY2FzZSIgc3R5bGU9e3sgY29sb3I6IGNvbChrKSB9fT57cy5pZH0gwrcge3MubmFtZX08L3A+CiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9Im10LTEgZm9udC1tb25vIHRleHQtWzEwcHhdIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+e3Mub21wfTwvcD4KICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0ibXQtMiB0ZXh0LW11dGVkLWZvcmVncm91bmQiPntzLnRleHR9PC9wPgogICAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgICApKX0KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvc2VjdGlvbj4KCiAgICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPSJib3JkZXIgYm9yZGVyLWJvcmRlciBiZy1jYXJkIHAtNCI+CiAgICAgICAgICA8aDIgY2xhc3NOYW1lPSJmb250LW1vbm8gdGV4dC14cyB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXN0IHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+MiDCtyBUaHJlYWQgbG9hZCDigJQgd2hvIGRvZXMgaG93IG11Y2gsIGFuZCB3aG8gd2FpdHM8L2gyPgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im10LTMgZ3JpZCBnYXAtMiI+CiAgICAgICAgICAgIHt0aHIubWFwKCh0KSA9PiAoCiAgICAgICAgICAgICAgPGRpdiBrZXk9e3QudGhyZWFkX2lkfSBjbGFzc05hbWU9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIHRleHQteHMiPgogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJ3LTI4IGZvbnQtbW9ubyI+VHt0LnRocmVhZF9pZH0gwrcgY3B1IHt0LmNwdV9pZH08L3NwYW4+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBoLTYgZmxleC0xIGJnLXNlY29uZGFyeSI+CiAgICAgICAgICAgICAgICAgIHtrZXlzLm1hcCgoaywgcykgPT4gPGRpdiBrZXk9e2t9IHRpdGxlPXtgJHtTVEFHRVNbc10hLmlkfTogJHttcyhnKHQsIGspKX0gbXNgfSBzdHlsZT17eyB3aWR0aDogYCR7KGcodCwgaykgLyBteCkgKiAxMDB9JWAsIGJhY2tncm91bmQ6IGNvbChzKSwgb3BhY2l0eTogcyA9PT0gc3RhZ2UgPyAxIDogMC41NSB9fSAvPil9CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0idy00MCB0ZXh0LXJpZ2h0IGZvbnQtbW9ubyB0ZXh0LW11dGVkLWZvcmVncm91bmQiPnttcyh0LnRvdGFsX2FjdGl2ZV9zKX0gbXMgwrcgaWRsZSB7bXMobXggLSB0LnRvdGFsX2FjdGl2ZV9zKX08L3NwYW4+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICkpfQogICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8cCBjbGFzc05hbWU9Im10LTMgdGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQiPgogICAgICAgICAgICBMb2FkIGltYmFsYW5jZSAobWF4IC8gbWVhbikgPSA8YiBjbGFzc05hbWU9ImZvbnQtbW9ubyB0ZXh0LWZvcmVncm91bmQiPnsobXggLyBtZWFuKS50b0ZpeGVkKDIpfTwvYj4uIFRoZSBncmV5IHRhaWwgb24gZWFjaCBiYXIgaXMgdGltZSB0aGF0IHRocmVhZCBzcGVuZHMgd2FpdGluZyBhdCB0aGUgYmFycmllciBmb3IgdGhlIHNsb3dlc3Qgb25lLiBTMSBzcHJpbmcgZm9yY2VzIHRha2V7IiAifQogICAgICAgICAgICA8YiBjbGFzc05hbWU9ImZvbnQtbW9ubyB0ZXh0LWZvcmVncm91bmQiPnsoKHRoci5yZWR1Y2UoKGEsIHQpID0+IGEgKyB0LnMxX3NwcmluZ19zLCAwKSAvIHRoci5yZWR1Y2UoKGEsIHQpID0+IGEgKyB0LnRvdGFsX2FjdGl2ZV9zLCAwKSkgKiAxMDApLnRvRml4ZWQoMCl9ICU8L2I+IG9mIGFsbCB0aHJlYWQgdGltZSwgc28gaXQgaXMgd2hlcmUgYmFsYW5jaW5nIHBheXMgb2ZmIG1vc3QuIFRocmVhZHMgb24gZWZmaWNpZW5jeSBjb3JlcyBmaW5pc2ggbGF0ZXIgdGhhbiB0aG9zZSBvbiBwZXJmb3JtYW5jZSBjb3Jlcy4KICAgICAgICAgIDwvcD4KICAgICAgICAgIHtzMTAwLmxlbmd0aCA+IDAgJiYgKAogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtNCBvdmVyZmxvdy14LWF1dG8iPgogICAgICAgICAgICAgIDx0YWJsZSBjbGFzc05hbWU9InctZnVsbCBmb250LW1vbm8gdGV4dC14cyI+CiAgICAgICAgICAgICAgICA8dGhlYWQ+PHRyIGNsYXNzTmFtZT0idGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj48dGggY2xhc3NOYW1lPSJ0ZXh0LWxlZnQiPlRocmVhZHM8L3RoPntzMTAwLm1hcCgocykgPT4gPHRoIGtleT17cy50aHJlYWRzfSBjbGFzc05hbWU9InRleHQtcmlnaHQiPntzLnRocmVhZHN9PC90aD4pfTwvdHI+PC90aGVhZD4KICAgICAgICAgICAgICAgIDx0Ym9keT4KICAgICAgICAgICAgICAgICAgPHRyPjx0ZD5TcGVlZHVwIDEwMGs8L3RkPntzMTAwLm1hcCgocykgPT4gPHRkIGtleT17cy50aHJlYWRzfSBjbGFzc05hbWU9InRleHQtcmlnaHQiPntzLnNwZWVkdXAudG9GaXhlZCgyKX3DlzwvdGQ+KX08L3RyPgogICAgICAgICAgICAgICAgICA8dHI+PHRkPlNwZWVkdXAgNTAwazwvdGQ+e3M1MDAubWFwKChzKSA9PiA8dGQga2V5PXtzLnRocmVhZHN9IGNsYXNzTmFtZT0idGV4dC1yaWdodCI+e3Muc3BlZWR1cC50b0ZpeGVkKDIpfcOXPC90ZD4pfTwvdHI+CiAgICAgICAgICAgICAgICAgIDx0cj48dGQ+RWZmaWNpZW5jeSAxMDBrPC90ZD57czEwMC5tYXAoKHMpID0+IDx0ZCBrZXk9e3MudGhyZWFkc30gY2xhc3NOYW1lPSJ0ZXh0LXJpZ2h0Ij57KHMuZWZmaWNpZW5jeSAqIDEwMCkudG9GaXhlZCgwKX0lPC90ZD4pfTwvdHI+CiAgICAgICAgICAgICAgICA8L3Rib2R5PgogICAgICAgICAgICAgIDwvdGFibGU+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgKX0KICAgICAgICA8L3NlY3Rpb24+CgogICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0iYm9yZGVyIGJvcmRlci1ib3JkZXIgYmctY2FyZCBwLTQiPgogICAgICAgICAgPGgyIGNsYXNzTmFtZT0iZm9udC1tb25vIHRleHQteHMgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCB0ZXh0LW11dGVkLWZvcmVncm91bmQiPjMgwrcgVGVsZW1ldHJ5IOKAlCB0aGUgd2hvbGUgY3Jhc2gsIG5vcm1hbGlzZWQ8L2gyPgogICAgICAgICAgPHN2ZyB2aWV3Qm94PXtgMCAwICR7V30gJHtIfWB9IGNsYXNzTmFtZT0ibXQtMyB3LWZ1bGwiPgogICAgICAgICAgICA8bGluZSB4MT17UH0geTE9e0ggLSBQfSB4Mj17VyAtIFB9IHkyPXtIIC0gUH0gc3Ryb2tlPSJ2YXIoLS1ib3JkZXIpIiAvPjxsaW5lIHgxPXtQfSB5MT17UH0geDI9e1B9IHkyPXtIIC0gUH0gc3Ryb2tlPSJ2YXIoLS1ib3JkZXIpIiAvPgogICAgICAgICAgICA8cmVjdCB4PXtweChpbmZvLmNvbnRhY3QudGltZV9zKX0geT17UH0gd2lkdGg9e3B4KGluZm8ucGVhay50aW1lX3MpIC0gcHgoaW5mby5jb250YWN0LnRpbWVfcyl9IGhlaWdodD17SCAtIDIgKiBQfSBmaWxsPSJ2YXIoLS1kZXN0cnVjdGl2ZSkiIG9wYWNpdHk9ezAuMDh9IC8+CiAgICAgICAgICAgIHtzZXJpZXMubWFwKChbaywgY10pID0+IDxwYXRoIGtleT17a30gZD17cGF0aChrKX0gZmlsbD0ibm9uZSIgc3Ryb2tlPXtjfSBzdHJva2VXaWR0aD17MS42fSAvPil9CiAgICAgICAgICAgIDxsaW5lIHgxPXtweChyLnRpbWVfcyl9IHgyPXtweChyLnRpbWVfcyl9IHkxPXtQfSB5Mj17SCAtIFB9IHN0cm9rZT0idmFyKC0tZm9yZWdyb3VuZCkiIC8+CiAgICAgICAgICAgIDx0ZXh0IHg9e1cgLSBQfSB5PXtIIC0gMTB9IHRleHRBbmNob3I9ImVuZCIgZmlsbD0idmFyKC0tbXV0ZWQtZm9yZWdyb3VuZCkiIGZvbnRTaXplPSIxMSIgZm9udEZhbWlseT0ibW9ub3NwYWNlIj57KGluZm8udEVuZCAqIDEwMDApLnRvRml4ZWQoMSl9IG1zPC90ZXh0PgogICAgICAgICAgICA8dGV4dCB4PXtQfSB5PXtIIC0gMTB9IGZpbGw9InZhcigtLW11dGVkLWZvcmVncm91bmQpIiBmb250U2l6ZT0iMTEiIGZvbnRGYW1pbHk9Im1vbm9zcGFjZSI+MCBtczwvdGV4dD4KICAgICAgICAgIDwvc3ZnPgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im10LTIgZmxleCBmbGV4LXdyYXAgZ2FwLTQgdGV4dC14cyI+e3Nlcmllcy5tYXAoKFtrLCBjLCBuXSkgPT4gPHNwYW4ga2V5PXtrfSBjbGFzc05hbWU9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0xIj48aSBjbGFzc05hbWU9ImlubGluZS1ibG9jayBoLTIgdy0zIiBzdHlsZT17eyBiYWNrZ3JvdW5kOiBjIH19IC8+e259OiA8YiBjbGFzc05hbWU9ImZvbnQtbW9ubyI+e2sgPT09ICJ3YWxsX2ZvcmNlX04iID8gYCR7KGcociwgaykgLyAxMDAwKS50b0ZpeGVkKDEpfSBrTmAgOiBgJHsoZyhyLCBrKSAvIDEwMDApLnRvRml4ZWQoMSl9IGtKYH08L2I+PC9zcGFuPil9PC9kaXY+CiAgICAgICAgICA8aDMgY2xhc3NOYW1lPSJtdC01IGZvbnQtbW9ubyB0ZXh0LXhzIHVwcGVyY2FzZSB0cmFja2luZy13aWRlc3QgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj5XaGVyZSB0aGUgZW5lcmd5IGlzIHJpZ2h0IG5vdzwvaDM+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtMiBmbGV4IGgtNiB3LWZ1bGwgYmctc2Vjb25kYXJ5Ij57ZVRlcm1zLm1hcCgoW24sIHYsIGNdKSA9PiA8ZGl2IGtleT17bn0gdGl0bGU9e2Ake259OiAkeyh2IC8gMTAwMCkudG9GaXhlZCgxKX0ga0pgfSBzdHlsZT17eyB3aWR0aDogYCR7KE1hdGgubWF4KHYsIDApIC8gci50b3RhbF9lX0opICogMTAwfSVgLCBiYWNrZ3JvdW5kOiBjIH19IC8+KX08L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJtdC0yIGZsZXggZmxleC13cmFwIGdhcC00IHRleHQteHMgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj57ZVRlcm1zLm1hcCgoW24sIHYsIGNdKSA9PiA8c3BhbiBrZXk9e259PjxpIGNsYXNzTmFtZT0ibXItMSBpbmxpbmUtYmxvY2sgaC0yIHctMyIgc3R5bGU9e3sgYmFja2dyb3VuZDogYyB9fSAvPntufSB7KChNYXRoLm1heCh2LCAwKSAvIHIudG90YWxfZV9KKSAqIDEwMCkudG9GaXhlZCgxKX0lPC9zcGFuPil9PC9kaXY+CiAgICAgICAgICA8cCBjbGFzc05hbWU9Im10LTMgdGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQiPlRvdGFsIGVuZXJneSBzdGF5cyBmbGF0IHdoaWxlIGl0IG1vdmVzIGZyb20ga2luZXRpYyBpbnRvIHBsYXN0aWMgd29yazogdGhlIHdvcnN0IHJlc2lkdWFsIG92ZXIgdGhlIHJ1biBpcyA8YiBjbGFzc05hbWU9ImZvbnQtbW9ubyB0ZXh0LWZvcmVncm91bmQiPntpbmZvLm1heFJlcy50b0ZpeGVkKDQpfSAlPC9iPiwgdW5kZXIgdGhlIDAuMSAlIGNvcnJlY3RuZXNzIGdhdGUuPC9wPgogICAgICAgIDwvc2VjdGlvbj4KCiAgICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPSJib3JkZXIgYm9yZGVyLWJvcmRlciBiZy1jYXJkIHAtNCB0ZXh0LXNtIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+CiAgICAgICAgICA8aDIgY2xhc3NOYW1lPSJmb250LW1vbm8gdGV4dC14cyB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXN0IHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+SG93IGl0IGFsbCBmaXRzIHRvZ2V0aGVyPC9oMj4KICAgICAgICAgIDxvbCBjbGFzc05hbWU9Im10LTIgbGlzdC1kZWNpbWFsIHNwYWNlLXktMSBwbC01Ij4KICAgICAgICAgICAgPGxpPlRoZSB2ZWhpY2xlIGlzIGEgbGF0dGljZSBvZiBub2RlcyBhbmQgc3ByaW5ncywgc3BsaXQgaW50byBjb250aWd1b3VzIHNsYWJzIGFsb25nIGl0cyBsZW5ndGgsIG9uZSBzbGFiIHBlciBPcGVuTVAgdGhyZWFkLjwvbGk+CiAgICAgICAgICAgIDxsaT5FdmVyeSAyLjUgwrVzIHN0ZXAgcnVucyBTMSDihpIgUzU7IGJhcnJpZXJzIGJldHdlZW4gc3RhZ2VzIGtlZXAgYWxsIHRocmVhZHMgaW4gbG9jay1zdGVwLjwvbGk+CiAgICAgICAgICAgIDxsaT5QaGFzZXMgYWJvdmUgKGFwcHJvYWNoLCBjcnVzaCwgcmVib3VuZCkgY2hhbmdlIHRoZSBwaHlzaWNzLCBub3QgdGhlIHBlci1zdGVwIHdvcms6IGV2ZXJ5IHN0ZXAgY29zdHMgYWJvdXQgdGhlIHNhbWUsIHNvIHRoZSBzcGVlZHVwIG1lYXN1cmVkIG9uIDEwMCBzdGVwcyBob2xkcyBmb3IgdGhlIHdob2xlIHJ1bi48L2xpPgogICAgICAgICAgICA8bGk+VGhlIHN0ZXAgaXMgbWVtb3J5LWJvdW5kLCBzbyBzcGVlZHVwIGZsYXR0ZW5zIHBhc3QgYWJvdXQgOCB0aHJlYWRzOyB0aGUgcmVjb21tZW5kZWQgbmV4dCB0aWVyIGlzIE1QSSBhY3Jvc3Mgbm9kZXMgcGx1cyBHUFUga2VybmVscyBmb3IgUzEsIFMyIGFuZCBTNC48L2xpPgogICAgICAgICAgPC9vbD4KICAgICAgICAgIDxwIGNsYXNzTmFtZT0ibXQtMyB0ZXh0LXhzIj5BbGwgbnVtYmVycyBsb2FkIGZyb20gdGhlIHJlY29yZGVkIHJlc3VsdCBmaWxlcyBvZiB0aGUgQysrIHJ1bjsgbm90aGluZyBvbiB0aGlzIHBhZ2UgaXMgc2ltdWxhdGVkIGluIHRoZSBicm93c2VyLjwvcD4KICAgICAgICA8L3NlY3Rpb24+CiAgICAgIDwvbWFpbj4KICAgIDwvZGl2PgogICk7Cn0K
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { SiteNav } from "@/components/SiteNav";
+
+export const Route = createFileRoute("/analysis")({
+  head: () => ({
+    meta: [
+      { title: "Workload Analysis | Crash-Simulation Step-by-Step Walkthrough" },
+      { name: "description", content: "Full-screen walkthrough of the 56 km/h crash run: task dependency graph, per-thread load and telemetry from first step to last." },
+      { property: "og:title", content: "Workload Analysis | Crash-Simulation Step-by-Step Walkthrough" },
+      { property: "og:description", content: "Task dependency graph, thread load and telemetry of the recorded OpenMP crash run, from impact start to end." },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: Analysis,
+});
+
+interface Row { step: number; time_s: number; wall_force_N: number; max_intrusion_m: number; ke_J: number; strain_e_J: number; wall_e_J: number; damp_e_J: number; plastic_e_J: number; total_e_J: number; residual_pct: number; thread_id: number; cpu_id: number; s1_spring_s: number; s2_assembly_s: number; s3_contact_s: number; s4_integ_s: number; s5_cfl_s: number; total_active_s: number; threads: number; speedup: number; efficiency: number; scale: number; }
+const g = (x: Row, k: string) => (x as unknown as Record<string, number>)[k] ?? 0;
+const parse = (t: string): Row[] => {
+  const [h, ...l] = t.trim().split(/\r?\n/);
+  const k = h!.split(",");
+  return l.map((s) => Object.fromEntries(s.split(",").map((v, i) => [k[i], Number(v)])) as Row);
+};
+
+const STAGES = [
+  { id: "S1", name: "Spring forces", omp: "#pragma omp for schedule(static)", text: "Every spring computes its elastoplastic force f = k·(|xj − xi| − L0 − εp). Springs past yield store permanent plastic strain, which is how the body stays crumpled. This is the heaviest stage and is memory-bound." },
+  { id: "S2", name: "Force assembly", omp: "CSR gather, owner writes only F[i]", text: "Each node sums the forces of its attached springs through a CSR neighbour list. A thread only writes the nodes it owns, so there are no data races, no atomics and no private copies." },
+  { id: "S3", name: "Contact", omp: "parallel for + spatial hash", text: "Nodes that pass the rigid wall get a penalty force pushing them back; this sum is the wall force. A spatial hash finds parts of the body folding into each other (self-contact)." },
+  { id: "S4", name: "Integration", omp: "parallel for (owner slabs)", text: "Velocity Verlet: v += a·dt, x += v·dt for every node. Each thread updates its own contiguous slab of the vehicle." },
+  { id: "S5", name: "Stable time step", omp: "reduction(min:dt)", text: "The CFL condition dt = C·min(L/c) is reduced across all threads. The next step cannot start until every thread reports, which is why S5 is a global sync point." },
+];
+const COLS_ = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)"];
+const col = (n: number) => COLS_[n % 5] ?? "var(--chart-1)";
+
+function phaseOf(r: Row, peakT: number, contactT: number) {
+  if (r.time_s < contactT) return { name: "Approach", text: "The car travels at full speed toward the barrier. No wall force yet; nearly all energy is kinetic." };
+  if (r.time_s <= peakT) return { name: "Crush onset", text: "The bumper and front rails hit the wall. Wall force climbs fast and springs in the crumple zone start to yield." };
+  if (r.ke_J > 0.05 * 1) return { name: "Progressive crush", text: "The front structure folds back. Kinetic energy turns into plastic work in the rails and hood; intrusion grows." };
+  return { name: "Rebound", text: "The car has nearly stopped. Elastic energy springs back a little and the wall force drops to zero." };
+}
+
+function Analysis() {
+  const [rows, setRows] = useState<Row[]>([]);
+  const [thr, setThr] = useState<Row[]>([]);
+  const [scal, setScal] = useState<Row[]>([]);
+  const [i, setI] = useState(0);
+  const [play, setPlay] = useState(false);
+  const raf = useRef(0);
+
+  useEffect(() => {
+    const get = (f: string) => fetch(`/studio/data/${f}`).then((r) => r.text()).then(parse);
+    get("vehicle_crash_metrics.csv").then(setRows);
+    get("thread_timing_breakdown.csv").then(setThr);
+    fetch("/studio/data/vehicle_scaling_results.csv").then((r) => r.text()).then((t) => {
+      const [h, ...l] = t.trim().split(/\r?\n/); const k = h!.split(",");
+      setScal(l.map((s) => Object.fromEntries(s.split(",").map((v, j) => [k[j], j === 0 ? (v as unknown as number) : Number(v)])) as Row));
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!play || !rows.length) return;
+    let last = performance.now();
+    const tick = (t: number) => {
+      if (t - last > 60) { last = t; setI((p) => { if (p >= rows.length - 1) { setPlay(false); return p; } return p + 1; }); }
+      raf.current = requestAnimationFrame(tick);
+    };
+    raf.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf.current);
+  }, [play, rows.length]);
+
+  const info = useMemo(() => {
+    if (!rows.length) return null;
+    const r0 = rows[0]!; const peak = rows.reduce((a, r) => (r.wall_force_N > a.wall_force_N ? r : a), r0);
+    const contact = rows.find((r) => r.wall_force_N > 0) ?? r0;
+    const ke0 = r0.ke_J;
+    const maxRes = Math.max(...rows.map((r) => Math.abs(r.residual_pct)));
+    return { peak, contact, ke0, maxRes, tEnd: rows[rows.length - 1]!.time_s, steps: rows[rows.length - 1]!.step };
+  }, [rows]);
+
+  if (!rows.length || !info) return (<div className="flex h-screen flex-col bg-background"><SiteNav /><p className="p-8 font-mono text-sm text-muted-foreground">Loading recorded run…</p></div>);
+
+  const r = rows[i]!;
+  const ph = (() => { const p = phaseOf(r, info.peak.time_s, info.contact.time_s); if (p.name === "Progressive crush" && r.ke_J < 0.03 * info.ke0) return phaseOf({ ...r, ke_J: 0 }, info.peak.time_s, info.contact.time_s); return p; })();
+  const stage = i % 5;
+  const keys = ["s1_spring_s", "s2_assembly_s", "s3_contact_s", "s4_integ_s", "s5_cfl_s"];
+  const mx = Math.max(...thr.map((t) => t.total_active_s), 1e-9);
+  const mean = thr.reduce((a, t) => a + t.total_active_s, 0) / (thr.length || 1);
+  const ms = (s: number) => (s * 1000).toFixed(2);
+
+  // telemetry chart
+  const W = 1000, H = 260, P = 36;
+  const px = (t: number) => P + (t / info.tEnd) * (W - 2 * P);
+  const series: [string, string, string][] = [["wall_force_N", "var(--destructive)", "Wall force"], ["ke_J", "var(--chart-1)", "Kinetic energy"], ["plastic_e_J", "var(--chart-3)", "Plastic work"], ["strain_e_J", "var(--chart-2)", "Elastic strain"], ["total_e_J", "var(--chart-5)", "Total energy"]];
+  const path = (k: string) => { const m = Math.max(...rows.map((x) => Math.abs(g(x, k)))) || 1; return rows.map((x, j) => `${j ? "L" : "M"}${px(x.time_s).toFixed(1)} ${(H - P - (g(x, k) / m) * (H - 2 * P)).toFixed(1)}`).join(" "); };
+
+  const s100: Row[] = scal.filter((s) => (s.scale as unknown as string) === "100k");
+  const s500: Row[] = scal.filter((s) => (s.scale as unknown as string) === "500k");
+  const eTerms: [string, number, string][] = [["Kinetic", r.ke_J, col(0)], ["Elastic strain", r.strain_e_J, col(1)], ["Plastic work", r.plastic_e_J, col(2)], ["Wall work", r.wall_e_J, col(3)], ["Damping", r.damp_e_J, col(4)]];
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <SiteNav />
+      <header className="sticky top-0 z-10 border-b border-border bg-card/95 px-6 py-3 backdrop-blur">
+        <div className="flex flex-wrap items-center gap-4">
+          <Link to="/" className="font-mono text-xs uppercase tracking-widest text-primary hover:underline">← Back to 3D studio</Link>
+          <h1 className="text-lg font-semibold">Workload analysis · start to end</h1>
+          <span className="ml-auto font-mono text-xs text-muted-foreground">Recorded C++/OpenMP run · {rows.length} samples · {(info.tEnd * 1000).toFixed(1)} ms · step {info.steps.toLocaleString()}</span>
+        </div>
+        <div className="mt-3 flex items-center gap-3">
+          <button onClick={() => { if (i >= rows.length - 1) setI(0); setPlay(!play); }} className="border border-primary px-3 py-1 font-mono text-xs uppercase text-primary hover:bg-primary hover:text-primary-foreground">{play ? "Pause" : "Play"}</button>
+          <button onClick={() => { setPlay(false); setI(0); }} className="border border-border px-3 py-1 font-mono text-xs uppercase text-muted-foreground">Reset</button>
+          <input type="range" min={0} max={rows.length - 1} value={i} onChange={(e) => setI(+e.target.value)} className="flex-1 accent-[var(--primary)]" />
+          <span className="w-56 text-right font-mono text-xs">t = {(r.time_s * 1000).toFixed(2)} ms · step {r.step.toLocaleString()}</span>
+        </div>
+      </header>
+
+      <main className="mx-auto grid max-w-7xl gap-6 px-6 py-6">
+        <section className="grid gap-4 md:grid-cols-[1.2fr_1fr]">
+          <div className="border border-border bg-card p-4">
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Current phase</p>
+            <h2 className="mt-1 text-2xl font-semibold text-primary">{ph.name}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{ph.text}</p>
+            <div className="mt-4 flex h-2 w-full bg-secondary">
+              {[["Approach", info.contact.time_s], ["Crush onset", info.peak.time_s], ["Crush & rebound", info.tEnd]].map(([n, t], k, a) => { const t0 = k ? (a[k - 1]![1] as number) : 0; return <div key={n as string} title={n as string} style={{ width: `${(((t as number) - t0) / info.tEnd) * 100}%`, background: col(k) }} />; })}
+            </div>
+            <div className="relative h-3"><div className="absolute top-0 h-3 w-0.5 bg-foreground" style={{ left: `${(r.time_s / info.tEnd) * 100}%` }} /></div>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {[["Wall force", `${(r.wall_force_N / 1000).toFixed(1)} kN`], ["Peak force", `${(info.peak.wall_force_N / 1000).toFixed(1)} kN @ ${(info.peak.time_s * 1000).toFixed(1)} ms`], ["Intrusion", `${(r.max_intrusion_m * 1000).toFixed(1)} mm`], ["Speed (from KE)", `${(Math.sqrt(Math.max(r.ke_J, 0) / info.ke0) * 56).toFixed(1)} km/h`], ["Energy absorbed", `${(((info.ke0 - r.ke_J) / info.ke0) * 100).toFixed(1)} %`], ["Energy residual", `${r.residual_pct.toFixed(4)} %`]].map(([k, v]) => (
+              <div key={k} className="border border-border bg-card p-3"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{k}</p><p className="mt-1 font-mono text-base">{v}</p></div>
+            ))}
+          </div>
+        </section>
+
+        <section className="border border-border bg-card p-4">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">1 · Task dependency graph — what runs in every one of the {info.steps.toLocaleString()} steps</h2>
+          <svg viewBox="0 0 1000 150" className="mt-3 w-full">
+            <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--muted-foreground)" /></marker></defs>
+            {STAGES.map((s, k) => { const x = 100 + k * 200; const on = k === stage; return (
+              <g key={s.id}>
+                <rect x={x - 85} y={20} width={170} height={60} fill={on ? "var(--secondary)" : "var(--background)"} stroke={on ? col(k) : "var(--border)"} strokeWidth={on ? 2.5 : 1} />
+                <text x={x} y={45} textAnchor="middle" fill="var(--foreground)" fontSize="14">{s.id} · {s.name}</text>
+                <text x={x} y={66} textAnchor="middle" fill="var(--muted-foreground)" fontSize="9" fontFamily="monospace">{s.omp.slice(0, 30)}</text>
+                {k < 4 && <><line x1={x + 87} y1={50} x2={x + 113} y2={50} stroke="var(--muted-foreground)" markerEnd="url(#ar)" /><line x1={x + 100} y1={12} x2={x + 100} y2={92} stroke="var(--destructive)" strokeDasharray="3 3" /><text x={x + 100} y={104} textAnchor="middle" fill="var(--destructive)" fontSize="9" fontFamily="monospace">barrier</text></>}
+              </g>); })}
+            <path d="M900 80 Q900 140 500 140 Q100 140 100 84" fill="none" stroke="var(--primary)" strokeDasharray="4 4" markerEnd="url(#ar)" />
+            <text x={500} y={134} textAnchor="middle" fill="var(--primary)" fontSize="10" fontFamily="monospace">step n+1 uses dt from S5</text>
+          </svg>
+          <div className="mt-4 grid gap-3 md:grid-cols-5">
+            {STAGES.map((s, k) => (
+              <button key={s.id} onClick={() => setI(i - (i % 5) + k)} className={`border p-3 text-left text-xs ${k === stage ? "border-primary bg-secondary" : "border-border"}`}>
+                <p className="font-mono uppercase" style={{ color: col(k) }}>{s.id} · {s.name}</p>
+                <p className="mt-1 font-mono text-[10px] text-muted-foreground">{s.omp}</p>
+                <p className="mt-2 text-muted-foreground">{s.text}</p>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="border border-border bg-card p-4">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">2 · Thread load — who does how much, and who waits</h2>
+          <div className="mt-3 grid gap-2">
+            {thr.map((t) => (
+              <div key={t.thread_id} className="flex items-center gap-3 text-xs">
+                <span className="w-28 font-mono">T{t.thread_id} · cpu {t.cpu_id}</span>
+                <div className="flex h-6 flex-1 bg-secondary">
+                  {keys.map((k, s) => <div key={k} title={`${STAGES[s]!.id}: ${ms(g(t, k))} ms`} style={{ width: `${(g(t, k) / mx) * 100}%`, background: col(s), opacity: s === stage ? 1 : 0.55 }} />)}
+                </div>
+                <span className="w-40 text-right font-mono text-muted-foreground">{ms(t.total_active_s)} ms · idle {ms(mx - t.total_active_s)}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Load imbalance (max / mean) = <b className="font-mono text-foreground">{(mx / mean).toFixed(2)}</b>. The grey tail on each bar is time that thread spends waiting at the barrier for the slowest one. S1 spring forces take{" "}
+            <b className="font-mono text-foreground">{((thr.reduce((a, t) => a + t.s1_spring_s, 0) / thr.reduce((a, t) => a + t.total_active_s, 0)) * 100).toFixed(0)} %</b> of all thread time, so it is where balancing pays off most. Threads on efficiency cores finish later than those on performance cores.
+          </p>
+          {s100.length > 0 && (
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full font-mono text-xs">
+                <thead><tr className="text-muted-foreground"><th className="text-left">Threads</th>{s100.map((s) => <th key={s.threads} className="text-right">{s.threads}</th>)}</tr></thead>
+                <tbody>
+                  <tr><td>Speedup 100k</td>{s100.map((s) => <td key={s.threads} className="text-right">{s.speedup.toFixed(2)}×</td>)}</tr>
+                  <tr><td>Speedup 500k</td>{s500.map((s) => <td key={s.threads} className="text-right">{s.speedup.toFixed(2)}×</td>)}</tr>
+                  <tr><td>Efficiency 100k</td>{s100.map((s) => <td key={s.threads} className="text-right">{(s.efficiency * 100).toFixed(0)}%</td>)}</tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+
+        <section className="border border-border bg-card p-4">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">3 · Telemetry — the whole crash, normalised</h2>
+          <svg viewBox={`0 0 ${W} ${H}`} className="mt-3 w-full">
+            <line x1={P} y1={H - P} x2={W - P} y2={H - P} stroke="var(--border)" /><line x1={P} y1={P} x2={P} y2={H - P} stroke="var(--border)" />
+            <rect x={px(info.contact.time_s)} y={P} width={px(info.peak.time_s) - px(info.contact.time_s)} height={H - 2 * P} fill="var(--destructive)" opacity={0.08} />
+            {series.map(([k, c]) => <path key={k} d={path(k)} fill="none" stroke={c} strokeWidth={1.6} />)}
+            <line x1={px(r.time_s)} x2={px(r.time_s)} y1={P} y2={H - P} stroke="var(--foreground)" />
+            <text x={W - P} y={H - 10} textAnchor="end" fill="var(--muted-foreground)" fontSize="11" fontFamily="monospace">{(info.tEnd * 1000).toFixed(1)} ms</text>
+            <text x={P} y={H - 10} fill="var(--muted-foreground)" fontSize="11" fontFamily="monospace">0 ms</text>
+          </svg>
+          <div className="mt-2 flex flex-wrap gap-4 text-xs">{series.map(([k, c, n]) => <span key={k} className="flex items-center gap-1"><i className="inline-block h-2 w-3" style={{ background: c }} />{n}: <b className="font-mono">{k === "wall_force_N" ? `${(g(r, k) / 1000).toFixed(1)} kN` : `${(g(r, k) / 1000).toFixed(1)} kJ`}</b></span>)}</div>
+          <h3 className="mt-5 font-mono text-xs uppercase tracking-widest text-muted-foreground">Where the energy is right now</h3>
+          <div className="mt-2 flex h-6 w-full bg-secondary">{eTerms.map(([n, v, c]) => <div key={n} title={`${n}: ${(v / 1000).toFixed(1)} kJ`} style={{ width: `${(Math.max(v, 0) / r.total_e_J) * 100}%`, background: c }} />)}</div>
+          <div className="mt-2 flex flex-wrap gap-4 text-xs text-muted-foreground">{eTerms.map(([n, v, c]) => <span key={n}><i className="mr-1 inline-block h-2 w-3" style={{ background: c }} />{n} {((Math.max(v, 0) / r.total_e_J) * 100).toFixed(1)}%</span>)}</div>
+          <p className="mt-3 text-sm text-muted-foreground">Total energy stays flat while it moves from kinetic into plastic work: the worst residual over the run is <b className="font-mono text-foreground">{info.maxRes.toFixed(4)} %</b>, under the 0.1 % correctness gate.</p>
+        </section>
+
+        <section className="border border-border bg-card p-4 text-sm text-muted-foreground">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">How it all fits together</h2>
+          <ol className="mt-2 list-decimal space-y-1 pl-5">
+            <li>The vehicle is a lattice of nodes and springs, split into contiguous slabs along its length, one slab per OpenMP thread.</li>
+            <li>Every 2.5 µs step runs S1 → S5; barriers between stages keep all threads in lock-step.</li>
+            <li>Phases above (approach, crush, rebound) change the physics, not the per-step work: every step costs about the same, so the speedup measured on 100 steps holds for the whole run.</li>
+            <li>The step is memory-bound, so speedup flattens past about 8 threads; the recommended next tier is MPI across nodes plus GPU kernels for S1, S2 and S4.</li>
+          </ol>
+          <p className="mt-3 text-xs">All numbers load from the recorded result files of the C++ run; nothing on this page is simulated in the browser.</p>
+        </section>
+      </main>
+    </div>
+  );
+}

@@ -1,1 +1,15 @@
-aW1wb3J0IHsgTGluayB9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1yb3V0ZXIiOwoKZXhwb3J0IGZ1bmN0aW9uIFNpdGVOYXYoKSB7CiAgY29uc3QgY2xzID0gInB4LTMgcHktMS41IHJvdW5kZWQtbWQgdGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQgaG92ZXI6dGV4dC1mb3JlZ3JvdW5kIHRyYW5zaXRpb24tY29sb3JzIjsKICByZXR1cm4gKAogICAgPG5hdiBjbGFzc05hbWU9ImZsZXggaC0xMSBzaHJpbmstMCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIGJvcmRlci1iIGJvcmRlci1ib3JkZXIgYmctY2FyZCBweC00Ij4KICAgICAgPHNwYW4gY2xhc3NOYW1lPSJmb250LW1vbm8gdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtcHJpbWFyeSI+Q1JBU0gtU0lNIMK3IDI0SVNFNTAzPC9zcGFuPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBnYXAtMSI+CiAgICAgICAgPExpbmsgdG89Ii8iIGNsYXNzTmFtZT17Y2xzfSBhY3RpdmVQcm9wcz17eyBjbGFzc05hbWU6ICJiZy1zZWNvbmRhcnkgdGV4dC1mb3JlZ3JvdW5kIiB9fSBhY3RpdmVPcHRpb25zPXt7IGV4YWN0OiB0cnVlIH19PjNEIFN0dWRpbzwvTGluaz4KICAgICAgICA8TGluayB0bz0iL2FuYWx5c2lzIiBjbGFzc05hbWU9e2Nsc30gYWN0aXZlUHJvcHM9e3sgY2xhc3NOYW1lOiAiYmctc2Vjb25kYXJ5IHRleHQtZm9yZWdyb3VuZCIgfX0+QW5hbHlzaXM8L0xpbms+CiAgICAgICAgPExpbmsgdG89Ii9yZXN1bHRzIiBjbGFzc05hbWU9e2Nsc30gYWN0aXZlUHJvcHM9e3sgY2xhc3NOYW1lOiAiYmctc2Vjb25kYXJ5IHRleHQtZm9yZWdyb3VuZCIgfX0+UmVzdWx0czwvTGluaz4KICAgICAgPC9kaXY+CiAgICA8L25hdj4KICApOwp9Cg==
+import { Link } from "@tanstack/react-router";
+
+export function SiteNav() {
+  const cls = "px-3 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground transition-colors";
+  return (
+    <nav className="flex h-11 shrink-0 items-center justify-between border-b border-border bg-card px-4">
+      <span className="font-mono text-xs font-semibold text-primary">CRASH-SIM · 24ISE503</span>
+      <div className="flex gap-1">
+        <Link to="/" className={cls} activeProps={{ className: "bg-secondary text-foreground" }} activeOptions={{ exact: true }}>3D Studio</Link>
+        <Link to="/analysis" className={cls} activeProps={{ className: "bg-secondary text-foreground" }}>Analysis</Link>
+        <Link to="/results" className={cls} activeProps={{ className: "bg-secondary text-foreground" }}>Results</Link>
+      </div>
+    </nav>
+  );
+}

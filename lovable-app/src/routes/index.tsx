@@ -1,1 +1,25 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IFNpdGVOYXYgfSBmcm9tICJAL2NvbXBvbmVudHMvU2l0ZU5hdiI7CgpleHBvcnQgY29uc3QgUm91dGUgPSBjcmVhdGVGaWxlUm91dGUoIi8iKSh7CiAgaGVhZDogKCkgPT4gKHsKICAgIG1ldGE6IFsKICAgICAgeyB0aXRsZTogIjNEIENyYXNoIFN0dWRpbyB8IENyYXNoLVNpbXVsYXRpb24gV29ya2xvYWQgRGVjb21wb3NpdGlvbiIgfSwKICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiAiSW50ZXJhY3RpdmUgV2ViR0wgcmVwbGF5IG9mIGEgNTYga20vaCB2ZWhpY2xlIGNyYXNoIGZyb20gYW4gZXhwbGljaXQgQysrMTcvT3Blbk1QIHNvbHZlci4iIH0sCiAgICAgIHsgcHJvcGVydHk6ICJvZzp0aXRsZSIsIGNvbnRlbnQ6ICIzRCBDcmFzaCBTdHVkaW8gfCBDcmFzaC1TaW11bGF0aW9uIFdvcmtsb2FkIERlY29tcG9zaXRpb24iIH0sCiAgICAgIHsgcHJvcGVydHk6ICJvZzpkZXNjcmlwdGlvbiIsIGNvbnRlbnQ6ICJJbnRlcmFjdGl2ZSBXZWJHTCByZXBsYXkgb2YgYSA1NiBrbS9oIHZlaGljbGUgY3Jhc2ggZnJvbSBhbiBleHBsaWNpdCBDKysxNy9PcGVuTVAgc29sdmVyLiIgfSwKICAgICAgeyBwcm9wZXJ0eTogIm9nOnR5cGUiLCBjb250ZW50OiAid2Vic2l0ZSIgfSwKICAgICAgeyBuYW1lOiAidHdpdHRlcjpjYXJkIiwgY29udGVudDogInN1bW1hcnlfbGFyZ2VfaW1hZ2UiIH0sCiAgICBdLAogIH0pLAogIGNvbXBvbmVudDogSW5kZXgsCn0pOwoKZnVuY3Rpb24gSW5kZXgoKSB7CiAgcmV0dXJuICgKICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IGgtc2NyZWVuIGZsZXgtY29sIGJnLWJhY2tncm91bmQiPgogICAgICA8U2l0ZU5hdiAvPgogICAgICA8aWZyYW1lIHNyYz0iL3N0dWRpby9pbmRleC5odG1sP3Y9MyIgdGl0bGU9IjNEIGNyYXNoIHNpbXVsYXRvciIgY2xhc3NOYW1lPSJ3LWZ1bGwgZmxleC0xIGJvcmRlci0wIiAvPgogICAgPC9kaXY+CiAgKTsKfQo=
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteNav } from "@/components/SiteNav";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "3D Crash Studio | Crash-Simulation Workload Decomposition" },
+      { name: "description", content: "Interactive WebGL replay of a 56 km/h vehicle crash from an explicit C++17/OpenMP solver." },
+      { property: "og:title", content: "3D Crash Studio | Crash-Simulation Workload Decomposition" },
+      { property: "og:description", content: "Interactive WebGL replay of a 56 km/h vehicle crash from an explicit C++17/OpenMP solver." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Index,
+});
+
+function Index() {
+  return (
+    <div className="flex h-screen flex-col bg-background">
+      <SiteNav />
+      <iframe src="/studio/index.html?v=3" title="3D crash simulator" className="w-full flex-1 border-0" />
+    </div>
+  );
+}

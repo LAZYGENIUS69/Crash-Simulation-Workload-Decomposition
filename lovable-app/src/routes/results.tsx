@@ -1,1 +1,87 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IFNpdGVOYXYgfSBmcm9tICJAL2NvbXBvbmVudHMvU2l0ZU5hdiI7CmltcG9ydCBzY2FsaW5nIGZyb20gIkAvYXNzZXRzL2ZpZ3VyZXMvc2NhbGluZ19jdXJ2ZXMucG5nLmFzc2V0Lmpzb24iOwppbXBvcnQgYW1kYWhsIGZyb20gIkAvYXNzZXRzL2ZpZ3VyZXMvYW1kYWhsX2ZpdC5wbmcuYXNzZXQuanNvbiI7CmltcG9ydCB2U2NhbGluZyBmcm9tICJAL2Fzc2V0cy9maWd1cmVzL3ZlaGljbGVfc2NhbGluZ19jdXJ2ZXMucG5nLmFzc2V0Lmpzb24iOwppbXBvcnQgc3RhZ2UgZnJvbSAiQC9hc3NldHMvZmlndXJlcy9zdGFnZV9icmVha2Rvd24ucG5nLmFzc2V0Lmpzb24iOwppbXBvcnQgcHVsc2UgZnJvbSAiQC9hc3NldHMvZmlndXJlcy92ZWhpY2xlX2NyYXNoX3B1bHNlLnBuZy5hc3NldC5qc29uIjsKaW1wb3J0IHRpbWVsYXBzZSBmcm9tICJAL2Fzc2V0cy9maWd1cmVzL3ZlaGljbGVfdGltZWxhcHNlX3N0cmlwLnBuZy5hc3NldC5qc29uIjsKaW1wb3J0IHBhcnRpdGlvbnMgZnJvbSAiQC9hc3NldHMvZmlndXJlcy92ZWhpY2xlX3RocmVhZF9wYXJ0aXRpb25zLnBuZy5hc3NldC5qc29uIjsKaW1wb3J0IHN0cmFpbiBmcm9tICJAL2Fzc2V0cy9maWd1cmVzL3ZlaGljbGVfcGxhc3RpY19zdHJhaW5faHVkLnBuZy5hc3NldC5qc29uIjsKaW1wb3J0IGRlcCBmcm9tICJAL2Fzc2V0cy9maWd1cmVzL2RlcF9ncmFwaC5wbmcuYXNzZXQuanNvbiI7CmltcG9ydCBwYXJ0VmlldyBmcm9tICJAL2Fzc2V0cy9maWd1cmVzL3BhcnRpdGlvbl92aWV3LnBuZy5hc3NldC5qc29uIjsKaW1wb3J0IGFzc2VtYmx5IGZyb20gIkAvYXNzZXRzL2ZpZ3VyZXMvYXNzZW1ibHlfc2NhbGluZ19jb21wYXJpc29uLnBuZy5hc3NldC5qc29uIjsKaW1wb3J0IGVuZXJneSBmcm9tICJAL2Fzc2V0cy9maWd1cmVzL2VuZXJneV9jbG9zdXJlLnBuZy5hc3NldC5qc29uIjsKCmNvbnN0IG1ldHJpY3MgPSBbCiAgeyBsYWJlbDogIkVsYXN0aWMgZW5lcmd5IGRyaWZ0IiwgdmFsdWU6ICLiiaQgMC4wMDA5MiUiLCBub3RlOiAiMSwwMDAgc3RlcHMsIEXigoAgPSAzMiw4NDQuOTQgSiIgfSwKICB7IGxhYmVsOiAiRnVsbCBjcmFzaCBlbmVyZ3kgY2xvc3VyZSIsIHZhbHVlOiAi4omkIDAuMDEwJSIsIG5vdGU6ICJXYWxsIGltcGFjdCwgZGFtcGluZyAmIGJ1Y2tsaW5nIiB9LAogIHsgbGFiZWw6ICJDU1IgZ2F0aGVyIHNwZWVkdXAgKDEwMGspIiwgdmFsdWU6ICIyLjE3w5ciLCBub3RlOiAiUHJpdmF0ZSBzbGFicyBzcGlsbCAxMiBNaUIgTDMiIH0sCiAgeyBsYWJlbDogIkNTUiBnYXRoZXIgc3BlZWR1cCAoNTAwaykiLCB2YWx1ZTogIjIuMTHDlyAvIDIuMzfDlyIsIG5vdGU6ICJGUDY0IC8gRlAzMiIgfSwKICB7IGxhYmVsOiAiU1RSRUFNIFRyaWFkIHBlYWsiLCB2YWx1ZTogIjM1LjMyIEdCL3MiLCBub3RlOiAiNCBPcGVuTVAgdGhyZWFkcyIgfSwKICB7IGxhYmVsOiAiUHl0aG9uIOKGlCBDKysgYWdyZWVtZW50IiwgdmFsdWU6ICI4LjE2ZS05Iiwgbm90ZTogIlJlbGF0aXZlIGVycm9yIiB9LApdOwoKY29uc3QgZmlndXJlcyA9IFsKICB7IHNyYzogYXNzZW1ibHkudXJsLCB0aXRsZTogIkZvcmNlIGFzc2VtYmx5IHN0cmF0ZWdpZXMiLCBjYXB0aW9uOiAiUHJpdmF0ZSBzbGFicyB2cyBhdG9taWNzIHZzIG5vZGUtY2VudHJpYyBDU1IgZ2F0aGVyLiIgfSwKICB7IHNyYzogdlNjYWxpbmcudXJsLCB0aXRsZTogIlZlaGljbGUgbWVzaCBzY2FsaW5nIiwgY2FwdGlvbjogIlNwZWVkdXAgYW5kIGVmZmljaWVuY3kgYWNyb3NzIE9wZW5NUCB0aHJlYWQgY291bnRzLiIgfSwKICB7IHNyYzogZW5lcmd5LnVybCwgdGl0bGU6ICJFbmVyZ3kgY2xvc3VyZSBhdWRpdCIsIGNhcHRpb246ICJUZXJtLWJ5LXRlcm0gYmFsYW5jZSBvdmVyIHRoZSBjcmFzaCBldmVudC4iIH0sCiAgeyBzcmM6IHB1bHNlLnVybCwgdGl0bGU6ICJDcmFzaCBwdWxzZSIsIGNhcHRpb246ICJXYWxsIGZvcmNlIGFuZCBpbnRydXNpb24gYXQgNTYga20vaC4iIH0sCiAgeyBzcmM6IHRpbWVsYXBzZS51cmwsIHRpdGxlOiAiRGVmb3JtYXRpb24gdGltZWxhcHNlIiwgY2FwdGlvbjogIkZyb250YWwgY3J1bXBsZSBzZXF1ZW5jZS4iIH0sCiAgeyBzcmM6IHN0cmFpbi51cmwsIHRpdGxlOiAiUGxhc3RpYyBzdHJhaW4iLCBjYXB0aW9uOiAiRWxhc3RvcGxhc3RpYyB5aWVsZCBkaXN0cmlidXRpb24uIiB9LAogIHsgc3JjOiBwYXJ0aXRpb25zLnVybCwgdGl0bGU6ICJUaHJlYWQgcGFydGl0aW9ucyIsIGNhcHRpb246ICJTcGF0aWFsIHdvcmtsb2FkIGRlY29tcG9zaXRpb24gcGVyIHRocmVhZC4iIH0sCiAgeyBzcmM6IHN0YWdlLnVybCwgdGl0bGU6ICJTdGFnZSBicmVha2Rvd24iLCBjYXB0aW9uOiAiU3ByaW5nLCBhc3NlbWJseSwgY29udGFjdCwgaW50ZWdyYXRlLCBDRkwuIiB9LAogIHsgc3JjOiBzY2FsaW5nLnVybCwgdGl0bGU6ICJTY2FsaW5nIGN1cnZlcyIsIGNhcHRpb246ICJTdHJvbmcgc2NhbGluZyBvbiB0aGUgbGF0dGljZSBtZXNoLiIgfSwKICB7IHNyYzogYW1kYWhsLnVybCwgdGl0bGU6ICJBbWRhaGwgZml0IiwgY2FwdGlvbjogIlNlcmlhbCBmcmFjdGlvbiBlc3RpbWF0ZS4iIH0sCiAgeyBzcmM6IGRlcC51cmwsIHRpdGxlOiAiRGVwZW5kZW5jeSBncmFwaCIsIGNhcHRpb246ICJQZXItc3RlcCB0YXNrIGRlcGVuZGVuY2llcy4iIH0sCiAgeyBzcmM6IHBhcnRWaWV3LnVybCwgdGl0bGU6ICJQYXJ0aXRpb24gdmlldyIsIGNhcHRpb246ICJNZXNoIHBhcnRpdGlvbiBsYXlvdXQuIiB9LApdOwoKZXhwb3J0IGNvbnN0IFJvdXRlID0gY3JlYXRlRmlsZVJvdXRlKCIvcmVzdWx0cyIpKHsKICBoZWFkOiAoKSA9PiAoewogICAgbWV0YTogWwogICAgICB7IHRpdGxlOiAiUmVzdWx0cyB8IENyYXNoLVNpbXVsYXRpb24gV29ya2xvYWQgRGVjb21wb3NpdGlvbiIgfSwKICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiAiUGFyYWxsZWwgc2NhbGluZywgYXNzZW1ibHkgdHJhZGUtb2ZmcywgYW5kIGVuZXJneSBjb25zZXJ2YXRpb24gcmVzdWx0cyBmb3IgdGhlIE9wZW5NUCBjcmFzaCBzb2x2ZXIuIiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dGl0bGUiLCBjb250ZW50OiAiUmVzdWx0cyB8IENyYXNoLVNpbXVsYXRpb24gV29ya2xvYWQgRGVjb21wb3NpdGlvbiIgfSwKICAgICAgeyBwcm9wZXJ0eTogIm9nOmRlc2NyaXB0aW9uIiwgY29udGVudDogIlBhcmFsbGVsIHNjYWxpbmcsIGFzc2VtYmx5IHRyYWRlLW9mZnMsIGFuZCBlbmVyZ3kgY29uc2VydmF0aW9uIHJlc3VsdHMgZm9yIHRoZSBPcGVuTVAgY3Jhc2ggc29sdmVyLiIgfSwKICAgICAgeyBwcm9wZXJ0eTogIm9nOnR5cGUiLCBjb250ZW50OiAiYXJ0aWNsZSIgfSwKICAgICAgeyBuYW1lOiAidHdpdHRlcjpjYXJkIiwgY29udGVudDogInN1bW1hcnlfbGFyZ2VfaW1hZ2UiIH0sCiAgICBdLAogIH0pLAogIGNvbXBvbmVudDogUmVzdWx0cywKfSk7CgpmdW5jdGlvbiBSZXN1bHRzKCkgewogIHJldHVybiAoCiAgICA8ZGl2IGNsYXNzTmFtZT0ibWluLWgtc2NyZWVuIGJnLWJhY2tncm91bmQiPgogICAgICA8U2l0ZU5hdiAvPgogICAgICA8bWFpbiBjbGFzc05hbWU9Im14LWF1dG8gbWF4LXctNnhsIHB4LTYgcHktMTAiPgogICAgICAgIDxoMSBjbGFzc05hbWU9InRleHQtM3hsIGZvbnQtYm9sZCB0cmFja2luZy10aWdodCI+Q3Jhc2gtU2ltdWxhdGlvbiBXb3JrbG9hZCBEZWNvbXBvc2l0aW9uPC9oMT4KICAgICAgICA8cCBjbGFzc05hbWU9Im10LTIgbWF4LXctM3hsIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+CiAgICAgICAgICBFeHBsaWNpdCAzRCB2ZWhpY2xlIGNyYXNoIHNvbHZlciBpbiBDKysxNyArIE9wZW5NUC4gU3ByaW5nLW1hc3MgbGF0dGljZSwgZWxhc3RvcGxhc3RpYyBidWNrbGluZywKICAgICAgICAgIHBlbmFsdHkgYmFycmllciBhbmQgc3BhdGlhbC1oYXNoIHNlbGYtY29udGFjdCwgcHJvZmlsZWQgb24gYSAxMi10aHJlYWQgSW50ZWwgaTUtMTMzNFUuCiAgICAgICAgPC9wPgogICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0ibXQtOCBncmlkIGdhcC00IHNtOmdyaWQtY29scy0yIGxnOmdyaWQtY29scy0zIj4KICAgICAgICAgIHttZXRyaWNzLm1hcCgobSkgPT4gKAogICAgICAgICAgICA8ZGl2IGtleT17bS5sYWJlbH0gY2xhc3NOYW1lPSJyb3VuZGVkLWxnIGJvcmRlciBib3JkZXItYm9yZGVyIGJnLWNhcmQgcC00Ij4KICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0idGV4dC14cyB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZSB0ZXh0LW11dGVkLWZvcmVncm91bmQiPnttLmxhYmVsfTwvZGl2PgogICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJtdC0xIGZvbnQtbW9ubyB0ZXh0LTJ4bCBmb250LXNlbWlib2xkIHRleHQtYWNjZW50Ij57bS52YWx1ZX08L2Rpdj4KICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtMSB0ZXh0LXNtIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+e20ubm90ZX08L2Rpdj4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICApKX0KICAgICAgICA8L3NlY3Rpb24+CiAgICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPSJtdC0xMCBncmlkIGdhcC02IG1kOmdyaWQtY29scy0yIj4KICAgICAgICAgIHtmaWd1cmVzLm1hcCgoZikgPT4gKAogICAgICAgICAgICA8ZmlndXJlIGtleT17Zi50aXRsZX0gY2xhc3NOYW1lPSJvdmVyZmxvdy1oaWRkZW4gcm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLWJvcmRlciBiZy1jYXJkIj4KICAgICAgICAgICAgICA8aW1nIHNyYz17Zi5zcmN9IGFsdD17Zi50aXRsZX0gbG9hZGluZz0ibGF6eSIgY2xhc3NOYW1lPSJ3LWZ1bGwgYmctZm9yZWdyb3VuZCIgLz4KICAgICAgICAgICAgICA8ZmlnY2FwdGlvbiBjbGFzc05hbWU9InAtNCI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZm9udC1zZW1pYm9sZCI+e2YudGl0bGV9PC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0idGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQiPntmLmNhcHRpb259PC9kaXY+CiAgICAgICAgICAgICAgPC9maWdjYXB0aW9uPgogICAgICAgICAgICA8L2ZpZ3VyZT4KICAgICAgICAgICkpfQogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9tYWluPgogICAgPC9kaXY+CiAgKTsKfQo=
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteNav } from "@/components/SiteNav";
+import scaling from "@/assets/figures/scaling_curves.png.asset.json";
+import amdahl from "@/assets/figures/amdahl_fit.png.asset.json";
+import vScaling from "@/assets/figures/vehicle_scaling_curves.png.asset.json";
+import stage from "@/assets/figures/stage_breakdown.png.asset.json";
+import pulse from "@/assets/figures/vehicle_crash_pulse.png.asset.json";
+import timelapse from "@/assets/figures/vehicle_timelapse_strip.png.asset.json";
+import partitions from "@/assets/figures/vehicle_thread_partitions.png.asset.json";
+import strain from "@/assets/figures/vehicle_plastic_strain_hud.png.asset.json";
+import dep from "@/assets/figures/dep_graph.png.asset.json";
+import partView from "@/assets/figures/partition_view.png.asset.json";
+import assembly from "@/assets/figures/assembly_scaling_comparison.png.asset.json";
+import energy from "@/assets/figures/energy_closure.png.asset.json";
+
+const metrics = [
+  { label: "Elastic energy drift", value: "≤ 0.00092%", note: "1,000 steps, E₀ = 32,844.94 J" },
+  { label: "Full crash energy closure", value: "≤ 0.010%", note: "Wall impact, damping & buckling" },
+  { label: "CSR gather speedup (100k)", value: "2.17×", note: "Private slabs spill 12 MiB L3" },
+  { label: "CSR gather speedup (500k)", value: "2.11× / 2.37×", note: "FP64 / FP32" },
+  { label: "STREAM Triad peak", value: "35.32 GB/s", note: "4 OpenMP threads" },
+  { label: "Python ↔ C++ agreement", value: "8.16e-9", note: "Relative error" },
+];
+
+const figures = [
+  { src: assembly.url, title: "Force assembly strategies", caption: "Private slabs vs atomics vs node-centric CSR gather." },
+  { src: vScaling.url, title: "Vehicle mesh scaling", caption: "Speedup and efficiency across OpenMP thread counts." },
+  { src: energy.url, title: "Energy closure audit", caption: "Term-by-term balance over the crash event." },
+  { src: pulse.url, title: "Crash pulse", caption: "Wall force and intrusion at 56 km/h." },
+  { src: timelapse.url, title: "Deformation timelapse", caption: "Frontal crumple sequence." },
+  { src: strain.url, title: "Plastic strain", caption: "Elastoplastic yield distribution." },
+  { src: partitions.url, title: "Thread partitions", caption: "Spatial workload decomposition per thread." },
+  { src: stage.url, title: "Stage breakdown", caption: "Spring, assembly, contact, integrate, CFL." },
+  { src: scaling.url, title: "Scaling curves", caption: "Strong scaling on the lattice mesh." },
+  { src: amdahl.url, title: "Amdahl fit", caption: "Serial fraction estimate." },
+  { src: dep.url, title: "Dependency graph", caption: "Per-step task dependencies." },
+  { src: partView.url, title: "Partition view", caption: "Mesh partition layout." },
+];
+
+export const Route = createFileRoute("/results")({
+  head: () => ({
+    meta: [
+      { title: "Results | Crash-Simulation Workload Decomposition" },
+      { name: "description", content: "Parallel scaling, assembly trade-offs, and energy conservation results for the OpenMP crash solver." },
+      { property: "og:title", content: "Results | Crash-Simulation Workload Decomposition" },
+      { property: "og:description", content: "Parallel scaling, assembly trade-offs, and energy conservation results for the OpenMP crash solver." },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Results,
+});
+
+function Results() {
+  return (
+    <div className="min-h-screen bg-background">
+      <SiteNav />
+      <main className="mx-auto max-w-6xl px-6 py-10">
+        <h1 className="text-3xl font-bold tracking-tight">Crash-Simulation Workload Decomposition</h1>
+        <p className="mt-2 max-w-3xl text-muted-foreground">
+          Explicit 3D vehicle crash solver in C++17 + OpenMP. Spring-mass lattice, elastoplastic buckling,
+          penalty barrier and spatial-hash self-contact, profiled on a 12-thread Intel i5-1334U.
+        </p>
+        <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {metrics.map((m) => (
+            <div key={m.label} className="rounded-lg border border-border bg-card p-4">
+              <div className="text-xs uppercase tracking-wide text-muted-foreground">{m.label}</div>
+              <div className="mt-1 font-mono text-2xl font-semibold text-accent">{m.value}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{m.note}</div>
+            </div>
+          ))}
+        </section>
+        <section className="mt-10 grid gap-6 md:grid-cols-2">
+          {figures.map((f) => (
+            <figure key={f.title} className="overflow-hidden rounded-lg border border-border bg-card">
+              <img src={f.src} alt={f.title} loading="lazy" className="w-full bg-foreground" />
+              <figcaption className="p-4">
+                <div className="font-semibold">{f.title}</div>
+                <div className="text-sm text-muted-foreground">{f.caption}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </section>
+      </main>
+    </div>
+  );
+}
