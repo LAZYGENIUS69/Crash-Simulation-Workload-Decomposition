@@ -1,1 +1,2 @@
-IyBNb2RlbCBjcmVkaXRzCi0gc3V2LmdsYjogIlNVViIgZnJvbSBLZW5uZXkgQ2FyIEtpdCAoaHR0cHM6Ly9rZW5uZXkubmwvYXNzZXRzL2Nhci1raXQpLCBDQzAgMS4wLgo=
+# Model credits
+- suv.glb: "SUV" from Kenney Car Kit (https://kenney.nl/assets/car-kit), CC0 1.0.

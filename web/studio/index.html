@@ -1,1 +1,328 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIj4KPHRpdGxlPkNyYXNoIFN0dWRpbyDCtyAyNElTRTUwMzwvdGl0bGU+CjxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0ic3R1ZGlvLmNzcz92PTMiPgo8c2NyaXB0IHNyYz0idGhyZWUubWluLmpzIj48L3NjcmlwdD4KPHNjcmlwdCBzcmM9Ik9yYml0Q29udHJvbHMuanMiPjwvc2NyaXB0Pgo8c2NyaXB0IHNyYz0iR0xURkxvYWRlci5qcyI+PC9zY3JpcHQ+CjxsaW5rIHJlbD0icHJlY29ubmVjdCIgaHJlZj0iaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbSI+PGxpbmsgaHJlZj0iaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1KZXRCcmFpbnMrTW9ubzp3Z2h0QDQwMDs2MDAmZmFtaWx5PUlCTStQbGV4K1NhbnM6d2dodEA0MDA7NTAwOzYwMCZkaXNwbGF5PXN3YXAiIHJlbD0ic3R5bGVzaGVldCI+CjwvaGVhZD4KPGJvZHk+CjxkaXYgaWQ9ImFwcCI+CiAgPCEtLSBNZW51IGJhciAtLT4KICA8aGVhZGVyIGlkPSJtZW51YmFyIj4KICAgIDxkaXYgY2xhc3M9Im1lbnVzIj4KICAgICAgPHNwYW4gY2xhc3M9ImJyYW5kIj7il4YgQ1JBU0gtU0lNPC9zcGFuPgogICAgICA8YnV0dG9uIGRhdGEtbWVudT0iZmlsZSI+RmlsZTwvYnV0dG9uPjxidXR0b24gZGF0YS1tZW51PSJ2aWV3Ij5WaWV3PC9idXR0b24+PGJ1dHRvbiBkYXRhLW1lbnU9InNpbSI+U2ltdWxhdGlvbjwvYnV0dG9uPjxidXR0b24gZGF0YS1tZW51PSJoZWxwIj5IZWxwPC9idXR0b24+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9Im1lbnUtdGl0bGUiPkNyYXNoLVNpbXVsYXRpb24gV29ya2xvYWQgRGVjb21wb3NpdGlvbiDigJQgMjRJU0U1MDMgwrcgQWN0aXZpdHkgMDE8L2Rpdj4KICAgIDxkaXYgY2xhc3M9Im1lbnUtcmlnaHQiPgogICAgICA8bGFiZWwgY2xhc3M9InRvZ2dsZSI+PGlucHV0IHR5cGU9ImNoZWNrYm94IiBpZD0idml2YS10b2dnbGUiPiBWaXZhIGV4cGxhaW5lcjwvbGFiZWw+CiAgICAgIDxzcGFuIGNsYXNzPSJsaXZlIj48aT48L2k+UkVQTEFZPC9zcGFuPgogICAgPC9kaXY+CiAgPC9oZWFkZXI+CgogIDxkaXYgaWQ9Im1haW4iPgogICAgPCEtLSBMZWZ0IHRvb2wgcmFpbCAtLT4KICAgIDxhc2lkZSBpZD0idG9vbHJhaWwiPgogICAgICA8YnV0dG9uIGNsYXNzPSJ0b29sIGFjdGl2ZSIgZGF0YS10b29sPSJvcmJpdCIgdGl0bGU9Ik9yYml0IChPKSI+4p+zPC9idXR0b24+CiAgICAgIDxidXR0b24gY2xhc3M9InRvb2wiIGRhdGEtdG9vbD0icGFuIiB0aXRsZT0iUGFuIChQKSI+4pylPC9idXR0b24+CiAgICAgIDxidXR0b24gY2xhc3M9InRvb2wiIGRhdGEtdG9vbD0iZml0IiB0aXRsZT0iRnJhbWUgdmVoaWNsZSAoRikiPuKbtjwvYnV0dG9uPgogICAgICA8ZGl2IGNsYXNzPSJzZXAiPjwvZGl2PgogICAgICA8YnV0dG9uIGNsYXNzPSJ0b29sIiBkYXRhLXRvb2w9IndpcmUiIHRpdGxlPSJXaXJlZnJhbWUgKFcpIj7ilqY8L2J1dHRvbj4KICAgICAgPGJ1dHRvbiBjbGFzcz0idG9vbCIgZGF0YS10b29sPSJub2RlcyIgdGl0bGU9Ik5vZGUgcG9pbnRzIChOKSI+4oGYPC9idXR0b24+CiAgICAgIDxkaXYgY2xhc3M9InNlcCI+PC9kaXY+CiAgICAgIDxidXR0b24gY2xhc3M9InRvb2wiIGRhdGEtdG9vbD0icGxheSIgdGl0bGU9IlBsYXkgLyBwYXVzZSAoU3BhY2UpIj7ilrY8L2J1dHRvbj4KICAgICAgPGJ1dHRvbiBjbGFzcz0idG9vbCIgZGF0YS10b29sPSJzdGVwIiB0aXRsZT0iU3RlcCBvbmNlIChTKSI+4o+tPC9idXR0b24+CiAgICAgIDxidXR0b24gY2xhc3M9InRvb2wiIGRhdGEtdG9vbD0icmVzZXQiIHRpdGxlPSJSZXNldCAoUikiPuKWoDwvYnV0dG9uPgogICAgICA8ZGl2IGNsYXNzPSJzZXAiPjwvZGl2PgogICAgICA8YnV0dG9uIGNsYXNzPSJ0b29sIiBpZD0icmFpbC1hbmFseXNpcyIgdGl0bGU9IkZ1bGwtc2NyZWVuIHdvcmtsb2FkIGFuYWx5c2lzIj7ipKI8L2J1dHRvbj4KICAgIDwvYXNpZGU+CgogICAgPCEtLSBWaWV3cG9ydCAtLT4KICAgIDxzZWN0aW9uIGlkPSJ2aWV3cG9ydC13cmFwIj4KICAgICAgPGRpdiBpZD0idnAtdG9vbGJhciI+CiAgICAgICAgPHNlbGVjdCBpZD0ic2VsLXNoYWRpbmciIHRpdGxlPSJTaGFkaW5nIj48b3B0aW9uIHZhbHVlPSJsaXQiPkxpdCDCtyBSZWFsLXRpbWU8L29wdGlvbj48b3B0aW9uIHZhbHVlPSJ3aXJlIj5XaXJlZnJhbWU8L29wdGlvbj48b3B0aW9uIHZhbHVlPSJub2RlcyI+Tm9kZSBjbG91ZDwvb3B0aW9uPjwvc2VsZWN0PgogICAgICAgIDxzZWxlY3QgaWQ9InNlbC1jYW1lcmEiIHRpdGxlPSJDYW1lcmEiPjxvcHRpb24gdmFsdWU9ImlzbyI+UGVyc3BlY3RpdmU8L29wdGlvbj48b3B0aW9uIHZhbHVlPSJzaWRlIj5TaWRlPC9vcHRpb24+PG9wdGlvbiB2YWx1ZT0iZnJvbnQiPkZyb250PC9vcHRpb24+PG9wdGlvbiB2YWx1ZT0idG9wIj5Ub3A8L29wdGlvbj48L3NlbGVjdD4KICAgICAgICA8c2VsZWN0IGlkPSJzZWwtY29sb3IiIHRpdGxlPSJDb2xvdXIgbW9kZSI+PG9wdGlvbiB2YWx1ZT0icGFpbnQiIHNlbGVjdGVkPkNvbG91cjogQ2xheSAocGFpbnQpPC9vcHRpb24+PG9wdGlvbiB2YWx1ZT0ic3RyZXNzIj5Db2xvdXI6IFN0cmVzcyAoZXN0Lik8L29wdGlvbj48b3B0aW9uIHZhbHVlPSJzdHJhaW4iPkNvbG91cjogUGxhc3RpYyBzdHJhaW48L29wdGlvbj48b3B0aW9uIHZhbHVlPSJ0aHJlYWQiPkNvbG91cjogVGhyZWFkIG93bmVyPC9vcHRpb24+PG9wdGlvbiB2YWx1ZT0ic3Vic3lzdGVtIj5Db2xvdXI6IFN1YnN5c3RlbTwvb3B0aW9uPjwvc2VsZWN0PgogICAgICAgIDxzcGFuIGNsYXNzPSJ2cC1zcGFjZXIiPjwvc3Bhbj4KICAgICAgICA8c3BhbiBjbGFzcz0iY2hpcCI+U3RhZ2UgbGlnaHRzPC9zcGFuPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBpZD0idmlld3BvcnQiPjwvZGl2PgogICAgICA8ZGl2IGlkPSJwZXJmIj4KICAgICAgICA8ZGl2PkZQUyA8YiBpZD0icC1mcHMiPjA8L2I+ICZuYnNwO3wmbmJzcDsgRnJhbWUgPGIgaWQ9InAtZnQiPjAgbXM8L2I+PC9kaXY+CiAgICAgICAgPGRpdj5NZXNoIDxiIGlkPSJwLW1lc2giPjEwMGs8L2I+IMK3IDxiIGlkPSJwLW5vZGVzIj4xMDMsNzY0PC9iPiBub2RlcyBjb21wdXRlZCDCtyA8YiBpZD0icC1kcmF3biI+MDwvYj4gZHJhd248L2Rpdj4KICAgICAgICA8ZGl2PlRocmVhZHMgPGIgaWQ9InAtdGhyIj44PC9iPiDCtyBtZWFzdXJlZCA8YiBpZD0icC1tc3N0ZXAiPjA8L2I+IG1zL3N0ZXA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJtdXRlZCI+UmVjb3JkZWQgcnVuIMK3IG5vdCBmb3IgYmVuY2htYXJraW5nPC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGlkPSJsZWdlbmQiPjwvZGl2PgogICAgICA8ZGl2IGlkPSJmbGFzaCI+PC9kaXY+CiAgICAgIDxwIGNsYXNzPSJ2aXZhIHZwLXZpdmEiPlRoZSB2aWV3cG9ydCByZXBsYXlzIHRoZSByZWNvcmRlZCBjcmFzaC4gQ29sb3VyIGJ5IHRocmVhZCBvd25lciB0byBzZWUgaG93IHRoZSBtZXNoIGlzIHNwbGl0IGFjcm9zcyBPcGVuTVAgdGhyZWFkcy48L3A+CiAgICA8L3NlY3Rpb24+CgogICAgPCEtLSBQcm9wZXJ0eSBwYW5lbCAtLT4KICAgIDxhc2lkZSBpZD0icGFuZWwiPgogICAgICA8bmF2IGlkPSJ0YWJzIj4KICAgICAgICA8YnV0dG9uIGRhdGEtdGFiPSJzdGFnZSI+U3RhZ2U8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIGRhdGEtdGFiPSJzaW0iIGNsYXNzPSJhY3RpdmUiPlNpbXVsYXRvcjwvYnV0dG9uPgogICAgICAgIDxidXR0b24gZGF0YS10YWI9ImhwYyI+SFBDPC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiBkYXRhLXRhYj0idGhyZWFkcyI+VGhyZWFkczwvYnV0dG9uPgogICAgICAgIDxidXR0b24gZGF0YS10YWI9ImV2aWRlbmNlIj5FdmlkZW5jZTwvYnV0dG9uPgogICAgICA8L25hdj4KICAgICAgPGRpdiBpZD0idGFiLWJvZHkiPgoKICAgICAgICA8IS0tIFNUQUdFOiBwcm9ibGVtIHVuZGVyc3RhbmRpbmcgLS0+CiAgICAgICAgPGRpdiBjbGFzcz0idGFiIiBkYXRhLXRhYj0ic3RhZ2UiPgogICAgICAgICAgPGRpdiBjbGFzcz0icnVicmljIj5SdWJyaWMgwrcgUHJvYmxlbSB1bmRlcnN0YW5kaW5nICg1KTwvZGl2PgogICAgICAgICAgPGgzPkluZHVzdHJ5IG5lZWQ8L2gzPgogICAgICAgICAgPHA+Q2FyIG1ha2VycyBydW4gdGhvdXNhbmRzIG9mIHZpcnR1YWwgY3Jhc2ggdGVzdHMgKEZNVlNTIDIwOCwgRXVybyBOQ0FQKSBiZWZvcmUgYnVpbGRpbmcgYSBwcm90b3R5cGUuIEEgZnVsbCBtb2RlbCBoYXMgbWlsbGlvbnMgb2YgZWxlbWVudHMgYW5kIHRlbnMgb2YgdGhvdXNhbmRzIG9mIHRpbWUgc3RlcHMsIHNvIGEgc2luZ2xlIHJ1biBjYW4gdGFrZSBob3VycyB0byBkYXlzIG9uIG9uZSBjb3JlLjwvcD4KICAgICAgICAgIDxoMz5TY29wZTwvaDM+CiAgICAgICAgICA8cD5BIHNpbXBsaWZpZWQgZXhwbGljaXQgY3Jhc2ggd29ya2xvYWQ6IHNwcmluZy1tYXNzIHZlaGljbGUgbGF0dGljZSB3aXRoIGVsYXN0b3BsYXN0aWMgYnVja2xpbmcsIHJpZ2lkIGJhcnJpZXIgY29udGFjdCBhbmQgc2VsZi1jb250YWN0LCBmcm9udGFsIGltcGFjdCBhdCA1NiBrbS9oLCBwYXJ0aXRpb25lZCBhY3Jvc3MgQ1BVIGNvcmVzIHdpdGggT3Blbk1QLjwvcD4KICAgICAgICAgIDxoMz5Db21wdXRhdGlvbmFsIGJvdHRsZW5lY2s8L2gzPgogICAgICAgICAgPGRpdiBpZD0iYm90dGxlbmVjayI+PC9kaXY+CiAgICAgICAgICA8cCBjbGFzcz0ibm90ZSI+UGVyLXN0ZXAgc3RhZ2UgdGltZSBhdCAxIHRocmVhZCwgMTAwayBtZXNoLCBmcm9tIHRoZSBhc3NlbWJseSBzd2VlcC4gU3ByaW5nIGZvcmNlcyBhbmQgZm9yY2UgYXNzZW1ibHkgZG9taW5hdGUuIFRoZXkgYXJlIG1lbW9yeS1ib3VuZCAoYXJpdGhtZXRpYyBpbnRlbnNpdHkgPHNwYW4gaWQ9ImFpIj4wLjM4PC9zcGFuPiBGTE9QL2J5dGUpLCBzbyBiYW5kd2lkdGggbGltaXRzIHRoZSBzcGVlZHVwLjwvcD4KICAgICAgICAgIDxoMz5Qcm9ibGVtIHN0YXRlbWVudDwvaDM+CiAgICAgICAgICA8cD5HaXZlbiBhIGZyb250YWwgNTYga20vaCBpbXBhY3QgYWdhaW5zdCBhIHJpZ2lkIHdhbGwsIGNvbXB1dGUgbm9kZSB0cmFqZWN0b3JpZXMsIHdhbGwgZm9yY2UsIGludHJ1c2lvbiBhbmQgdGhlIGVuZXJneSBidWRnZXQgZm9yIGV2ZXJ5IDIuNSDCtXMgc3RlcCwgdGhlbiBjdXQgd2FsbC1jbG9jayB0aW1lIGJ5IGRlY29tcG9zaW5nIHRoZSBwZXItc3RlcCB3b3JrbG9hZCBhY3Jvc3MgQ1BVIGNvcmVzIHdpdGhvdXQgY2hhbmdpbmcgdGhlIHBoeXNpY3MuPC9wPgogICAgICAgICAgPGgzPk9iamVjdGl2ZXM8L2gzPgogICAgICAgICAgPG9sIGNsYXNzPSJzdGVwcyI+CiAgICAgICAgICAgIDxsaT5CdWlsZCBhIGNvcnJlY3QgZXhwbGljaXQgc29sdmVyIHdob3NlIGVuZXJneSBjbG9zZXMgdG8gdW5kZXIgMC4xICUuPC9saT4KICAgICAgICAgICAgPGxpPlByb2ZpbGUgaXQgYW5kIGZpbmQgdGhlIHN0YWdlIHRoYXQgZG9taW5hdGVzIGVhY2ggc3RlcC48L2xpPgogICAgICAgICAgICA8bGk+RGVjb21wb3NlIHRoZSBtZXNoIGFuZCB0aGUgZm9yY2UgYXNzZW1ibHkgYWNyb3NzIE9wZW5NUCB0aHJlYWRzLCB3aXRoIG5vIGRhdGEgcmFjZXMuPC9saT4KICAgICAgICAgICAgPGxpPk1lYXN1cmUgc3BlZWR1cCwgZWZmaWNpZW5jeSBhbmQgdGhlIEthcnDigJNGbGF0dCBzZXJpYWwgZnJhY3Rpb24gYXQgdHdvIG1lc2ggc2l6ZXMuPC9saT4KICAgICAgICAgICAgPGxpPkV4cGxhaW4gdGhlIGxpbWl0cyAobWVtb3J5IGJhbmR3aWR0aCwgaHlicmlkIGNvcmVzKSBhbmQgcmVjb21tZW5kIGEgc2NhbGUtb3V0IGFyY2hpdGVjdHVyZS48L2xpPgogICAgICAgICAgPC9vbD4KICAgICAgICAgIDxoMz5Xb3JrbG9hZCBzaXplPC9oMz4KICAgICAgICAgIDxkaXYgY2xhc3M9ImdyaWQyIiBpZD0ic3RhZ2UtY2FyZHMiPjwvZGl2PgogICAgICAgICAgPGgzPldoeSBhIHNpbmdsZSBjb3JlIGlzIG5vdCBlbm91Z2g8L2gzPgogICAgICAgICAgPHAgaWQ9InN0YWdlLXdoeSI+PC9wPgogICAgICAgICAgPGgzPlN0YWtlaG9sZGVyczwvaDM+CiAgICAgICAgICA8dWwgY2xhc3M9ImJ1bCI+CiAgICAgICAgICAgIDxsaT48Yj5DQUUgZW5naW5lZXJzPC9iPjogbmVlZCBvdmVybmlnaHQgZGVzaWduLW9mLWV4cGVyaW1lbnRzIHN3ZWVwcyBhY3Jvc3MgZG96ZW5zIG9mIHZhcmlhbnRzLjwvbGk+CiAgICAgICAgICAgIDxsaT48Yj5TYWZldHkgYW5kIGhvbW9sb2dhdGlvbiB0ZWFtczwvYj46IG5lZWQgcmVwZWF0YWJsZSwgZW5lcmd5LWNoZWNrZWQgcnVucyBmb3IgRk1WU1MgMjA4IGFuZCBFdXJvIE5DQVAgZXZpZGVuY2UuPC9saT4KICAgICAgICAgICAgPGxpPjxiPklUIC8gSFBDIG9wZXJhdGlvbnM8L2I+OiBuZWVkIHRvIHNpemUgY29yZXMsIG1lbW9yeSBiYW5kd2lkdGggYW5kIGxpY2VuY2VzLjwvbGk+CiAgICAgICAgICA8L3VsPgogICAgICAgICAgPGgzPkNvbnN0cmFpbnRzIGFuZCBhc3N1bXB0aW9uczwvaDM+CiAgICAgICAgICA8dWwgY2xhc3M9ImJ1bCI+CiAgICAgICAgICAgIDxsaT5TcHJpbmctbWFzcyBsYXR0aWNlIHdpdGggZWxhc3RvcGxhc3RpYyBzcHJpbmdzLCBub3Qgc2hlbGwgb3Igc29saWQgZmluaXRlIGVsZW1lbnRzLjwvbGk+CiAgICAgICAgICAgIDxsaT5SaWdpZCwgZnJpY3Rpb25sZXNzIGJhcnJpZXI7IHBlbmFsdHkgY29udGFjdCBhbmQgc3BhdGlhbC1oYXNoIHNlbGYtY29udGFjdC48L2xpPgogICAgICAgICAgICA8bGk+QSBzaW5nbGUgc2hhcmVkLW1lbW9yeSBsYXB0b3A6IG5vIGNsdXN0ZXIgYW5kIG5vIEdQVSBpbiB0aGUgbWVhc3VyZWQgcnVucy48L2xpPgogICAgICAgICAgICA8bGk+RlA2NCBieSBkZWZhdWx0LiBGUDMyIGlzIGJlbmNobWFya2VkIGFzIGEgc2VwYXJhdGUgYXNzZW1ibHkgbW9kZS48L2xpPgogICAgICAgICAgPC91bD4KICAgICAgICAgIDxoMz5UZXN0IGhhcmR3YXJlPC9oMz4KICAgICAgICAgIDxkbCBpZD0iaHciIGNsYXNzPSJrdiI+PC9kbD4KICAgICAgICAgIDxwIGNsYXNzPSJ2aXZhIj5FeHBsYWluOiB0aGUgY3Jhc2ggc3RlcCBsb29wIGlzIHJlcGVhdGVkIHRlbnMgb2YgdGhvdXNhbmRzIG9mIHRpbWVzLiBFYWNoIHN0ZXAgaXMgZG9taW5hdGVkIGJ5IGZvcmNlIGNvbXB1dGF0aW9uLCB3aGljaCBpcyB3aGF0IHdlIHBhcmFsbGVsaXNlLjwvcD4KICAgICAgICA8L2Rpdj4KCiAgICAgICAgPCEtLSBTSU1VTEFUT1I6IGltcGxlbWVudGF0aW9uIC0tPgogICAgICAgIDxkaXYgY2xhc3M9InRhYiBhY3RpdmUiIGRhdGEtdGFiPSJzaW0iPgogICAgICAgICAgPGRpdiBjbGFzcz0icnVicmljIj5SdWJyaWMgwrcgSW1wbGVtZW50YXRpb24gKDgpPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5WRUhJQ0xFIENSQVNIIFNJTVVMQVRPUjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ia3YxIj5TdGF0dXM6IDxiIGlkPSJzdGF0dXMiPlJlYWR5PC9iPjwvZGl2PgogICAgICAgICAgPGxhYmVsIGNsYXNzPSJmaWVsZCI+SW1wYWN0IHNwZWVkIDxzcGFuIGlkPSJ2LXNwZWVkIj4xNS41NiBtL3MgKDU2LjAga20vaCk8L3NwYW4+CiAgICAgICAgICAgIDxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9ImluLXNwZWVkIiBtaW49IjUiIG1heD0iMzAiIHN0ZXA9IjAuMSIgdmFsdWU9IjE1LjU2Ij48L2xhYmVsPgogICAgICAgICAgPGxhYmVsIGNsYXNzPSJmaWVsZCI+VmVoaWNsZSBtYXNzIDxzcGFuIGlkPSJ2LW1hc3MiPjE1MDAga2c8L3NwYW4+CiAgICAgICAgICAgIDxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9ImluLW1hc3MiIG1pbj0iOTAwIiBtYXg9IjI1MDAiIHN0ZXA9IjEwIiB2YWx1ZT0iMTUwMCI+PC9sYWJlbD4KICAgICAgICAgIDxsYWJlbCBjbGFzcz0iZmllbGQiPk1lc2ggc2l6ZQogICAgICAgICAgICA8c2VsZWN0IGlkPSJpbi1tZXNoIj48b3B0aW9uIHZhbHVlPSIxMDBrIj4xMDBrIG5vZGVzICgxMDMsNzY0KTwvb3B0aW9uPjxvcHRpb24gdmFsdWU9IjUwMGsiPjUwMGsgbm9kZXM8L29wdGlvbj48L3NlbGVjdD48L2xhYmVsPgogICAgICAgICAgPGRpdiBjbGFzcz0iYnRucyI+CiAgICAgICAgICAgIDxidXR0b24gaWQ9ImItY3JlYXRlIj5DcmVhdGUgM0QgU2NlbmU8L2J1dHRvbj4KICAgICAgICAgICAgPGJ1dHRvbiBpZD0iYi1zdGFydCIgY2xhc3M9InByaW1hcnkiPlN0YXJ0IENyYXNoIFRlc3Q8L2J1dHRvbj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0icm93Ij48YnV0dG9uIGlkPSJiLXN0ZXAiPlN0ZXAgT25jZTwvYnV0dG9uPjxidXR0b24gaWQ9ImItcmVzZXQiPlN0b3AgLyBSZXNldDwvYnV0dG9uPjwvZGl2PgogICAgICAgICAgICA8YnV0dG9uIGlkPSJiLWNzdiI+RXhwb3J0IENTViBMb2c8L2J1dHRvbj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+UkVTVUxUUzwvZGl2PgogICAgICAgICAgPGRsIGNsYXNzPSJrdiI+CiAgICAgICAgICAgIDxkdD5DdXJyZW50IHNwZWVkPC9kdD48ZGQgaWQ9InItc3BlZWQiPuKAkzwvZGQ+CiAgICAgICAgICAgIDxkdD5JbXBhY3Qgc3BlZWQ8L2R0PjxkZCBpZD0ici1pbXBhY3QiPuKAkzwvZGQ+CiAgICAgICAgICAgIDxkdD5XYWxsIGZvcmNlPC9kdD48ZGQgaWQ9InItZm9yY2UiPuKAkzwvZGQ+CiAgICAgICAgICAgIDxkdD5QZWFrIGZvcmNlPC9kdD48ZGQgaWQ9InItcGVhayI+4oCTPC9kZD4KICAgICAgICAgICAgPGR0PlBlYWsgZGVjZWwgKGFwcHJveCk8L2R0PjxkZCBpZD0ici1nIj7igJM8L2RkPgogICAgICAgICAgICA8ZHQ+TWF4IGludHJ1c2lvbjwvZHQ+PGRkIGlkPSJyLWNydXNoIj7igJM8L2RkPgogICAgICAgICAgICA8ZHQ+RW5lcmd5IHJlc2lkdWFsPC9kdD48ZGQgaWQ9InItcmVzIj7igJM8L2RkPgogICAgICAgICAgPC9kbD4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPkxJVkUgU1RBVEUgPHNtYWxsPihjdXJyZW50IGZyYW1lIG9mIHRoZSByZWNvcmRlZCBydW4pPC9zbWFsbD48L2Rpdj4KICAgICAgICAgIDxkbCBjbGFzcz0ia3YiIGlkPSJzaW0tbGl2ZSI+PC9kbD4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPkNSQVNIIFBVTFNFPC9kaXY+CiAgICAgICAgICA8Y2FudmFzIGlkPSJjLXB1bHNlIiBoZWlnaHQ9IjEzMCI+PC9jYW52YXM+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5FTkVSR1kgQlVER0VUIE5PVzwvZGl2PgogICAgICAgICAgPGRpdiBpZD0ic2ltLWVuZXJneSI+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5TT0xWRVIgU0VUVVA8L2Rpdj4KICAgICAgICAgIDxkbCBjbGFzcz0ia3YiIGlkPSJzaW0tc2V0dXAiPjwvZGw+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5TVEVQIExPT1A8L2Rpdj4KPHByZSBjbGFzcz0iY29kZSI+PHNwYW4gY2xhc3M9ImsiPmZvcjwvc3Bhbj4gbiA9IDAgLi4gTi0xOgogIDxzcGFuIGNsYXNzPSJjIj4vLyBTMSBzcHJpbmcgZm9yY2VzIChlbGFzdG9wbGFzdGljKTwvc3Bhbj4KICA8c3BhbiBjbGFzcz0iayI+I3ByYWdtYSBvbXAgZm9yIHNjaGVkdWxlPC9zcGFuPihzdGF0aWMpCiAgPHNwYW4gY2xhc3M9ImsiPmZvcjwvc3Bhbj4gcyBpbiBzcHJpbmdzOiBmX3MgPSBrwrcofHhfai14X2l8LUwwLc61X3ApCiAgPHNwYW4gY2xhc3M9ImMiPi8vIFMyIG5vZGUtY2VudHJpYyBDU1IgZ2F0aGVyIChyYWNlLWZyZWUpPC9zcGFuPgogIDxzcGFuIGNsYXNzPSJrIj5mb3I8L3NwYW4+IGkgaW4gbXlfbm9kZXM6IEZfaSA9IM6jIGZfcyhpKQogIDxzcGFuIGNsYXNzPSJjIj4vLyBTMyBiYXJyaWVyICsgc2VsZiBjb250YWN0IChzcGF0aWFsIGhhc2gpPC9zcGFuPgogIDxzcGFuIGNsYXNzPSJjIj4vLyBTNCBWZXJsZXQ6IHYgKz0gYcK3ZHQgOyB4ICs9IHbCt2R0PC9zcGFuPgogIDxzcGFuIGNsYXNzPSJjIj4vLyBTNSBkdCA9IEPCt21pbihML2MpIOKGkiByZWR1Y3Rpb24obWluKTwvc3Bhbj4KICA8c3BhbiBjbGFzcz0iayI+I3ByYWdtYSBvbXAgYmFycmllcjwvc3Bhbj48L3ByZT4KICAgICAgICAgIDxwIGNsYXNzPSJub3RlIj5Gb3JjZSwgaW50cnVzaW9uIGFuZCBlbmVyZ3kgY29tZSBmcm9tIHRoZSByZWNvcmRlZCBDKysgcnVuICh2ZWhpY2xlX2NyYXNoX21ldHJpY3MuY3N2KS4gU3BlZWQgYW5kIG1hc3MgcmVzY2FsZSB0aGUgcGxheWJhY2sgb25seS48L3A+CiAgICAgICAgICA8cCBjbGFzcz0idml2YSI+RXhwbGFpbjogZXhwbGljaXQgY2VudHJhbC1kaWZmZXJlbmNlIChWZXJsZXQpIHRpbWUgaW50ZWdyYXRpb24uIEVhY2ggc3RlcCBydW5zIFMxIHRvIFM1LCBhbmQgdGhlIENGTCBjb25kaXRpb24gbGltaXRzIHRoZSB0aW1lIHN0ZXAuPC9wPgogICAgICAgIDwvZGl2PgoKICAgICAgICA8IS0tIEhQQzogY29uY2VwdCAmIGRlc2lnbiAtLT4KICAgICAgICA8ZGl2IGNsYXNzPSJ0YWIiIGRhdGEtdGFiPSJocGMiPgogICAgICAgICAgPGRpdiBjbGFzcz0icnVicmljIj5SdWJyaWMgwrcgSFBDIGNvbmNlcHQgJmFtcDsgZGVzaWduICg3KTwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+UEFSQUxMRUwgQ09ORklHVVJBVElPTjwvZGl2PgogICAgICAgICAgPGxhYmVsIGNsYXNzPSJmaWVsZCI+T3Blbk1QIHRocmVhZHMKICAgICAgICAgICAgPGRpdiBjbGFzcz0ic2VnIiBpZD0iaW4tdGhyZWFkcyI+PGJ1dHRvbj4xPC9idXR0b24+PGJ1dHRvbj4yPC9idXR0b24+PGJ1dHRvbj40PC9idXR0b24+PGJ1dHRvbiBjbGFzcz0ib24iPjg8L2J1dHRvbj48YnV0dG9uPjEyPC9idXR0b24+PC9kaXY+PC9sYWJlbD4KICAgICAgICAgIDxsYWJlbCBjbGFzcz0iZmllbGQiPlNjaGVkdWxlCiAgICAgICAgICAgIDxkaXYgY2xhc3M9InNlZyIgaWQ9ImluLXNjaGVkIj48YnV0dG9uIGNsYXNzPSJvbiI+c3RhdGljPC9idXR0b24+PGJ1dHRvbj5keW5hbWljPC9idXR0b24+PGJ1dHRvbj5ndWlkZWQ8L2J1dHRvbj48L2Rpdj48L2xhYmVsPgogICAgICAgICAgPGxhYmVsIGNsYXNzPSJmaWVsZCI+Rm9yY2UgYXNzZW1ibHkKICAgICAgICAgICAgPHNlbGVjdCBpZD0iaW4tYXNtIj48b3B0aW9uPk5vZGUgR2F0aGVyIENTUjwvb3B0aW9uPjxvcHRpb24+UHJpdmF0ZSBTbGFiczwvb3B0aW9uPjxvcHRpb24+QXRvbWljIFVwZGF0ZXM8L29wdGlvbj48b3B0aW9uPk5vZGUgR2F0aGVyIENTUiAoRlAzMik8L29wdGlvbj48L3NlbGVjdD48L2xhYmVsPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+TElWRSBNRVRSSUNTIDxzbWFsbD4obWVhc3VyZWQsIG1lZGlhbiBvZiByZXBlYXRzKTwvc21hbGw+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJtZXRyaWNzIj4KICAgICAgICAgICAgPGRpdj48c3Bhbj5UaW1lIC8gMTAwIHN0ZXBzPC9zcGFuPjxiIGlkPSJtLXRpbWUiPuKAkzwvYj48L2Rpdj4KICAgICAgICAgICAgPGRpdj48c3Bhbj5TcGVlZHVwIFMocCk8L3NwYW4+PGIgaWQ9Im0tc3AiPuKAkzwvYj48L2Rpdj4KICAgICAgICAgICAgPGRpdj48c3Bhbj5FZmZpY2llbmN5IEUocCk8L3NwYW4+PGIgaWQ9Im0tZWZmIj7igJM8L2I+PC9kaXY+CiAgICAgICAgICAgIDxkaXY+PHNwYW4+S2FycOKAk0ZsYXR0IGU8L3NwYW4+PGIgaWQ9Im0ta2YiPuKAkzwvYj48L2Rpdj4KICAgICAgICAgICAgPGRpdj48c3Bhbj5BbWRhaGwgcHJlZGljdGVkPC9zcGFuPjxiIGlkPSJtLWFtIj7igJM8L2I+PC9kaXY+CiAgICAgICAgICAgIDxkaXY+PHNwYW4+QmFuZHdpZHRoPC9zcGFuPjxiIGlkPSJtLWJ3Ij7igJM8L2I+PC9kaXY+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm11bGEiPlMocCkgPSBUPHN1Yj4xPC9zdWI+L1Q8c3ViPnA8L3N1Yj4gwrcgRSA9IFMvcCDCtyBlID0gKDEvUyDiiJIgMS9wKS8oMSDiiJIgMS9wKSDCtyBBbWRhaGwgUyA9IDEvKGYgKyAoMeKIkmYpL3ApLCBmID0gPGIgaWQ9Im0tZiI+4oCTPC9iPjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+QVNTRU1CTFkgU1RSQVRFR1kgKHNlbGVjdGVkIG1lc2gpPC9kaXY+CiAgICAgICAgICA8Y2FudmFzIGlkPSJjLWFzbSIgaGVpZ2h0PSIxNTAiPjwvY2FudmFzPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+V0hZIFRISVMgREVTSUdOPC9kaXY+CiAgICAgICAgICA8dWwgY2xhc3M9ImJ1bCI+CiAgICAgICAgICAgIDxsaT48Yj5TaGFyZWQtbWVtb3J5IE9wZW5NUDwvYj46IG9uZSBsYXB0b3Agd2l0aCAxMiB2Q1BVcyBhbmQgbm8gY2x1c3Rlci4gVGhyZWFkcyBzaGFyZSB0aGUgbWVzaCwgc28gbm8gaGFsbyBjb3BpZXMgYXJlIG5lZWRlZC48L2xpPgogICAgICAgICAgICA8bGk+PGI+U3BhdGlhbCBkb21haW4gZGVjb21wb3NpdGlvbjwvYj46IG5vZGVzIGFyZSBzcGxpdCBhbG9uZyB0aGUgdmVoaWNsZSBsZW5ndGgsIHNvIGVhY2ggdGhyZWFkIG93bnMgYSBjb250aWd1b3VzIHNsYWIgYW5kIGtlZXBzIGNhY2hlIGxvY2FsaXR5LjwvbGk+CiAgICAgICAgICAgIDxsaT48Yj5SYWNlLWZyZWUgYXNzZW1ibHk8L2I+OiB0aGUgbm9kZS1jZW50cmljIENTUiBnYXRoZXIgcmVhZHMgaXRzIG5laWdoYm91cnMgYW5kIHdyaXRlcyBvbmx5IGl0cyBvd24gbm9kZS4gTm8gYXRvbWljcyBhbmQgbm8gcHJpdmF0ZSBjb3BpZXMuPC9saT4KICAgICAgICAgICAgPGxpPjxiPkJhcnJpZXJzPC9iPiBzZXBhcmF0ZSBTMSB0byBTNS4gVGhlIGdsb2JhbCBtaW4gdGltZSBzdGVwIChTNSkgaXMgYSByZWR1Y3Rpb24uPC9saT4KICAgICAgICAgIDwvdWw+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5ET01BSU4gREVDT01QT1NJVElPTiAobGl2ZSBwcmV2aWV3KTwvZGl2PgogICAgICAgICAgPGRpdiBpZD0idGhyLXNwbGl0Ij48L2Rpdj4KICAgICAgICAgIDxwIGNsYXNzPSJub3RlIiBpZD0idGhyLXNwbGl0LW5vdGUiPjwvcD4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPlNDSEVEVUxFIENPTVBBUklTT048L2Rpdj4KICAgICAgICAgIDx0YWJsZT48dHI+PHRoPlNjaGVkdWxlPC90aD48dGg+Q2h1bmtpbmc8L3RoPjx0aD5Mb2NhbGl0eTwvdGg+PHRoPk92ZXJoZWFkPC90aD48L3RyPgogICAgICAgICAgICA8dHI+PHRkPnN0YXRpYzwvdGQ+PHRkPk4vcCBjb250aWd1b3VzPC90ZD48dGQgY2xhc3M9Im9rIj5iZXN0PC90ZD48dGQgY2xhc3M9Im9rIj5ub25lPC90ZD48L3RyPgogICAgICAgICAgICA8dHI+PHRkPmR5bmFtaWM8L3RkPjx0ZD5maXhlZCBjaHVua3Mgb24gZGVtYW5kPC90ZD48dGQgY2xhc3M9InduIj5wb29yPC90ZD48dGQgY2xhc3M9InduIj5xdWV1ZSBwZXIgY2h1bms8L3RkPjwvdHI+CiAgICAgICAgICAgIDx0cj48dGQ+Z3VpZGVkPC90ZD48dGQ+c2hyaW5raW5nIGNodW5rczwvdGQ+PHRkIGNsYXNzPSJ3biI+bWVkaXVtPC90ZD48dGQgY2xhc3M9InduIj5tZWRpdW08L3RkPjwvdHI+PC90YWJsZT4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPkFTU0VNQkxZIFNUUkFURUdJRVM8L2Rpdj4KICAgICAgICAgIDx0YWJsZT48dHI+PHRoPk1vZGU8L3RoPjx0aD5SYWNlIGZpeDwvdGg+PHRoPk1lbW9yeTwvdGg+PHRoPkNvc3Q8L3RoPjwvdHI+CiAgICAgICAgICAgIDx0cj48dGQ+UHJpdmF0ZSBzbGFiczwvdGQ+PHRkPnBlci10aHJlYWQgRiBjb3B5ICsgcmVkdWNlPC90ZD48dGQgY2xhc3M9InduIj5wIMOXIE48L3RkPjx0ZD5yZWR1Y3Rpb24gcGFzczwvdGQ+PC90cj4KICAgICAgICAgICAgPHRyPjx0ZD5BdG9taWNzPC90ZD48dGQ+YXRvbWljIGFkZCBvbiBGX2k8L3RkPjx0ZCBjbGFzcz0ib2siPk48L3RkPjx0ZCBjbGFzcz0iYmFkIj5jb250ZW50aW9uPC90ZD48L3RyPgogICAgICAgICAgICA8dHI+PHRkPkNTUiBnYXRoZXI8L3RkPjx0ZD5vd25lciB3cml0ZXMgb25seSBGX2k8L3RkPjx0ZCBjbGFzcz0ib2siPk4gKyBDU1I8L3RkPjx0ZCBjbGFzcz0ib2siPjLDlyBzcHJpbmcgcmVhZHM8L3RkPjwvdHI+CiAgICAgICAgICAgIDx0cj48dGQ+Q1NSIEZQMzI8L3RkPjx0ZD5zYW1lLCBzaW5nbGUgcHJlY2lzaW9uPC90ZD48dGQgY2xhc3M9Im9rIj7CvSBiYW5kd2lkdGg8L3RkPjx0ZCBjbGFzcz0id24iPnByZWNpc2lvbiBsb3NzPC90ZD48L3RyPjwvdGFibGU+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5TUEVFRFVQIHZzIFRIUkVBRFMgKHNlbGVjdGVkIG1lc2gpPC9kaXY+CiAgICAgICAgICA8Y2FudmFzIGlkPSJjLWhwYy1zcCIgaGVpZ2h0PSIxNDAiPjwvY2FudmFzPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+U1lOQ0hST05JU0FUSU9OIFBPSU5UUzwvZGl2PgogICAgICAgICAgPHVsIGNsYXNzPSJidWwiPgogICAgICAgICAgICA8bGk+NCBpbXBsaWNpdCBiYXJyaWVycyBwZXIgc3RlcCAoZW5kIG9mIFMxLCBTMiwgUzMgYW5kIFM0KSBwbHVzIGEgPGNvZGU+cmVkdWN0aW9uKG1pbjpkdCk8L2NvZGU+IGluIFM1LjwvbGk+CiAgICAgICAgICAgIDxsaT5PdmVyIDQ1LDAwMCBzdGVwcyB0aGF0IGlzIGFib3V0IDE4MCwwMDAgYmFycmllcnMsIHNvIGJhcnJpZXIgY29zdCBpcyB0aGUgZmxvb3Igb24gdGhlIHRpbWUgcGVyIHN0ZXAuPC9saT4KICAgICAgICAgICAgPGxpPk5vIGNyaXRpY2FsIHNlY3Rpb25zIGFuZCBubyBsb2NrcyBpbiB0aGUgaG90IHBhdGguPC9saT4KICAgICAgICAgIDwvdWw+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5PUEVOTVAgU0tFTEVUT048L2Rpdj4KPHByZSBjbGFzcz0iY29kZSI+PHNwYW4gY2xhc3M9ImsiPiNwcmFnbWEgb21wIHBhcmFsbGVsPC9zcGFuPiBudW1fdGhyZWFkcyhwKQp7CiAgPHNwYW4gY2xhc3M9ImsiPiNwcmFnbWEgb21wIGZvciBzY2hlZHVsZTwvc3Bhbj4oc3RhdGljKSBub3dhaXQKICA8c3BhbiBjbGFzcz0iayI+Zm9yPC9zcGFuPihzPTA7cyZsdDtTOysrcykgc3ByaW5nX2ZvcmNlKHMpOwogIDxzcGFuIGNsYXNzPSJrIj4jcHJhZ21hIG9tcCBiYXJyaWVyPC9zcGFuPgogIDxzcGFuIGNsYXNzPSJrIj4jcHJhZ21hIG9tcCBmb3Igc2NoZWR1bGU8L3NwYW4+KHN0YXRpYykKICA8c3BhbiBjbGFzcz0iayI+Zm9yPC9zcGFuPihpPTA7aSZsdDtOOysraSkgRltpXT1nYXRoZXIoY3NyLGkpOwogIDxzcGFuIGNsYXNzPSJrIj4jcHJhZ21hIG9tcCBmb3IgcmVkdWN0aW9uPC9zcGFuPihtaW46ZHQpCiAgPHNwYW4gY2xhc3M9ImsiPmZvcjwvc3Bhbj4oaT0wO2kmbHQ7TjsrK2kpIGR0PW1pbihkdCxjZmwoaSkpOwp9PC9wcmU+CiAgICAgICAgICA8cCBjbGFzcz0idml2YSI+RXhwbGFpbjogc3dpdGNoIHRoZSB2aWV3cG9ydCB0byAiVGhyZWFkIG93bmVyIi4gU3RhdGljIGdpdmVzIGNvbnRpZ3VvdXMgc2xhYnM7IGR5bmFtaWMgYW5kIGd1aWRlZCBoYW5kIG91dCBjaHVua3MgYXQgcnVudGltZSwgd2hpY2ggY29zdHMgbG9jYWxpdHkuPC9wPgogICAgICAgIDwvZGl2PgoKICAgICAgICA8IS0tIEVWSURFTkNFOiB0ZXN0aW5nICYgYW5hbHlzaXMgKyBhcmNoaXRlY3R1cmUgLS0+CiAgICAgICAgPGRpdiBjbGFzcz0idGFiIiBkYXRhLXRhYj0iZXZpZGVuY2UiPgogICAgICAgICAgPGRpdiBjbGFzcz0icnVicmljIj5SdWJyaWMgwrcgVGVzdGluZyAmYW1wOyBhbmFseXNpcyAoNikgwrcgUmVwb3J0ICg0KTwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+U0VRVUVOVElBTCB2cyBQQVJBTExFTCAoMiB3b3JrbG9hZCBzaXplcyDDlyA1IHRocmVhZCBjb3VudHMpPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJ0YWJsZXdyYXAiPjx0YWJsZSBpZD0idC1zY2FsZSI+PC90YWJsZT48L2Rpdj4KICAgICAgICAgIDxjYW52YXMgaWQ9ImMtc3BlZWQiIGhlaWdodD0iMTgwIj48L2NhbnZhcz4KICAgICAgICAgIDxjYW52YXMgaWQ9ImMtZWZmIiBoZWlnaHQ9IjE1MCI+PC9jYW52YXM+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5BU1NFTUJMWSBTV0VFUCDCtyBGVUxMIE1BVFJJWDwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0idGFibGV3cmFwIiBzdHlsZT0ibWF4LWhlaWdodDoyMjBweCI+PHRhYmxlIGlkPSJ0LXN3ZWVwIj48L3RhYmxlPjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+RU5FUkdZIENMT1NVUkUgT1ZFUiBUSU1FPC9kaXY+CiAgICAgICAgICA8Y2FudmFzIGlkPSJjLXJlcyIgaGVpZ2h0PSIxMjAiPjwvY2FudmFzPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+VEVTVCBNQVRSSVg8L2Rpdj4KICAgICAgICAgIDx0YWJsZT48dHI+PHRoPlRlc3Q8L3RoPjx0aD5QdXJwb3NlPC90aD48dGg+UmVzdWx0PC90aD48L3RyPgogICAgICAgICAgICA8dHI+PHRkPkVuZXJneSBjbG9zdXJlPC90ZD48dGQ+cGh5c2ljcyBjb3JyZWN0PC90ZD48dGQgY2xhc3M9Im9rIiBpZD0idG0tZSI+UEFTUzwvdGQ+PC90cj4KICAgICAgICAgICAgPHRyPjx0ZD5wID0gMSB2cyBwID0gTjwvdGQ+PHRkPnBhcmFsbGVsIG1hdGNoZXMgc2VxdWVudGlhbDwvdGQ+PHRkIGNsYXNzPSJvayI+Yml0LWZvci1iaXQgKGdhdGhlcik8L3RkPjwvdHI+CiAgICAgICAgICAgIDx0cj48dGQ+UHl0aG9uIOKGlCBDKys8L3RkPjx0ZD5yZWZlcmVuY2Ugc29sdmVyPC90ZD48dGQgY2xhc3M9Im9rIj44LjE2ZS05IHJlbC48L3RkPjwvdHI+CiAgICAgICAgICAgIDx0cj48dGQ+RWxhc3RpYyBkcmlmdDwvdGQ+PHRkPmludGVncmF0b3Igc3RhYmxlPC90ZD48dGQgY2xhc3M9Im9rIj7iiaQgMC4wMDA5MiAlPC90ZD48L3RyPgogICAgICAgICAgICA8dHI+PHRkPlJlcGVhdHM8L3RkPjx0ZD50aW1pbmcgbm9pc2U8L3RkPjx0ZD5tZWRpYW4gb2YgcnVucywgbWlu4oCTbWF4IHNob3duPC90ZD48L3RyPjwvdGFibGU+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5DT1JSRUNUTkVTUyBHQVRFUzwvZGl2PgogICAgICAgICAgPGRsIGNsYXNzPSJrdiIgaWQ9ImdhdGVzIj48L2RsPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+SU5URVJQUkVUQVRJT048L2Rpdj4KICAgICAgICAgIDx1bCBjbGFzcz0iYnVsIiBpZD0iaW50ZXJwIj48L3VsPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+QVJDSElURUNUVVJFIFJFQ09NTUVOREFUSU9OPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJhcmNoIj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iYXJjaC1ub2RlIG1waSI+TVBJIGFjcm9zcyBub2RlczxzbWFsbD5kb21haW4gZGVjb21wb3NpdGlvbiDCtyBoYWxvIGV4Y2hhbmdlIMK3IEFsbHJlZHVjZShtaW4gZHQpPC9zbWFsbD48L2Rpdj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iYXJjaC1yb3ciPgogICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImFyY2gtbm9kZSBvbXAiPk5vZGUgMCDCtyBPcGVuTVA8c21hbGw+dGhyZWFkcyBvd24gbWVzaCBzbGFiczwvc21hbGw+PC9kaXY+CiAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iYXJjaC1ub2RlIG9tcCI+Tm9kZSAxIMK3IE9wZW5NUDwvZGl2PgogICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImFyY2gtbm9kZSBvbXAiPk5vZGUgTiDCtyBPcGVuTVA8L2Rpdj4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImFyY2gtbm9kZSBncHUiPkdQVSBwZXIgbm9kZTxzbWFsbD5TMSBmb3JjZSArIFMyIGdhdGhlciArIFM0IGludGVncmF0ZSBrZXJuZWxzPC9zbWFsbD48L2Rpdj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPHVsIGNsYXNzPSJidWwiPgogICAgICAgICAgICA8bGk+PGI+Q29zdDwvYj46IFMocCkgZmxhdHRlbnMgYWZ0ZXIgOCB0aHJlYWRzLCBzbyBleHRyYSBjb3JlcyBvbiBvbmUgc29ja2V0IHdhc3RlIG1vbmV5LiBTY2FsZSBvdXQgYWNyb3NzIG5vZGVzIGFuZCB1c2UgR1BVcyBmb3IgdGhlIG1lbW9yeS1ib3VuZCBrZXJuZWxzLjwvbGk+CiAgICAgICAgICAgIDxsaT48Yj5SZWxpYWJpbGl0eTwvYj46IGNoZWNrcG9pbnQgc3RhdGUgZXZlcnkgTiBzdGVwcy4gQW4gZW5lcmd5LXJlc2lkdWFsIGdhdGUgKCZsdDsgMC4xJSkgY2F0Y2hlcyBkaXZlcmdpbmcgcnVucyBlYXJseS48L2xpPgogICAgICAgICAgICA8bGk+PGI+U2VjdXJpdHk8L2I+OiBjcmFzaCBtb2RlbHMgYXJlIHByb3ByaWV0YXJ5IElQLiBVc2UgYW4gaXNvbGF0ZWQgY2x1c3RlciBuZXR3b3JrLCBlbmNyeXB0ZWQgc3RvcmFnZSBhbmQgYWNjZXNzLWNvbnRyb2xsZWQgam9iIHF1ZXVlcy48L2xpPgogICAgICAgICAgPC91bD4KICAgICAgICAgIDxwIGNsYXNzPSJub3RlIj5UaGUgTVBJIGFuZCBHUFUgdGllcnMgYXJlIHJlY29tbWVuZGF0aW9ucyBvbmx5LiBUaGV5IGhhdmUgbm90IGJlZW4gYmVuY2htYXJrZWQgaW4gdGhpcyBwcm9qZWN0LjwvcD4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJ0YWIiIGRhdGEtdGFiPSJ0aHJlYWRzIj4KICAgICAgICAgIDxkaXYgY2xhc3M9InJ1YnJpYyI+UnVicmljIMK3IEhQQyBkZXNpZ24gKDcpIMK3IFRlc3RpbmcgKDYpIOKAlCB0aHJlYWQgbGV2ZWw8L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPlJFQ09SREVEIFRIUkVBRCBSVU48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImdyaWQyIiBpZD0idGhyLWNhcmRzIj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPlBFUi1USFJFQUQgU1RBR0UgVElNRSAobXMpPC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJ0YWJsZXdyYXAiPjx0YWJsZSBpZD0idC10aHIiPjwvdGFibGU+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIj5TVEFHRSBTSEFSRSBQRVIgVEhSRUFEPC9kaXY+CiAgICAgICAgICA8Y2FudmFzIGlkPSJjLXRoci1zaGFyZSIgaGVpZ2h0PSIxNTAiPjwvY2FudmFzPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+Q09SRSBQSU5OSU5HPC9kaXY+CiAgICAgICAgICA8ZGl2IGlkPSJ0aHItcGluIj48L2Rpdj4KICAgICAgICAgIDxwIGNsYXNzPSJub3RlIj5UaGUgaTUtMTMzNFUgaGFzIDIgcGVyZm9ybWFuY2UgY29yZXMgKDQgaHlwZXItdGhyZWFkcykgYW5kIDggZWZmaWNpZW5jeSBjb3Jlcy4gQSB0aHJlYWQgb24gYW4gRS1jb3JlIGZpbmlzaGVzIGl0cyBzbGFiIGxhdGVyLCBhbmQgZXZlcnlvbmUgZWxzZSB3YWl0cyBhdCB0aGUgYmFycmllciBmb3IgaXQuPC9wPgogICAgICAgICAgPGRpdiBjbGFzcz0ic2VjdGlvbiI+U1RBR0UgVElNRSB2cyBUSFJFQUQgQ09VTlQgKGFzc2VtYmx5IHN3ZWVwLCBDU1IgZ2F0aGVyKTwvZGl2PgogICAgICAgICAgPGNhbnZhcyBpZD0iYy10aHItc3RhZ2UiIGhlaWdodD0iMTcwIj48L2NhbnZhcz4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPkRJQUdOT1NJUzwvZGl2PgogICAgICAgICAgPHVsIGNsYXNzPSJidWwiIGlkPSJ0aHItZGlhZyI+PC91bD4KICAgICAgICAgIDxkaXYgY2xhc3M9InNlY3Rpb24iPkhPVyBUTyBSRURVQ0UgSU1CQUxBTkNFPC9kaXY+CiAgICAgICAgICA8dWwgY2xhc3M9ImJ1bCI+CiAgICAgICAgICAgIDxsaT5XZWlnaHQgdGhlIHNsYWIgc2l6ZXMgYnkgbWVhc3VyZWQgY29yZSBzcGVlZCAoUC1jb3JlcyBnZXQgYmlnZ2VyIHNsYWJzKS48L2xpPgogICAgICAgICAgICA8bGk+U2V0IDxjb2RlPk9NUF9QUk9DX0JJTkQ9Y2xvc2U8L2NvZGU+IGFuZCA8Y29kZT5PTVBfUExBQ0VTPWNvcmVzPC9jb2RlPiBzbyB0aHJlYWRzIHN0YXkgb24gdGhlaXIgY29yZXMuPC9saT4KICAgICAgICAgICAgPGxpPk1lcmdlIFMxIGFuZCBTMiBpbnRvIG9uZSBzd2VlcCB0byByZW1vdmUgYSBiYXJyaWVyIGFuZCBhIGZ1bGwgcGFzcyBvdmVyIG1lbW9yeS48L2xpPgogICAgICAgICAgPC91bD4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICA8L2FzaWRlPgogIDwvZGl2PgoKICA8IS0tIEJvdHRvbSBkb2NrIC0tPgogIDxmb290ZXIgaWQ9ImRvY2siPgogICAgPGRpdiBpZD0iZG9jay1yZXNpemUiIHRpdGxlPSJEcmFnIHRvIHJlc2l6ZSI+PC9kaXY+CiAgICA8ZGl2IGlkPSJ0aW1lbGluZSI+CiAgICAgIDxidXR0b24gaWQ9InRsLXBsYXkiPuKWtjwvYnV0dG9uPgogICAgICA8c3BhbiBjbGFzcz0ibW9ubyI+PGIgaWQ9InRsLWNsb2NrIj4wLjA8L2I+IC8gOTAgbXM8L3NwYW4+CiAgICAgIDxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsLXJhbmdlIiBtaW49IjAiIG1heD0iOTAiIHN0ZXA9IjAuMSIgdmFsdWU9IjAiPgogICAgICA8c3BhbiBjbGFzcz0ibW9ubyI+U3RlcCA8YiBpZD0idGwtc3RlcCI+MDwvYj4gLyA0NSwwMDA8L3NwYW4+CiAgICAgIDxzcGFuIGNsYXNzPSJiYWRnZSIgaWQ9InRsLXN0YWdlIj5TMTwvc3Bhbj4KICAgIDwvZGl2PgogICAgPGRpdiBpZD0iZG9jay1iYXIiPgogICAgPG5hdiBpZD0iZG9jay10YWJzIj4KICAgICAgPGJ1dHRvbiBkYXRhLWRvY2s9ImdyYXBoIiBjbGFzcz0iYWN0aXZlIj5UYXNrIERlcGVuZGVuY3kgR3JhcGg8L2J1dHRvbj4KICAgICAgPGJ1dHRvbiBkYXRhLWRvY2s9ImxvYWQiPlRocmVhZCBMb2FkPC9idXR0b24+CiAgICAgIDxidXR0b24gZGF0YS1kb2NrPSJ0ZWxlIj5UZWxlbWV0cnk8L2J1dHRvbj4KICAgICAgPGJ1dHRvbiBkYXRhLWRvY2s9ImNvbnNvbGUiPkNvbnNvbGU8L2J1dHRvbj4KICAgIDwvbmF2PgogICAgPGJ1dHRvbiBpZD0ib3Blbi1hbmFseXNpcyIgdGl0bGU9Ik9wZW4gdGhlIGZ1bGwtc2NyZWVuIHdhbGt0aHJvdWdoIj7ipKIgRnVsbC1zY3JlZW4gYW5hbHlzaXM8L2J1dHRvbj4KICAgIDwvZGl2PgogICAgPGRpdiBpZD0iZG9jay1ib2R5Ij4KICAgICAgPGRpdiBjbGFzcz0iZG9jayBhY3RpdmUiIGRhdGEtZG9jaz0iZ3JhcGgiPjxzdmcgaWQ9ImRhZyIgdmlld0JveD0iMCAwIDEwMDAgMTIwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij48L3N2Zz48L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0iZG9jayIgZGF0YS1kb2NrPSJsb2FkIj48Y2FudmFzIGlkPSJjLWxvYWQiPjwvY2FudmFzPjxkaXYgY2xhc3M9InRhYmxld3JhcCI+PHRhYmxlIGlkPSJ0LWxvYWQiPjwvdGFibGU+PC9kaXY+PC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9ImRvY2siIGRhdGEtZG9jaz0idGVsZSI+PGNhbnZhcyBpZD0iYy10ZWxlIj48L2NhbnZhcz48L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0iZG9jayIgZGF0YS1kb2NrPSJjb25zb2xlIj48cHJlIGlkPSJjb25zb2xlIj48L3ByZT48L2Rpdj4KICAgIDwvZGl2PgogIDwvZm9vdGVyPgo8L2Rpdj4KPHNjcmlwdCBzcmM9InN0dWRpby5qcz92PTMiPjwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crash Studio · 24ISE503</title>
+<link rel="stylesheet" href="studio.css?v=3">
+<script src="three.min.js"></script>
+<script src="OrbitControls.js"></script>
+<script src="GLTFLoader.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+  <!-- Menu bar -->
+  <header id="menubar">
+    <div class="menus">
+      <span class="brand">◆ CRASH-SIM</span>
+      <button data-menu="file">File</button><button data-menu="view">View</button><button data-menu="sim">Simulation</button><button data-menu="help">Help</button>
+    </div>
+    <div class="menu-title">Crash-Simulation Workload Decomposition — 24ISE503 · Activity 01</div>
+    <div class="menu-right">
+      <label class="toggle"><input type="checkbox" id="viva-toggle"> Viva explainer</label>
+      <span class="live"><i></i>REPLAY</span>
+    </div>
+  </header>
+
+  <div id="main">
+    <!-- Left tool rail -->
+    <aside id="toolrail">
+      <button class="tool active" data-tool="orbit" title="Orbit (O)">⟳</button>
+      <button class="tool" data-tool="pan" title="Pan (P)">✥</button>
+      <button class="tool" data-tool="fit" title="Frame vehicle (F)">⛶</button>
+      <div class="sep"></div>
+      <button class="tool" data-tool="wire" title="Wireframe (W)">▦</button>
+      <button class="tool" data-tool="nodes" title="Node points (N)">⁘</button>
+      <div class="sep"></div>
+      <button class="tool" data-tool="play" title="Play / pause (Space)">▶</button>
+      <button class="tool" data-tool="step" title="Step once (S)">⏭</button>
+      <button class="tool" data-tool="reset" title="Reset (R)">■</button>
+      <div class="sep"></div>
+      <button class="tool" id="rail-analysis" title="Full-screen workload analysis">⤢</button>
+    </aside>
+
+    <!-- Viewport -->
+    <section id="viewport-wrap">
+      <div id="vp-toolbar">
+        <select id="sel-shading" title="Shading"><option value="lit">Lit · Real-time</option><option value="wire">Wireframe</option><option value="nodes">Node cloud</option></select>
+        <select id="sel-camera" title="Camera"><option value="iso">Perspective</option><option value="side">Side</option><option value="front">Front</option><option value="top">Top</option></select>
+        <select id="sel-color" title="Colour mode"><option value="paint" selected>Colour: Clay (paint)</option><option value="stress">Colour: Stress (est.)</option><option value="strain">Colour: Plastic strain</option><option value="thread">Colour: Thread owner</option><option value="subsystem">Colour: Subsystem</option></select>
+        <span class="vp-spacer"></span>
+        <span class="chip">Stage lights</span>
+      </div>
+      <div id="viewport"></div>
+      <div id="perf">
+        <div>FPS <b id="p-fps">0</b> &nbsp;|&nbsp; Frame <b id="p-ft">0 ms</b></div>
+        <div>Mesh <b id="p-mesh">100k</b> · <b id="p-nodes">103,764</b> nodes computed · <b id="p-drawn">0</b> drawn</div>
+        <div>Threads <b id="p-thr">8</b> · measured <b id="p-msstep">0</b> ms/step</div>
+        <div class="muted">Recorded run · not for benchmarking</div>
+      </div>
+      <div id="legend"></div>
+      <div id="flash"></div>
+      <p class="viva vp-viva">The viewport replays the recorded crash. Colour by thread owner to see how the mesh is split across OpenMP threads.</p>
+    </section>
+
+    <!-- Property panel -->
+    <aside id="panel">
+      <nav id="tabs">
+        <button data-tab="stage">Stage</button>
+        <button data-tab="sim" class="active">Simulator</button>
+        <button data-tab="hpc">HPC</button>
+        <button data-tab="threads">Threads</button>
+        <button data-tab="evidence">Evidence</button>
+      </nav>
+      <div id="tab-body">
+
+        <!-- STAGE: problem understanding -->
+        <div class="tab" data-tab="stage">
+          <div class="rubric">Rubric · Problem understanding (5)</div>
+          <h3>Industry need</h3>
+          <p>Car makers run thousands of virtual crash tests (FMVSS 208, Euro NCAP) before building a prototype. A full model has millions of elements and tens of thousands of time steps, so a single run can take hours to days on one core.</p>
+          <h3>Scope</h3>
+          <p>A simplified explicit crash workload: spring-mass vehicle lattice with elastoplastic buckling, rigid barrier contact and self-contact, frontal impact at 56 km/h, partitioned across CPU cores with OpenMP.</p>
+          <h3>Computational bottleneck</h3>
+          <div id="bottleneck"></div>
+          <p class="note">Per-step stage time at 1 thread, 100k mesh, from the assembly sweep. Spring forces and force assembly dominate. They are memory-bound (arithmetic intensity <span id="ai">0.38</span> FLOP/byte), so bandwidth limits the speedup.</p>
+          <h3>Problem statement</h3>
+          <p>Given a frontal 56 km/h impact against a rigid wall, compute node trajectories, wall force, intrusion and the energy budget for every 2.5 µs step, then cut wall-clock time by decomposing the per-step workload across CPU cores without changing the physics.</p>
+          <h3>Objectives</h3>
+          <ol class="steps">
+            <li>Build a correct explicit solver whose energy closes to under 0.1 %.</li>
+            <li>Profile it and find the stage that dominates each step.</li>
+            <li>Decompose the mesh and the force assembly across OpenMP threads, with no data races.</li>
+            <li>Measure speedup, efficiency and the Karp–Flatt serial fraction at two mesh sizes.</li>
+            <li>Explain the limits (memory bandwidth, hybrid cores) and recommend a scale-out architecture.</li>
+          </ol>
+          <h3>Workload size</h3>
+          <div class="grid2" id="stage-cards"></div>
+          <h3>Why a single core is not enough</h3>
+          <p id="stage-why"></p>
+          <h3>Stakeholders</h3>
+          <ul class="bul">
+            <li><b>CAE engineers</b>: need overnight design-of-experiments sweeps across dozens of variants.</li>
+            <li><b>Safety and homologation teams</b>: need repeatable, energy-checked runs for FMVSS 208 and Euro NCAP evidence.</li>
+            <li><b>IT / HPC operations</b>: need to size cores, memory bandwidth and licences.</li>
+          </ul>
+          <h3>Constraints and assumptions</h3>
+          <ul class="bul">
+            <li>Spring-mass lattice with elastoplastic springs, not shell or solid finite elements.</li>
+            <li>Rigid, frictionless barrier; penalty contact and spatial-hash self-contact.</li>
+            <li>A single shared-memory laptop: no cluster and no GPU in the measured runs.</li>
+            <li>FP64 by default. FP32 is benchmarked as a separate assembly mode.</li>
+          </ul>
+          <h3>Test hardware</h3>
+          <dl id="hw" class="kv"></dl>
+          <p class="viva">Explain: the crash step loop is repeated tens of thousands of times. Each step is dominated by force computation, which is what we parallelise.</p>
+        </div>
+
+        <!-- SIMULATOR: implementation -->
+        <div class="tab active" data-tab="sim">
+          <div class="rubric">Rubric · Implementation (8)</div>
+          <div class="section">VEHICLE CRASH SIMULATOR</div>
+          <div class="kv1">Status: <b id="status">Ready</b></div>
+          <label class="field">Impact speed <span id="v-speed">15.56 m/s (56.0 km/h)</span>
+            <input type="range" id="in-speed" min="5" max="30" step="0.1" value="15.56"></label>
+          <label class="field">Vehicle mass <span id="v-mass">1500 kg</span>
+            <input type="range" id="in-mass" min="900" max="2500" step="10" value="1500"></label>
+          <label class="field">Mesh size
+            <select id="in-mesh"><option value="100k">100k nodes (103,764)</option><option value="500k">500k nodes</option></select></label>
+          <div class="btns">
+            <button id="b-create">Create 3D Scene</button>
+            <button id="b-start" class="primary">Start Crash Test</button>
+            <div class="row"><button id="b-step">Step Once</button><button id="b-reset">Stop / Reset</button></div>
+            <button id="b-csv">Export CSV Log</button>
+          </div>
+          <div class="section">RESULTS</div>
+          <dl class="kv">
+            <dt>Current speed</dt><dd id="r-speed">–</dd>
+            <dt>Impact speed</dt><dd id="r-impact">–</dd>
+            <dt>Wall force</dt><dd id="r-force">–</dd>
+            <dt>Peak force</dt><dd id="r-peak">–</dd>
+            <dt>Peak decel (approx)</dt><dd id="r-g">–</dd>
+            <dt>Max intrusion</dt><dd id="r-crush">–</dd>
+            <dt>Energy residual</dt><dd id="r-res">–</dd>
+          </dl>
+          <div class="section">LIVE STATE <small>(current frame of the recorded run)</small></div>
+          <dl class="kv" id="sim-live"></dl>
+          <div class="section">CRASH PULSE</div>
+          <canvas id="c-pulse" height="130"></canvas>
+          <div class="section">ENERGY BUDGET NOW</div>
+          <div id="sim-energy"></div>
+          <div class="section">SOLVER SETUP</div>
+          <dl class="kv" id="sim-setup"></dl>
+          <div class="section">STEP LOOP</div>
+<pre class="code"><span class="k">for</span> n = 0 .. N-1:
+  <span class="c">// S1 spring forces (elastoplastic)</span>
+  <span class="k">#pragma omp for schedule</span>(static)
+  <span class="k">for</span> s in springs: f_s = k·(|x_j-x_i|-L0-ε_p)
+  <span class="c">// S2 node-centric CSR gather (race-free)</span>
+  <span class="k">for</span> i in my_nodes: F_i = Σ f_s(i)
+  <span class="c">// S3 barrier + self contact (spatial hash)</span>
+  <span class="c">// S4 Verlet: v += a·dt ; x += v·dt</span>
+  <span class="c">// S5 dt = C·min(L/c) → reduction(min)</span>
+  <span class="k">#pragma omp barrier</span></pre>
+          <p class="note">Force, intrusion and energy come from the recorded C++ run (vehicle_crash_metrics.csv). Speed and mass rescale the playback only.</p>
+          <p class="viva">Explain: explicit central-difference (Verlet) time integration. Each step runs S1 to S5, and the CFL condition limits the time step.</p>
+        </div>
+
+        <!-- HPC: concept & design -->
+        <div class="tab" data-tab="hpc">
+          <div class="rubric">Rubric · HPC concept &amp; design (7)</div>
+          <div class="section">PARALLEL CONFIGURATION</div>
+          <label class="field">OpenMP threads
+            <div class="seg" id="in-threads"><button>1</button><button>2</button><button>4</button><button class="on">8</button><button>12</button></div></label>
+          <label class="field">Schedule
+            <div class="seg" id="in-sched"><button class="on">static</button><button>dynamic</button><button>guided</button></div></label>
+          <label class="field">Force assembly
+            <select id="in-asm"><option>Node Gather CSR</option><option>Private Slabs</option><option>Atomic Updates</option><option>Node Gather CSR (FP32)</option></select></label>
+          <div class="section">LIVE METRICS <small>(measured, median of repeats)</small></div>
+          <div class="metrics">
+            <div><span>Time / 100 steps</span><b id="m-time">–</b></div>
+            <div><span>Speedup S(p)</span><b id="m-sp">–</b></div>
+            <div><span>Efficiency E(p)</span><b id="m-eff">–</b></div>
+            <div><span>Karp–Flatt e</span><b id="m-kf">–</b></div>
+            <div><span>Amdahl predicted</span><b id="m-am">–</b></div>
+            <div><span>Bandwidth</span><b id="m-bw">–</b></div>
+          </div>
+          <div class="formula">S(p) = T<sub>1</sub>/T<sub>p</sub> · E = S/p · e = (1/S − 1/p)/(1 − 1/p) · Amdahl S = 1/(f + (1−f)/p), f = <b id="m-f">–</b></div>
+          <div class="section">ASSEMBLY STRATEGY (selected mesh)</div>
+          <canvas id="c-asm" height="150"></canvas>
+          <div class="section">WHY THIS DESIGN</div>
+          <ul class="bul">
+            <li><b>Shared-memory OpenMP</b>: one laptop with 12 vCPUs and no cluster. Threads share the mesh, so no halo copies are needed.</li>
+            <li><b>Spatial domain decomposition</b>: nodes are split along the vehicle length, so each thread owns a contiguous slab and keeps cache locality.</li>
+            <li><b>Race-free assembly</b>: the node-centric CSR gather reads its neighbours and writes only its own node. No atomics and no private copies.</li>
+            <li><b>Barriers</b> separate S1 to S5. The global min time step (S5) is a reduction.</li>
+          </ul>
+          <div class="section">DOMAIN DECOMPOSITION (live preview)</div>
+          <div id="thr-split"></div>
+          <p class="note" id="thr-split-note"></p>
+          <div class="section">SCHEDULE COMPARISON</div>
+          <table><tr><th>Schedule</th><th>Chunking</th><th>Locality</th><th>Overhead</th></tr>
+            <tr><td>static</td><td>N/p contiguous</td><td class="ok">best</td><td class="ok">none</td></tr>
+            <tr><td>dynamic</td><td>fixed chunks on demand</td><td class="wn">poor</td><td class="wn">queue per chunk</td></tr>
+            <tr><td>guided</td><td>shrinking chunks</td><td class="wn">medium</td><td class="wn">medium</td></tr></table>
+          <div class="section">ASSEMBLY STRATEGIES</div>
+          <table><tr><th>Mode</th><th>Race fix</th><th>Memory</th><th>Cost</th></tr>
+            <tr><td>Private slabs</td><td>per-thread F copy + reduce</td><td class="wn">p × N</td><td>reduction pass</td></tr>
+            <tr><td>Atomics</td><td>atomic add on F_i</td><td class="ok">N</td><td class="bad">contention</td></tr>
+            <tr><td>CSR gather</td><td>owner writes only F_i</td><td class="ok">N + CSR</td><td class="ok">2× spring reads</td></tr>
+            <tr><td>CSR FP32</td><td>same, single precision</td><td class="ok">½ bandwidth</td><td class="wn">precision loss</td></tr></table>
+          <div class="section">SPEEDUP vs THREADS (selected mesh)</div>
+          <canvas id="c-hpc-sp" height="140"></canvas>
+          <div class="section">SYNCHRONISATION POINTS</div>
+          <ul class="bul">
+            <li>4 implicit barriers per step (end of S1, S2, S3 and S4) plus a <code>reduction(min:dt)</code> in S5.</li>
+            <li>Over 45,000 steps that is about 180,000 barriers, so barrier cost is the floor on the time per step.</li>
+            <li>No critical sections and no locks in the hot path.</li>
+          </ul>
+          <div class="section">OPENMP SKELETON</div>
+<pre class="code"><span class="k">#pragma omp parallel</span> num_threads(p)
+{
+  <span class="k">#pragma omp for schedule</span>(static) nowait
+  <span class="k">for</span>(s=0;s&lt;S;++s) spring_force(s);
+  <span class="k">#pragma omp barrier</span>
+  <span class="k">#pragma omp for schedule</span>(static)
+  <span class="k">for</span>(i=0;i&lt;N;++i) F[i]=gather(csr,i);
+  <span class="k">#pragma omp for reduction</span>(min:dt)
+  <span class="k">for</span>(i=0;i&lt;N;++i) dt=min(dt,cfl(i));
+}</pre>
+          <p class="viva">Explain: switch the viewport to "Thread owner". Static gives contiguous slabs; dynamic and guided hand out chunks at runtime, which costs locality.</p>
+        </div>
+
+        <!-- EVIDENCE: testing & analysis + architecture -->
+        <div class="tab" data-tab="evidence">
+          <div class="rubric">Rubric · Testing &amp; analysis (6) · Report (4)</div>
+          <div class="section">SEQUENTIAL vs PARALLEL (2 workload sizes × 5 thread counts)</div>
+          <div class="tablewrap"><table id="t-scale"></table></div>
+          <canvas id="c-speed" height="180"></canvas>
+          <canvas id="c-eff" height="150"></canvas>
+          <div class="section">ASSEMBLY SWEEP · FULL MATRIX</div>
+          <div class="tablewrap" style="max-height:220px"><table id="t-sweep"></table></div>
+          <div class="section">ENERGY CLOSURE OVER TIME</div>
+          <canvas id="c-res" height="120"></canvas>
+          <div class="section">TEST MATRIX</div>
+          <table><tr><th>Test</th><th>Purpose</th><th>Result</th></tr>
+            <tr><td>Energy closure</td><td>physics correct</td><td class="ok" id="tm-e">PASS</td></tr>
+            <tr><td>p = 1 vs p = N</td><td>parallel matches sequential</td><td class="ok">bit-for-bit (gather)</td></tr>
+            <tr><td>Python ↔ C++</td><td>reference solver</td><td class="ok">8.16e-9 rel.</td></tr>
+            <tr><td>Elastic drift</td><td>integrator stable</td><td class="ok">≤ 0.00092 %</td></tr>
+            <tr><td>Repeats</td><td>timing noise</td><td>median of runs, min–max shown</td></tr></table>
+          <div class="section">CORRECTNESS GATES</div>
+          <dl class="kv" id="gates"></dl>
+          <div class="section">INTERPRETATION</div>
+          <ul class="bul" id="interp"></ul>
+          <div class="section">ARCHITECTURE RECOMMENDATION</div>
+          <div class="arch">
+            <div class="arch-node mpi">MPI across nodes<small>domain decomposition · halo exchange · Allreduce(min dt)</small></div>
+            <div class="arch-row">
+              <div class="arch-node omp">Node 0 · OpenMP<small>threads own mesh slabs</small></div>
+              <div class="arch-node omp">Node 1 · OpenMP</div>
+              <div class="arch-node omp">Node N · OpenMP</div>
+            </div>
+            <div class="arch-node gpu">GPU per node<small>S1 force + S2 gather + S4 integrate kernels</small></div>
+          </div>
+          <ul class="bul">
+            <li><b>Cost</b>: S(p) flattens after 8 threads, so extra cores on one socket waste money. Scale out across nodes and use GPUs for the memory-bound kernels.</li>
+            <li><b>Reliability</b>: checkpoint state every N steps. An energy-residual gate (&lt; 0.1%) catches diverging runs early.</li>
+            <li><b>Security</b>: crash models are proprietary IP. Use an isolated cluster network, encrypted storage and access-controlled job queues.</li>
+          </ul>
+          <p class="note">The MPI and GPU tiers are recommendations only. They have not been benchmarked in this project.</p>
+        </div>
+        <div class="tab" data-tab="threads">
+          <div class="rubric">Rubric · HPC design (7) · Testing (6) — thread level</div>
+          <div class="section">RECORDED THREAD RUN</div>
+          <div class="grid2" id="thr-cards"></div>
+          <div class="section">PER-THREAD STAGE TIME (ms)</div>
+          <div class="tablewrap"><table id="t-thr"></table></div>
+          <div class="section">STAGE SHARE PER THREAD</div>
+          <canvas id="c-thr-share" height="150"></canvas>
+          <div class="section">CORE PINNING</div>
+          <div id="thr-pin"></div>
+          <p class="note">The i5-1334U has 2 performance cores (4 hyper-threads) and 8 efficiency cores. A thread on an E-core finishes its slab later, and everyone else waits at the barrier for it.</p>
+          <div class="section">STAGE TIME vs THREAD COUNT (assembly sweep, CSR gather)</div>
+          <canvas id="c-thr-stage" height="170"></canvas>
+          <div class="section">DIAGNOSIS</div>
+          <ul class="bul" id="thr-diag"></ul>
+          <div class="section">HOW TO REDUCE IMBALANCE</div>
+          <ul class="bul">
+            <li>Weight the slab sizes by measured core speed (P-cores get bigger slabs).</li>
+            <li>Set <code>OMP_PROC_BIND=close</code> and <code>OMP_PLACES=cores</code> so threads stay on their cores.</li>
+            <li>Merge S1 and S2 into one sweep to remove a barrier and a full pass over memory.</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Bottom dock -->
+  <footer id="dock">
+    <div id="dock-resize" title="Drag to resize"></div>
+    <div id="timeline">
+      <button id="tl-play">▶</button>
+      <span class="mono"><b id="tl-clock">0.0</b> / 90 ms</span>
+      <input type="range" id="tl-range" min="0" max="90" step="0.1" value="0">
+      <span class="mono">Step <b id="tl-step">0</b> / 45,000</span>
+      <span class="badge" id="tl-stage">S1</span>
+    </div>
+    <div id="dock-bar">
+    <nav id="dock-tabs">
+      <button data-dock="graph" class="active">Task Dependency Graph</button>
+      <button data-dock="load">Thread Load</button>
+      <button data-dock="tele">Telemetry</button>
+      <button data-dock="console">Console</button>
+    </nav>
+    <button id="open-analysis" title="Open the full-screen walkthrough">⤢ Full-screen analysis</button>
+    </div>
+    <div id="dock-body">
+      <div class="dock active" data-dock="graph"><svg id="dag" viewBox="0 0 1000 120" preserveAspectRatio="xMidYMid meet"></svg></div>
+      <div class="dock" data-dock="load"><canvas id="c-load"></canvas><div class="tablewrap"><table id="t-load"></table></div></div>
+      <div class="dock" data-dock="tele"><canvas id="c-tele"></canvas></div>
+      <div class="dock" data-dock="console"><pre id="console"></pre></div>
+    </div>
+  </footer>
+</div>
+<script src="studio.js?v=3"></script>
+</body>
+</html>

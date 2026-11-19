@@ -1,1 +1,10 @@
-ewogInRpbWVzdGFtcCI6ICIyMDI2LTExLTE2VDE0OjAyOjA0IiwKICJvcyI6ICJXaW5kb3dzIDExIChXU0wyIFVidW50dSAyNC4wNCBMVFMpIiwKICJjb21waWxlciI6ICJHQ0MgMTMuMy4wICgtc3RkPWMrKzE3IC1PMyAtZm9wZW5tcCAtbWFyY2g9bmF0aXZlKSIsCiAiY3B1IjogIjEzdGggR2VuIEludGVsIENvcmUgaTUtMTMzNFUgKDEwIENvcmVzOiAyUCArIDhFLCAxMiB2Q1BVcykiLAogImwzX2NhY2hlIjogIjEyIE1pQiAoY29uZmlybWVkIHZpYSBsc2NwdSkiLAogInJhbSI6ICIxNiBHQiBERFI0L0REUjUgRHVhbC1DaGFubmVsIiwKICJzdHJlYW1fdHJpYWRfcGVha19nYl9zIjogMzUuMzIsCiAiYXJpdGhtZXRpY19pbnRlbnNpdHlfZmxvcF9wZXJfYnl0ZSI6IDAuMzgKfQ==
+{
+ "timestamp": "2026-11-16T14:02:04",
+ "os": "Windows 11 (WSL2 Ubuntu 24.04 LTS)",
+ "compiler": "GCC 13.3.0 (-std=c++17 -O3 -fopenmp -march=native)",
+ "cpu": "13th Gen Intel Core i5-1334U (10 Cores: 2P + 8E, 12 vCPUs)",
+ "l3_cache": "12 MiB (confirmed via lscpu)",
+ "ram": "16 GB DDR4/DDR5 Dual-Channel",
+ "stream_triad_peak_gb_s": 35.32,
+ "arithmetic_intensity_flop_per_byte": 0.38
+}
