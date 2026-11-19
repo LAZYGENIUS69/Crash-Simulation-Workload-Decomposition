@@ -1,1 +1,17 @@
-IyBXZWIgY3Jhc2ggc3R1ZGlvIChUaHJlZS5qcykKClRoaXMgZm9sZGVyIGlzIHRoZSBpbnRlcmFjdGl2ZSB2aXN1YWxpc2VyIHRoYXQgbm93IGxpdmVzIGluIHRoZSBMb3ZhYmxlIGFwcC4KSXQgaXMgZnVsbHkgc2VsZi1jb250YWluZWQ6IG9wZW4gYGluZGV4Lmh0bWxgIGluIGEgYnJvd3Nlciwgb3Igc2VydmUgdGhlIGZvbGRlcgp3aXRoIGBweXRob24zIC1tIGh0dHAuc2VydmVyYCBmcm9tIGluc2lkZSBgd2ViL2AuCgotIGBpbmRleC5odG1sYCwgYHN0dWRpby5jc3NgLCBgc3R1ZGlvLmpzYCAtIHRoZSB3b3Jrc3BhY2UgVUkgKHZpZXdwb3J0LCB0YWJzLCBkb2NrKQotIGB0aHJlZS5taW4uanNgLCBgT3JiaXRDb250cm9scy5qc2AsIGBHTFRGTG9hZGVyLmpzYCAtIHRocmVlLmpzIHIxMjgsIHZlbmRvcmVkIGxvY2FsbHkKLSBgbW9kZWxzL3N1di5nbGJgIC0gQ0MwIFNVViAoS2VubmV5IENhciBLaXQsIHNlZSBgbW9kZWxzL0NSRURJVFMubWRgKQotIGBkYXRhLyouY3N2YCwgYGRhdGEvaHcuanNvbmAgLSB0aGUgcmVjb3JkZWQgc29sdmVyIHJ1bnMgdGhlIHN0dWRpbyByZXBsYXlzCgpFdmVyeSBudW1iZXIgc2hvd24gaW4gdGhlIHN0dWRpbyBpcyByZWFkIGZyb20gYGRhdGEvYCwgaS5lLiBmcm9tIHRoZSByZWNvcmRlZApDKysvT3Blbk1QIHJ1bnMgaW4gYC4uL3Jlc3VsdHMvYC4gVGhlIHBhZ2UgZG9lcyBub3Qgc29sdmUgdGhlIGNyYXNoIGl0c2VsZjsgaXQKcmVwbGF5cyBhIHJlY29yZGVkIHJ1biBhbmQgcmVzY2FsZXMgcGxheWJhY2sgZm9yIHRoZSBzcGVlZC9tYXNzIHNsaWRlcnMuCgpUaGUgZnVsbCBMb3ZhYmxlIGFwcCAoUmVhY3QgKyBUYW5TdGFjayBTdGFydCkgdGhhdCBlbWJlZHMgdGhpcyBzdHVkaW8gaXMgaW4KYC4uL2xvdmFibGUtYXBwL2AuCg==
+# Web crash studio (Three.js)
+
+This folder is the interactive visualiser that now lives in the Lovable app.
+It is fully self-contained: open `studio/index.html` in a browser, or serve the
+folder with `python3 -m http.server` from inside `web/`.
+
+- `studio/index.html`, `studio.css`, `studio.js` - the workspace UI (viewport, tabs, dock)
+- `studio/three.min.js`, `studio/OrbitControls.js`, `studio/GLTFLoader.js` - three.js r128, vendored locally
+- `studio/models/suv.glb` - CC0 SUV (Kenney Car Kit, see `studio/models/CREDITS.md`)
+- `studio/data/*.csv`, `studio/data/hw.json` - the recorded solver runs the studio replays
+
+Every number shown in the studio is read from `data/`, i.e. from the recorded
+C++/OpenMP runs in `../results/`. The page does not solve the crash itself; it
+replays a recorded run and rescales playback for the speed/mass sliders.
+
+The full Lovable app (React + TanStack Start) that embeds this studio is in
+`../lovable-app/`.
